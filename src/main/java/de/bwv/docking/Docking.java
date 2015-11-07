@@ -18,11 +18,6 @@ public class Docking {
 		this.sourceBatchIndex = sourceBatchIndex;
 	}
 
-	@Override
-	public String toString() {
-		return "";
-	}
-
 	public WagonBatch getDestinationBatch() {
 		return destinationBatch;
 	}
@@ -45,6 +40,11 @@ public class Docking {
 
 	public void setSourceBatchIndex(int sourceBatchIndex) {
 		this.sourceBatchIndex = sourceBatchIndex;
+	}
+
+	@Override
+	public String toString() {
+		return "";
 	}
 
 }

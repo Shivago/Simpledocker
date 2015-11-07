@@ -1,5 +1,7 @@
 package de.bwv.order;
 
+import java.util.UUID;
+
 /**
  * 
  * @author ormanns_sas
@@ -42,5 +44,8 @@ public class Product {
 	public String toString() {
 		return "Product -> Id: " + getId() + ", Name: " + getName();
 	}
-	
+
+	public static Product get(char c) {
+		return new Product(UUID.randomUUID().toString(), String.valueOf(c));
+	}
 }

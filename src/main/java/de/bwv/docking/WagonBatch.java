@@ -3,7 +3,9 @@ package de.bwv.docking;
 
 import de.bwv.order.Product;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.IntStream;
 
 /**
  * 
@@ -18,6 +20,10 @@ public class WagonBatch {
 		this.wagons = wagons;
 	}
 
+	private WagonBatch() {
+
+	}
+
 	public int getAmountOfProduct(Product product) {
 		int counter = 0;
 		Product prodToCompare = null;
@@ -27,9 +33,9 @@ public class WagonBatch {
 				counter ++;
 			}
 		}
-		wagons.stream()
-				.filter(wagon -> wagon.getProduct().equals(product))
-				.count();
+//		wagons.stream()
+//				.filter(wagon -> wagon.getProduct().equals(product))
+//				.count();
 		return counter;
 	}
 
@@ -43,6 +49,10 @@ public class WagonBatch {
 				break;
 			}
 		}
+//		IntStream.range(0, wagons.size())
+//				.filter(index -> wagons.get(index).getProduct().equals(product))
+//				.findFirst()
+//				.getAsInt();
 		return idx;
 	}
 
@@ -55,15 +65,38 @@ public class WagonBatch {
 	}
 
 	public void setWagons(List<Wagon> wagons) {
-		this.wagons = wagons;
+		this.wagons = new ArrayList<>(wagons);
 	}
-	
+
+	/**
+	 * Static constructor that enables us to take the plain
+	 * String given by the project specs and parse it to a WagonBatch
+	 * as we want to handle it oo-style.
+	 * @param wagonBatchString i.e "ABBBCCCDD"
+	 * @return
+     */
+	public static WagonBatch parse(final String wagonBatchString) throws IllegalArgumentException {
+		if (wagonBatchString == null) {
+			throw new IllegalArgumentException("wagonBatch should not be null");
+		} else if (wagonBatchString.isEmpty()) {
+			throw new IllegalArgumentException("wagonBatch should not be empty");
+		}
+		WagonBatch wagonBatch = new WagonBatch();
+		List<Wagon> wagons = new ArrayList<>(wagonBatchString.length());
+        IntStream.range(0, wagonBatchString.length()).forEach(index -> {
+            Product product = Product.get(wagonBatchString.charAt(index));
+            Wagon wagon = new Wagon(product);
+            wagons.add(index, wagon);
+        });
+        wagonBatch.setWagons(wagons);
+		return wagonBatch;
+	}
+
 	@Override
 	public String toString() {
 		StringBuilder stringBuilder = new StringBuilder();
-		for (Wagon wagon : wagons) {
-			stringBuilder.append(wagon);
-		}
+		wagons.forEach(stringBuilder::append);
 		return stringBuilder.toString();
 	}
+
 }
