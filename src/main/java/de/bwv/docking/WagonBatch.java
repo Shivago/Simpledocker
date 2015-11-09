@@ -9,7 +9,7 @@ import java.util.stream.IntStream;
 
 /**
  * 
- * @author ormanns_sas
+ * @author sascha
  *
  */
 public class WagonBatch {

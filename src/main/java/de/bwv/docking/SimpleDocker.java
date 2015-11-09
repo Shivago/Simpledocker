@@ -4,7 +4,7 @@ import de.bwv.order.Order;
 
 /**
  * 
- * @author ormanns_sas
+ * @author sascha
  *
  */
 public class SimpleDocker implements Docker {

@@ -4,7 +4,7 @@ import java.util.List;
 
 /**
  * 
- * @author ormanns_sas
+ * @author sascha
  *
  */
 public class DockingPlan {
