@@ -1,0 +1,453 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.docker.ui.RootController">
+  <tabs>
+    <Tab fx:id="order_tab" text="Order">
+         <content>
+            <BorderPane prefHeight="200.0" prefWidth="200.0">
+               <center>
+                  <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <VBox prefHeight="567.0" prefWidth="160.0" spacing="5.0">
+                           <children>
+                              <Label text="Order1" />
+                              <ComboBox fx:id="o1_prod1" prefHeight="26.0" prefWidth="161.0" promptText="Produkt wählen..." />
+                              <ComboBox fx:id="o1_prod2" prefHeight="26.0" prefWidth="161.0" promptText="Produkt wählen..." />
+                              <ComboBox fx:id="o1_prod3" prefHeight="26.0" prefWidth="161.0" promptText="Produkt wählen..." />
+                              <ComboBox fx:id="o1_prod4" prefHeight="26.0" prefWidth="161.0" promptText="Produkt wählen..." />
+                              <ComboBox fx:id="o1_prod5" prefHeight="26.0" prefWidth="160.0" promptText="Produkt wählen..." />
+                              <Button alignment="CENTER" mnemonicParsing="false" prefHeight="26.0" prefWidth="160.0" text="Reset" textAlignment="CENTER">
+                                 <VBox.margin>
+                                    <Insets top="50.0" />
+                                 </VBox.margin>
+                              </Button>
+                              <Button alignment="CENTER" layoutX="15.0" layoutY="241.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="160.0" text="Speichern" textAlignment="CENTER" />
+                           </children>
+                           <padding>
+                              <Insets left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </VBox>
+                        <VBox alignment="TOP_CENTER" prefHeight="567.0" prefWidth="45.0" spacing="5.0">
+                           <children>
+                              <Label text="x" />
+                              <TextField />
+                              <TextField />
+                              <TextField />
+                              <TextField />
+                              <TextField />
+                           </children>
+                           <padding>
+                              <Insets right="5.0" top="5.0" />
+                           </padding>
+                        </VBox>
+                        <VBox layoutX="10.0" layoutY="10.0" prefHeight="567.0" prefWidth="160.0" spacing="5.0">
+                           <children>
+                              <Label text="Order2" />
+                              <ComboBox prefHeight="26.0" prefWidth="161.0" promptText="Produkt wählen..." />
+                              <ComboBox prefHeight="26.0" prefWidth="161.0" promptText="Produkt wählen..." />
+                              <ComboBox prefHeight="26.0" prefWidth="161.0" promptText="Produkt wählen..." />
+                              <ComboBox prefHeight="26.0" prefWidth="161.0" promptText="Produkt wählen..." />
+                              <ComboBox prefHeight="26.0" prefWidth="161.0" promptText="Produkt wählen..." />
+                              <Button alignment="CENTER" contentDisplay="CENTER" maxWidth="161.0" mnemonicParsing="false" text="Reset" textAlignment="CENTER">
+                                 <VBox.margin>
+                                    <Insets top="50.0" />
+                                 </VBox.margin>
+                              </Button>
+                              <Button alignment="CENTER" contentDisplay="CENTER" layoutX="15.0" layoutY="241.0" maxWidth="161.0" mnemonicParsing="false" text="Speichern" textAlignment="CENTER" />
+                           </children>
+                           <padding>
+                              <Insets left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </VBox>
+                        <VBox alignment="TOP_CENTER" layoutX="170.0" layoutY="10.0" prefHeight="567.0" prefWidth="45.0" spacing="5.0">
+                           <children>
+                              <Label contentDisplay="CENTER" text="x" textAlignment="CENTER" />
+                              <TextField />
+                              <TextField />
+                              <TextField />
+                              <TextField />
+                              <TextField />
+                           </children>
+                           <padding>
+                              <Insets right="5.0" top="5.0" />
+                           </padding>
+                        </VBox>
+                        <VBox prefHeight="200.0" prefWidth="100.0" />
+                        <VBox prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <Label text="Zum Docker?">
+                                 <VBox.margin>
+                                    <Insets top="5.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <Button alignment="CENTER" mnemonicParsing="false" prefHeight="26.0" prefWidth="75.0" text="Ok" textAlignment="CENTER">
+                                 <VBox.margin>
+                                    <Insets top="5.0" />
+                                 </VBox.margin>
+                              </Button>
+                              <Button alignment="CENTER" mnemonicParsing="false" prefHeight="26.0" prefWidth="75.0" text="Reset" textAlignment="CENTER">
+                                 <VBox.margin>
+                                    <Insets top="5.0" />
+                                 </VBox.margin>
+                              </Button>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </center>
+               <top>
+                  <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <VBox alignment="CENTER" prefHeight="100.0" prefWidth="85.0" />
+                        <VBox alignment="CENTER" prefHeight="100.0" prefWidth="77.0">
+                           <children>
+                              <ImageView fitHeight="33.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@simple_docker_icon.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="334.0">
+                           <children>
+                              <Label text="Simple Docker – Docking made simple" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </top>
+               <left>
+                  <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER" />
+               </left>
+               <right>
+                  <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER" />
+               </right>
+            </BorderPane>
+         </content></Tab>
+      <Tab text="Summary">
+         <content>
+            <BorderPane prefHeight="200.0" prefWidth="200.0">
+               <center>
+                  <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <VBox prefHeight="100.0">
+                           <children>
+                              <TextArea prefHeight="534.0" prefWidth="824.0">
+                                 <HBox.margin>
+                                    <Insets bottom="10.0" />
+                                 </HBox.margin>
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" />
+                                 </VBox.margin>
+                              </TextArea>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </center>
+               <left>
+                  <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER" />
+               </left>
+               <right>
+                  <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER" />
+               </right>
+               <top>
+                  <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <VBox alignment="CENTER" prefHeight="100.0" prefWidth="85.0" />
+                        <VBox alignment="CENTER" prefHeight="100.0" prefWidth="77.0">
+                           <children>
+                              <ImageView fitHeight="33.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@simple_docker_icon.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="334.0">
+                           <children>
+                              <Label text="Simple Docker – Docking made simple" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </top>
+            </BorderPane>
+         </content>
+      </Tab>
+      <Tab text="Docker">
+         <content>
+            <BorderPane prefHeight="200.0" prefWidth="200.0">
+               <center>
+                  <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <VBox alignment="CENTER" prefHeight="467.0" prefWidth="110.0" spacing="5.0">
+                           <children>
+                              <Label text="Batch1" />
+                              <ImageView fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@1446931446_train.png" />
+                                 </image>
+                              </ImageView>
+                              <ListView prefHeight="474.0" prefWidth="148.0">
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" top="10.0" />
+                                 </VBox.margin>
+                              </ListView>
+                           </children>
+                           <padding>
+                              <Insets left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                           <HBox.margin>
+                              <Insets left="30.0" />
+                           </HBox.margin>
+                        </VBox>
+                        <VBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="567.0" prefWidth="110.0" spacing="5.0">
+                           <children>
+                              <Label text="Batch2" />
+                              <ImageView fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@1446931446_train.png" />
+                                 </image>
+                              </ImageView>
+                              <ListView prefHeight="474.0" prefWidth="148.0">
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" top="10.0" />
+                                 </VBox.margin>
+                              </ListView>
+                           </children>
+                           <padding>
+                              <Insets left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </VBox>
+                        <VBox layoutX="285.0" layoutY="10.0" prefHeight="567.0" prefWidth="20.0" spacing="5.0">
+                           <padding>
+                              <Insets left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </VBox>
+                        <VBox alignment="CENTER" layoutX="140.0" layoutY="10.0" prefHeight="567.0" prefWidth="110.0" spacing="5.0">
+                           <children>
+                              <Label alignment="TOP_LEFT" text="sidetrack" />
+                              <ListView prefHeight="474.0" prefWidth="148.0">
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" top="55.0" />
+                                 </VBox.margin>
+                              </ListView>
+                           </children>
+                           <padding>
+                              <Insets left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </VBox>
+                        <VBox alignment="CENTER" layoutX="270.0" layoutY="10.0" prefHeight="567.0" prefWidth="110.0" spacing="5.0">
+                           <children>
+                              <Label text="sidetrack" />
+                              <ListView prefHeight="474.0" prefWidth="148.0">
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" top="55.0" />
+                                 </VBox.margin>
+                              </ListView>
+                           </children>
+                           <padding>
+                              <Insets left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </VBox>
+                        <VBox alignment="CENTER" layoutX="450.0" layoutY="10.0" prefHeight="567.0" prefWidth="110.0" spacing="5.0">
+                           <children>
+                              <Label text="sidetrack" />
+                              <ListView prefHeight="474.0" prefWidth="148.0">
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" top="55.0" />
+                                 </VBox.margin>
+                              </ListView>
+                           </children>
+                           <padding>
+                              <Insets left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </VBox>
+                        <VBox alignment="CENTER" layoutX="580.0" layoutY="10.0" prefHeight="567.0" prefWidth="110.0" spacing="5.0">
+                           <children>
+                              <Label text="sidetrack" />
+                              <ListView prefHeight="474.0" prefWidth="148.0">
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" top="55.0" />
+                                 </VBox.margin>
+                              </ListView>
+                           </children>
+                           <padding>
+                              <Insets left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </VBox>
+                        <VBox alignment="CENTER" layoutX="560.0" layoutY="10.0" prefHeight="567.0" prefWidth="110.0" spacing="5.0">
+                           <children>
+                              <Label text="sidetrack" />
+                              <ListView prefHeight="474.0" prefWidth="148.0">
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" top="55.0" />
+                                 </VBox.margin>
+                              </ListView>
+                           </children>
+                           <padding>
+                              <Insets left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </center>
+               <left>
+                  <VBox alignment="BOTTOM_LEFT" prefHeight="375.0" prefWidth="150.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <Label text="Order1">
+                           <VBox.margin>
+                              <Insets left="20.0" top="5.0" />
+                           </VBox.margin>
+                        </Label>
+                        <ListView prefHeight="206.0" prefWidth="130.0">
+                           <VBox.margin>
+                              <Insets bottom="1.0" left="20.0" top="5.0" />
+                           </VBox.margin>
+                        </ListView>
+                        <Label layoutX="10.0" layoutY="10.0" text="Order2">
+                           <VBox.margin>
+                              <Insets left="20.0" top="10.0" />
+                           </VBox.margin>
+                        </Label>
+                        <ListView layoutX="10.0" layoutY="10.0" prefHeight="206.0" prefWidth="120.0">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="20.0" top="5.0" />
+                           </VBox.margin>
+                        </ListView>
+                     </children></VBox>
+               </left>
+               <top>
+                  <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <VBox alignment="CENTER" prefHeight="100.0" prefWidth="85.0" />
+                        <VBox alignment="CENTER" prefHeight="100.0" prefWidth="77.0">
+                           <children>
+                              <ImageView fitHeight="33.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@simple_docker_icon.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="334.0">
+                           <children>
+                              <Label text="Simple Docker – Docking made simple" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </top>
+               <bottom>
+                  <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <VBox prefHeight="200.0" prefWidth="130.0" />
+                        <VBox alignment="TOP_RIGHT" prefHeight="95.0" prefWidth="255.0">
+                           <children>
+                              <Label text="Fortschritt:">
+                                 <VBox.margin>
+                                    <Insets left="5.0" />
+                                 </VBox.margin>
+                              </Label>
+                           </children>
+                           <HBox.margin>
+                              <Insets left="30.0" top="5.0" />
+                           </HBox.margin>
+                        </VBox>
+                        <VBox prefHeight="95.0" prefWidth="551.0">
+                           <children>
+                              <ProgressBar prefHeight="20.0" prefWidth="541.0" progress="0.0">
+                                 <VBox.margin>
+                                    <Insets left="10.0" />
+                                 </VBox.margin>
+                              </ProgressBar>
+                              <HBox alignment="CENTER_RIGHT" prefHeight="76.0" prefWidth="460.0">
+                                 <children>
+                                    <Button alignment="CENTER" mnemonicParsing="false" prefWidth="110.0" text="Zurück" textAlignment="CENTER">
+                                       <HBox.margin>
+                                          <Insets right="5.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                    <Button alignment="CENTER" mnemonicParsing="false" prefWidth="110.0" text="Weiter" textAlignment="CENTER">
+                                       <HBox.margin>
+                                          <Insets right="5.0" />
+                                       </HBox.margin></Button>
+                                    <Button alignment="CENTER" layoutX="441.0" layoutY="35.0" mnemonicParsing="false" prefWidth="110.0" text="Stop" textAlignment="CENTER">
+                                       <HBox.margin>
+                                          <Insets right="5.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                    <Button alignment="CENTER" layoutX="441.0" layoutY="35.0" mnemonicParsing="false" prefWidth="110.0" text="Play" textAlignment="CENTER" />
+                                 </children>
+                              </HBox>
+                           </children>
+                           <HBox.margin>
+                              <Insets top="5.0" />
+                           </HBox.margin>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </bottom>
+            </BorderPane>
+         </content>
+      </Tab>
+      <Tab text="Summary">
+         <content>
+            <BorderPane prefHeight="200.0" prefWidth="200.0">
+               <center>
+                  <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <VBox prefHeight="100.0">
+                           <children>
+                              <TextArea prefHeight="534.0" prefWidth="824.0">
+                                 <HBox.margin>
+                                    <Insets bottom="10.0" />
+                                 </HBox.margin>
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" />
+                                 </VBox.margin>
+                              </TextArea>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </center>
+               <left>
+                  <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER" />
+               </left>
+               <right>
+                  <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER" />
+               </right>
+               <top>
+                  <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <VBox alignment="CENTER" prefHeight="100.0" prefWidth="85.0" />
+                        <VBox alignment="CENTER" prefHeight="100.0" prefWidth="77.0">
+                           <children>
+                              <ImageView fitHeight="33.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@simple_docker_icon.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="334.0">
+                           <children>
+                              <Label text="Simple Docker – Docking made simple" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </top>
+            </BorderPane>
+         </content>
+      </Tab>
+  </tabs>
+</TabPane>
