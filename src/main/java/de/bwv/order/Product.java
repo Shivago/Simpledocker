@@ -4,7 +4,7 @@ import java.util.UUID;
 
 /**
  * 
- * @author ormanns_sas
+ * @author sascha
  *
  */
 public class Product {
@@ -42,7 +42,7 @@ public class Product {
 
 	@Override
 	public String toString() {
-		return "Product -> Id: " + getId() + ", Name: " + getName();
+		return getId() + ", " + getName();
 	}
 
 	public static Product get(char c) {

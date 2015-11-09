@@ -4,7 +4,7 @@ import de.bwv.order.Product;
 
 /**
  * 
- * @author ormanns_sas
+ * @author sascha
  *
  */
 public class Wagon {

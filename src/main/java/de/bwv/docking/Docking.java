@@ -2,7 +2,7 @@ package de.bwv.docking;
 
 /**
  * 
- * @author ormanns_sas
+ * @author sascha
  *
  */
 public class Docking {

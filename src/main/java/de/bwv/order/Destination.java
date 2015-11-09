@@ -2,7 +2,7 @@ package de.bwv.order;
 
 /**
  * 
- * @author ormanns_sas
+ * @author sascha
  *
  */
 public class Destination {
