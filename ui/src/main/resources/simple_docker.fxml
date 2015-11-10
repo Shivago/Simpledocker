@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import com.jfoenix.controls.JFXProgressBar?>
-<JFXTabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.docker.ui.RootController">
+<JFXTabPane fx:id="tabPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.docker.ui.RootController">
   <tabs>
     <Tab fx:id="order_tab" text="Order">
          <content>
@@ -95,7 +95,7 @@
                                     <Insets top="5.0" />
                                  </VBox.margin>
                               </Label>
-                              <JFXButton alignment="CENTER" mnemonicParsing="false" prefHeight="26.0" prefWidth="75.0" text="Ok" textAlignment="CENTER">
+                              <JFXButton fx:id="buttonOk" alignment="CENTER" mnemonicParsing="false" prefHeight="26.0" prefWidth="75.0" text="Ok" textAlignment="CENTER">
                                  <VBox.margin>
                                     <Insets top="5.0" />
                                  </VBox.margin>
