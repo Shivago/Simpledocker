@@ -1,46 +1,25 @@
-package io.docker.ui;
+package io.docker.ui.components;
 
-import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXTabPane;
 import io.docking.core.order.Product;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.SingleSelectionModel;
-import javafx.scene.control.Tab;
 
 /**
- * @author sascha
+ * Created by johnny on 11/10/15.
  */
-public class RootController {
+public class OrderSelectionListController {
 
     @FXML
     private ComboBox o1_prod1, o1_prod2, o1_prod3, o1_prod4, o1_prod5;
     private ComboBox[] comboBoxList;
 
-    @FXML
-    private JFXButton buttonOk;
 
     @FXML
-    private JFXTabPane tabPane;
-
-    public RootController() {
-
-    }
-
-    @FXML
-    public void initialize() {
+    public void init() {
         initComboBoxes();
-        initButtonOk();
     }
-
-
-    public void initButtonOk() {
-        SingleSelectionModel<Tab> selectionModel = tabPane.getSelectionModel();
-        buttonOk.setOnMouseClicked(e -> selectionModel.select(2));
-    }
-
 
     /**
      * initializes the order combo boxes
@@ -59,4 +38,5 @@ public class RootController {
             box.setItems(options);
         }
     }
+
 }

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXTabPane?>
+<?import io.docker.ui.components.DockerTab?>
+<?import io.docker.ui.components.OrderTab?>
+<?import io.docker.ui.components.SummaryTab?>
+<JFXTabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+  <tabs>
+    <OrderTab/>
+    <SummaryTab/>
+    <DockerTab/>
+  </tabs>
+</JFXTabPane>
+
