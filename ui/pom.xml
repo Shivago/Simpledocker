@@ -88,5 +88,12 @@
             <artifactId>core</artifactId>
             <version>0.1.0</version>
         </dependency>
+        <dependency>
+            <groupId>sample</groupId>
+            <artifactId>com.sample</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/src/main/resources/jfoenix.jar</systemPath>
+        </dependency>
     </dependencies>
 </project>

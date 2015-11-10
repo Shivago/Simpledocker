@@ -1,12 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-
-<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.docker.ui.RootController">
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXListView?>
+<?import com.jfoenix.controls.JFXTabPane?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import com.jfoenix.controls.JFXProgressBar?>
+<JFXTabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.docker.ui.RootController">
   <tabs>
     <Tab fx:id="order_tab" text="Order">
          <content>
@@ -17,17 +26,17 @@
                         <VBox prefHeight="567.0" prefWidth="160.0" spacing="5.0">
                            <children>
                               <Label text="Order1" />
-                              <ComboBox fx:id="o1_prod1" prefHeight="26.0" prefWidth="161.0" promptText="Produkt wählen..." />
-                              <ComboBox fx:id="o1_prod2" prefHeight="26.0" prefWidth="161.0" promptText="Produkt wählen..." />
-                              <ComboBox fx:id="o1_prod3" prefHeight="26.0" prefWidth="161.0" promptText="Produkt wählen..." />
-                              <ComboBox fx:id="o1_prod4" prefHeight="26.0" prefWidth="161.0" promptText="Produkt wählen..." />
-                              <ComboBox fx:id="o1_prod5" prefHeight="26.0" prefWidth="160.0" promptText="Produkt wählen..." />
-                              <Button alignment="CENTER" mnemonicParsing="false" prefHeight="26.0" prefWidth="160.0" text="Reset" textAlignment="CENTER">
+                              <JFXComboBox fx:id="o1_prod1" prefHeight="26.0" prefWidth="161.0" promptText="Produkt wählen..." />
+                              <JFXComboBox fx:id="o1_prod2" prefHeight="26.0" prefWidth="161.0" promptText="Produkt wählen..." />
+                              <JFXComboBox fx:id="o1_prod3" prefHeight="26.0" prefWidth="161.0" promptText="Produkt wählen..." />
+                              <JFXComboBox fx:id="o1_prod4" prefHeight="26.0" prefWidth="161.0" promptText="Produkt wählen..." />
+                              <JFXComboBox fx:id="o1_prod5" prefHeight="26.0" prefWidth="160.0" promptText="Produkt wählen..." />
+                              <JFXButton alignment="CENTER" mnemonicParsing="false" prefHeight="26.0" prefWidth="160.0" text="Reset" textAlignment="CENTER">
                                  <VBox.margin>
                                     <Insets top="50.0" />
                                  </VBox.margin>
-                              </Button>
-                              <Button alignment="CENTER" layoutX="15.0" layoutY="241.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="160.0" text="Speichern" textAlignment="CENTER" />
+                              </JFXButton>
+                              <JFXButton alignment="CENTER" layoutX="15.0" layoutY="241.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="160.0" text="Speichern" textAlignment="CENTER" />
                            </children>
                            <padding>
                               <Insets left="5.0" right="5.0" top="5.0" />
@@ -36,11 +45,11 @@
                         <VBox alignment="TOP_CENTER" prefHeight="567.0" prefWidth="45.0" spacing="5.0">
                            <children>
                               <Label text="x" />
-                              <TextField />
-                              <TextField />
-                              <TextField />
-                              <TextField />
-                              <TextField />
+                              <JFXTextField />
+                              <JFXTextField />
+                              <JFXTextField />
+                              <JFXTextField />
+                              <JFXTextField />
                            </children>
                            <padding>
                               <Insets right="5.0" top="5.0" />
@@ -49,17 +58,17 @@
                         <VBox layoutX="10.0" layoutY="10.0" prefHeight="567.0" prefWidth="160.0" spacing="5.0">
                            <children>
                               <Label text="Order2" />
-                              <ComboBox prefHeight="26.0" prefWidth="161.0" promptText="Produkt wählen..." />
-                              <ComboBox prefHeight="26.0" prefWidth="161.0" promptText="Produkt wählen..." />
-                              <ComboBox prefHeight="26.0" prefWidth="161.0" promptText="Produkt wählen..." />
-                              <ComboBox prefHeight="26.0" prefWidth="161.0" promptText="Produkt wählen..." />
-                              <ComboBox prefHeight="26.0" prefWidth="161.0" promptText="Produkt wählen..." />
-                              <Button alignment="CENTER" contentDisplay="CENTER" maxWidth="161.0" mnemonicParsing="false" text="Reset" textAlignment="CENTER">
+                              <JFXComboBox prefHeight="26.0" prefWidth="161.0" promptText="Produkt wählen..." />
+                              <JFXComboBox prefHeight="26.0" prefWidth="161.0" promptText="Produkt wählen..." />
+                              <JFXComboBox prefHeight="26.0" prefWidth="161.0" promptText="Produkt wählen..." />
+                              <JFXComboBox prefHeight="26.0" prefWidth="161.0" promptText="Produkt wählen..." />
+                              <JFXComboBox prefHeight="26.0" prefWidth="161.0" promptText="Produkt wählen..." />
+                              <JFXButton alignment="CENTER" contentDisplay="CENTER" maxWidth="161.0" mnemonicParsing="false" text="Reset" textAlignment="CENTER">
                                  <VBox.margin>
                                     <Insets top="50.0" />
                                  </VBox.margin>
-                              </Button>
-                              <Button alignment="CENTER" contentDisplay="CENTER" layoutX="15.0" layoutY="241.0" maxWidth="161.0" mnemonicParsing="false" text="Speichern" textAlignment="CENTER" />
+                              </JFXButton>
+                              <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="15.0" layoutY="241.0" maxWidth="161.0" mnemonicParsing="false" text="Speichern" textAlignment="CENTER" />
                            </children>
                            <padding>
                               <Insets left="5.0" right="5.0" top="5.0" />
@@ -68,11 +77,11 @@
                         <VBox alignment="TOP_CENTER" layoutX="170.0" layoutY="10.0" prefHeight="567.0" prefWidth="45.0" spacing="5.0">
                            <children>
                               <Label contentDisplay="CENTER" text="x" textAlignment="CENTER" />
-                              <TextField />
-                              <TextField />
-                              <TextField />
-                              <TextField />
-                              <TextField />
+                              <JFXTextField />
+                              <JFXTextField />
+                              <JFXTextField />
+                              <JFXTextField />
+                              <JFXTextField />
                            </children>
                            <padding>
                               <Insets right="5.0" top="5.0" />
@@ -86,16 +95,16 @@
                                     <Insets top="5.0" />
                                  </VBox.margin>
                               </Label>
-                              <Button alignment="CENTER" mnemonicParsing="false" prefHeight="26.0" prefWidth="75.0" text="Ok" textAlignment="CENTER">
+                              <JFXButton alignment="CENTER" mnemonicParsing="false" prefHeight="26.0" prefWidth="75.0" text="Ok" textAlignment="CENTER">
                                  <VBox.margin>
                                     <Insets top="5.0" />
                                  </VBox.margin>
-                              </Button>
-                              <Button alignment="CENTER" mnemonicParsing="false" prefHeight="26.0" prefWidth="75.0" text="Reset" textAlignment="CENTER">
+                              </JFXButton>
+                              <JFXButton alignment="CENTER" mnemonicParsing="false" prefHeight="26.0" prefWidth="75.0" text="Reset" textAlignment="CENTER">
                                  <VBox.margin>
                                     <Insets top="5.0" />
                                  </VBox.margin>
-                              </Button>
+                              </JFXButton>
                            </children>
                         </VBox>
                      </children>
@@ -195,11 +204,11 @@
                                     <Image url="@1446931446_train.png" />
                                  </image>
                               </ImageView>
-                              <ListView prefHeight="474.0" prefWidth="148.0">
+                              <JFXListView prefHeight="474.0" prefWidth="148.0">
                                  <VBox.margin>
                                     <Insets bottom="10.0" top="10.0" />
                                  </VBox.margin>
-                              </ListView>
+                              </JFXListView>
                            </children>
                            <padding>
                               <Insets left="5.0" right="5.0" top="5.0" />
@@ -216,11 +225,11 @@
                                     <Image url="@1446931446_train.png" />
                                  </image>
                               </ImageView>
-                              <ListView prefHeight="474.0" prefWidth="148.0">
+                              <JFXListView prefHeight="474.0" prefWidth="148.0">
                                  <VBox.margin>
                                     <Insets bottom="10.0" top="10.0" />
                                  </VBox.margin>
-                              </ListView>
+                              </JFXListView>
                            </children>
                            <padding>
                               <Insets left="5.0" right="5.0" top="5.0" />
@@ -234,11 +243,11 @@
                         <VBox alignment="CENTER" layoutX="140.0" layoutY="10.0" prefHeight="567.0" prefWidth="110.0" spacing="5.0">
                            <children>
                               <Label alignment="TOP_LEFT" text="sidetrack" />
-                              <ListView prefHeight="474.0" prefWidth="148.0">
+                              <JFXListView prefHeight="474.0" prefWidth="148.0">
                                  <VBox.margin>
                                     <Insets bottom="10.0" top="55.0" />
                                  </VBox.margin>
-                              </ListView>
+                              </JFXListView>
                            </children>
                            <padding>
                               <Insets left="5.0" right="5.0" top="5.0" />
@@ -247,11 +256,11 @@
                         <VBox alignment="CENTER" layoutX="270.0" layoutY="10.0" prefHeight="567.0" prefWidth="110.0" spacing="5.0">
                            <children>
                               <Label text="sidetrack" />
-                              <ListView prefHeight="474.0" prefWidth="148.0">
+                              <JFXListView prefHeight="474.0" prefWidth="148.0">
                                  <VBox.margin>
                                     <Insets bottom="10.0" top="55.0" />
                                  </VBox.margin>
-                              </ListView>
+                              </JFXListView>
                            </children>
                            <padding>
                               <Insets left="5.0" right="5.0" top="5.0" />
@@ -260,11 +269,11 @@
                         <VBox alignment="CENTER" layoutX="450.0" layoutY="10.0" prefHeight="567.0" prefWidth="110.0" spacing="5.0">
                            <children>
                               <Label text="sidetrack" />
-                              <ListView prefHeight="474.0" prefWidth="148.0">
+                              <JFXListView prefHeight="474.0" prefWidth="148.0">
                                  <VBox.margin>
                                     <Insets bottom="10.0" top="55.0" />
                                  </VBox.margin>
-                              </ListView>
+                              </JFXListView>
                            </children>
                            <padding>
                               <Insets left="5.0" right="5.0" top="5.0" />
@@ -273,11 +282,11 @@
                         <VBox alignment="CENTER" layoutX="580.0" layoutY="10.0" prefHeight="567.0" prefWidth="110.0" spacing="5.0">
                            <children>
                               <Label text="sidetrack" />
-                              <ListView prefHeight="474.0" prefWidth="148.0">
+                              <JFXListView prefHeight="474.0" prefWidth="148.0">
                                  <VBox.margin>
                                     <Insets bottom="10.0" top="55.0" />
                                  </VBox.margin>
-                              </ListView>
+                              </JFXListView>
                            </children>
                            <padding>
                               <Insets left="5.0" right="5.0" top="5.0" />
@@ -286,11 +295,11 @@
                         <VBox alignment="CENTER" layoutX="560.0" layoutY="10.0" prefHeight="567.0" prefWidth="110.0" spacing="5.0">
                            <children>
                               <Label text="sidetrack" />
-                              <ListView prefHeight="474.0" prefWidth="148.0">
+                              <JFXListView prefHeight="474.0" prefWidth="148.0">
                                  <VBox.margin>
                                     <Insets bottom="10.0" top="55.0" />
                                  </VBox.margin>
-                              </ListView>
+                              </JFXListView>
                            </children>
                            <padding>
                               <Insets left="5.0" right="5.0" top="5.0" />
@@ -307,21 +316,21 @@
                               <Insets left="20.0" top="5.0" />
                            </VBox.margin>
                         </Label>
-                        <ListView prefHeight="206.0" prefWidth="130.0">
+                        <JFXListView prefHeight="206.0" prefWidth="130.0">
                            <VBox.margin>
                               <Insets bottom="1.0" left="20.0" top="5.0" />
                            </VBox.margin>
-                        </ListView>
+                        </JFXListView>
                         <Label layoutX="10.0" layoutY="10.0" text="Order2">
                            <VBox.margin>
                               <Insets left="20.0" top="10.0" />
                            </VBox.margin>
                         </Label>
-                        <ListView layoutX="10.0" layoutY="10.0" prefHeight="206.0" prefWidth="120.0">
+                        <JFXListView layoutX="10.0" layoutY="10.0" prefHeight="206.0" prefWidth="120.0">
                            <VBox.margin>
                               <Insets bottom="10.0" left="20.0" top="5.0" />
                            </VBox.margin>
-                        </ListView>
+                        </JFXListView>
                      </children></VBox>
                </left>
                <top>
@@ -363,28 +372,28 @@
                         </VBox>
                         <VBox prefHeight="95.0" prefWidth="551.0">
                            <children>
-                              <ProgressBar prefHeight="20.0" prefWidth="541.0" progress="0.0">
+                              <JFXProgressBar prefHeight="20.0" prefWidth="541.0" progress="0.0">
                                  <VBox.margin>
                                     <Insets left="10.0" />
                                  </VBox.margin>
-                              </ProgressBar>
+                              </JFXProgressBar>
                               <HBox alignment="CENTER_RIGHT" prefHeight="76.0" prefWidth="460.0">
                                  <children>
-                                    <Button alignment="CENTER" mnemonicParsing="false" prefWidth="110.0" text="Zurück" textAlignment="CENTER">
+                                    <JFXButton alignment="CENTER" mnemonicParsing="false" prefWidth="110.0" text="Zurück" textAlignment="CENTER">
                                        <HBox.margin>
                                           <Insets right="5.0" />
                                        </HBox.margin>
-                                    </Button>
-                                    <Button alignment="CENTER" mnemonicParsing="false" prefWidth="110.0" text="Weiter" textAlignment="CENTER">
+                                    </JFXButton>
+                                    <JFXButton alignment="CENTER" mnemonicParsing="false" prefWidth="110.0" text="Weiter" textAlignment="CENTER">
                                        <HBox.margin>
                                           <Insets right="5.0" />
-                                       </HBox.margin></Button>
-                                    <Button alignment="CENTER" layoutX="441.0" layoutY="35.0" mnemonicParsing="false" prefWidth="110.0" text="Stop" textAlignment="CENTER">
+                                       </HBox.margin></JFXButton>
+                                    <JFXButton alignment="CENTER" layoutX="441.0" layoutY="35.0" mnemonicParsing="false" prefWidth="110.0" text="Stop" textAlignment="CENTER">
                                        <HBox.margin>
                                           <Insets right="5.0" />
                                        </HBox.margin>
-                                    </Button>
-                                    <Button alignment="CENTER" layoutX="441.0" layoutY="35.0" mnemonicParsing="false" prefWidth="110.0" text="Play" textAlignment="CENTER" />
+                                    </JFXButton>
+                                    <JFXButton alignment="CENTER" layoutX="441.0" layoutY="35.0" mnemonicParsing="false" prefWidth="110.0" text="Play" textAlignment="CENTER" />
                                  </children>
                               </HBox>
                            </children>
@@ -450,4 +459,4 @@
          </content>
       </Tab>
   </tabs>
-</TabPane>
+</JFXTabPane>
