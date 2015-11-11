@@ -17,7 +17,7 @@ public class OrderSelectionListController {
 
 
     @FXML
-    public void init() {
+    public void initialize() {
         initComboBoxes();
     }
 
