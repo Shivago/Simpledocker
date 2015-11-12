@@ -17,7 +17,7 @@ public class SummaryTab  extends Tab {
 
     private void init() {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass()
-                .getResource("/templates/SummaryTab.fxml"));
+                .getResource("/templates/views/SummaryTab.fxml"));
         fxmlLoader.setController(this);
         fxmlLoader.setRoot(this);
         try {

@@ -47,7 +47,7 @@
                         <children>
                             <ImageView fitHeight="33.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
-                                    <Image url="@../images/simple_docker_icon.png" />
+                                    <Image url="@../../images/simple_docker_icon.png" />
                                 </image>
                             </ImageView>
                         </children>

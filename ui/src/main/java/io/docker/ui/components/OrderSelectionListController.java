@@ -1,5 +1,6 @@
 package io.docker.ui.components;
 
+import com.jfoenix.controls.JFXButton;
 import io.docking.core.order.Product;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -15,10 +16,17 @@ public class OrderSelectionListController {
     private ComboBox o1_prod1, o1_prod2, o1_prod3, o1_prod4, o1_prod5;
     private ComboBox[] comboBoxList;
 
+    @FXML
+    private JFXButton resetButton;
+
+    @FXML
+    private JFXButton saveButton;
 
     @FXML
     public void initialize() {
         initComboBoxes();
+        initRestButton();
+        initSaveButton();
     }
 
     /**
@@ -38,5 +46,15 @@ public class OrderSelectionListController {
             box.setItems(options);
         }
     }
+
+    private void initRestButton() {
+        resetButton.getStyleClass().add("button-outline");
+    }
+
+    private void initSaveButton() {
+        saveButton.getStyleClass().add("button-raised");
+    }
+
+
 
 }

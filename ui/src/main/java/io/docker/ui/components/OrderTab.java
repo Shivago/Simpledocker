@@ -17,7 +17,7 @@ public class OrderTab extends Tab {
 
     private void init() {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass()
-                .getResource("/templates/OrderTab.fxml"));
+                .getResource("/templates/views/OrderTab.fxml"));
         fxmlLoader.setController(this);
         fxmlLoader.setRoot(this);
         try {

@@ -13,7 +13,7 @@ public class OrderSelectionList extends HBox {
     public OrderSelectionList() {
         super();
         FXMLLoader fxmlLoader = new FXMLLoader(getClass()
-                .getResource("/templates/OrderSelectionList.fxml"));
+                .getResource("/templates/components/OrderSelectionList.fxml"));
         fxmlLoader.setController(new OrderSelectionListController());
         fxmlLoader.setRoot(this);
         try {

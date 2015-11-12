@@ -11,8 +11,11 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("/templates/Application.fxml"));
+        Scene mainScene = new Scene(root, 1024, 768);
+        String materialCss = getClass().getResource("/css/material.css").toExternalForm();
+        mainScene.getStylesheets().add(materialCss);
+        primaryStage.setScene(mainScene);
         primaryStage.setTitle("Simple Docker™ v0.1.0");
-        primaryStage.setScene(new Scene(root, 1024, 768));
         primaryStage.setResizable(true);
         primaryStage.show();
     }

@@ -1,0 +1,18 @@
+.button-raised{
+    -fx-padding: 0.7em 0.57em;
+    -fx-font-size: 14px;
+    -fx-button-type: RAISED;
+    -fx-background-color: rgb(77,102,204);
+    -fx-pref-width: 200;
+    -fx-text-fill: WHITE;
+}
+
+.button-outline{
+    -fx-padding: 0.7em 0.57em;
+    -fx-font-size: 14px;
+    -fx-border-color: #DDD;
+    -fx-border-radius: 3px;
+    -fx-border-width: 0.02em;
+    -fx-pref-width: 200;
+    -fx-border-style: solid;
+}

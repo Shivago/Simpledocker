@@ -17,7 +17,7 @@ public class DockerTab  extends Tab {
 
     private void init() {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass()
-                .getResource("/templates/DockerTab.fxml"));
+                .getResource("/templates/views/DockerTab.fxml"));
         fxmlLoader.setController(this);
         fxmlLoader.setRoot(this);
         try {

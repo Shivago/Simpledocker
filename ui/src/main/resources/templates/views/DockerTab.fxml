@@ -21,7 +21,7 @@
                             <Label text="Batch1" />
                             <ImageView fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
-                                    <Image url="@../images/1446931446_train.png" />
+                                    <Image url="@../../images/1446931446_train.png" />
                                 </image>
                             </ImageView>
                             <JFXListView prefHeight="474.0" prefWidth="148.0">
@@ -42,7 +42,7 @@
                             <Label text="Batch2" />
                             <ImageView fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
-                                    <Image url="@../images/1446931446_train.png" />
+                                    <Image url="@../../images/1446931446_train.png" />
                                 </image>
                             </ImageView>
                             <JFXListView prefHeight="474.0" prefWidth="148.0">
@@ -161,7 +161,7 @@
                         <children>
                             <ImageView fitHeight="33.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
-                                    <Image url="@../images/simple_docker_icon.png" />
+                                    <Image url="@../../images/simple_docker_icon.png" />
                                 </image>
                             </ImageView>
                         </children>
