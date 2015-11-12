@@ -1,72 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import io.docker.ui.components.OrderSelectionList?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
-<?import io.docker.ui.components.OrderSelectionList?>
 <fx:root type="javafx.scene.control.Tab" xmlns:fx="http://javafx.com/fxml">
-    <BorderPane>
-        <center>
-            <HBox>
-                <children>
-                    <OrderSelectionList/>
-                    <OrderSelectionList/>
-                    <VBox prefHeight="200.0" prefWidth="100.0">
-                        <children>
-                            <Label text="Zum Docker?">
-                                <VBox.margin>
-                                    <Insets top="5.0" />
-                                </VBox.margin>
-                            </Label>
-                            <Button alignment="CENTER" mnemonicParsing="false" prefHeight="26.0" prefWidth="75.0" text="Ok" textAlignment="CENTER">
-                                <VBox.margin>
-                                    <Insets top="5.0" />
-                                </VBox.margin>
-                            </Button>
-                            <Button alignment="CENTER" mnemonicParsing="false" prefHeight="26.0" prefWidth="75.0" text="Reset" textAlignment="CENTER">
-                                <VBox.margin>
-                                    <Insets top="5.0" />
-                                </VBox.margin>
-                            </Button>
-                        </children>
-                    </VBox>
-                </children>
-            </HBox>
-        </center>
-        <top>
-            <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-                <children>
-                    <VBox alignment="CENTER" prefHeight="100.0" prefWidth="85.0" />
-                    <VBox alignment="CENTER" prefHeight="100.0" prefWidth="77.0">
-                        <children>
-                            <ImageView fitHeight="33.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
-                                <image>
-                                    <Image url="@../../images/simple_docker_icon.png" />
-                                </image>
-                            </ImageView>
-                        </children>
-                    </VBox>
-                    <VBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="334.0">
-                        <children>
-                            <Label text="Simple Docker – Docking made simple" />
-                        </children>
-                    </VBox>
-                </children>
-            </HBox>
-        </top>
-        <left>
-            <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER" />
-        </left>
-        <right>
-            <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER" />
-        </right>
-    </BorderPane>
+    <VBox>
+        <padding>
+            <Insets top="25" right="25" bottom="10" left="25"/>
+        </padding>
+        <HBox prefHeight="100.0" prefWidth="200.0">
+            <children>
+                <VBox alignment="CENTER" prefHeight="100.0" prefWidth="85.0" />
+                <VBox alignment="CENTER" prefHeight="100.0" prefWidth="77.0">
+                    <children>
+                        <ImageView fitHeight="33.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../images/simple_docker_icon.png" />
+                            </image>
+                        </ImageView>
+                    </children>
+                </VBox>
+                <VBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="334.0">
+                    <children>
+                        <Label text="Simple Docker – Docking made simple" />
+                    </children>
+                </VBox>
+            </children>
+        </HBox>
+        <HBox alignment="CENTER">
+            <children>
+                <OrderSelectionList/>
+                <OrderSelectionList/>
+            </children>
+        </HBox>
+        <VBox alignment="CENTER_RIGHT">
+            <children>
+                <JFXButton fx:id="nextButton" styleClass="success" mnemonicParsing="false" prefHeight="26.0" prefWidth="75.0" text="weiter" textAlignment="CENTER"/>
+            </children>
+        </VBox>
+    </VBox>
 </fx:root>
 
 
