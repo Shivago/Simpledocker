@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXListView?>
+<?import com.jfoenix.controls.JFXProgressBar?>
+<?import javafx.geometry.Insets?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<fx:root type="javafx.scene.control.Tab" xmlns:fx="http://javafx.com/fxml">
+    <BorderPane>
+        <center>
+            <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                <children>
+                    <VBox alignment="CENTER" prefHeight="467.0" prefWidth="110.0" spacing="5.0">
+                        <children>
+                            <Label text="Batch1" />
+                            <ImageView fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                <image>
+                                    <Image url="@../../images/1446931446_train.png" />
+                                </image>
+                            </ImageView>
+                            <JFXListView prefHeight="474.0" prefWidth="148.0">
+                                <VBox.margin>
+                                    <Insets bottom="10.0" top="10.0" />
+                                </VBox.margin>
+                            </JFXListView>
+                        </children>
+                        <padding>
+                            <Insets left="5.0" right="5.0" top="5.0" />
+                        </padding>
+                        <HBox.margin>
+                            <Insets left="30.0" />
+                        </HBox.margin>
+                    </VBox>
+                    <VBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="567.0" prefWidth="110.0" spacing="5.0">
+                        <children>
+                            <Label text="Batch2" />
+                            <ImageView fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                <image>
+                                    <Image url="@../../images/1446931446_train.png" />
+                                </image>
+                            </ImageView>
+                            <JFXListView prefHeight="474.0" prefWidth="148.0">
+                                <VBox.margin>
+                                    <Insets bottom="10.0" top="10.0" />
+                                </VBox.margin>
+                            </JFXListView>
+                        </children>
+                        <padding>
+                            <Insets left="5.0" right="5.0" top="5.0" />
+                        </padding>
+                    </VBox>
+                    <VBox layoutX="285.0" layoutY="10.0" prefHeight="567.0" prefWidth="20.0" spacing="5.0">
+                        <padding>
+                            <Insets left="5.0" right="5.0" top="5.0" />
+                        </padding>
+                    </VBox>
+                    <VBox alignment="CENTER" layoutX="140.0" layoutY="10.0" prefHeight="567.0" prefWidth="110.0" spacing="5.0">
+                        <children>
+                            <Label alignment="TOP_LEFT" text="sidetrack" />
+                            <JFXListView prefHeight="474.0" prefWidth="148.0">
+                                <VBox.margin>
+                                    <Insets bottom="10.0" top="55.0" />
+                                </VBox.margin>
+                            </JFXListView>
+                        </children>
+                        <padding>
+                            <Insets left="5.0" right="5.0" top="5.0" />
+                        </padding>
+                    </VBox>
+                    <VBox alignment="CENTER" layoutX="270.0" layoutY="10.0" prefHeight="567.0" prefWidth="110.0" spacing="5.0">
+                        <children>
+                            <Label text="sidetrack" />
+                            <JFXListView prefHeight="474.0" prefWidth="148.0">
+                                <VBox.margin>
+                                    <Insets bottom="10.0" top="55.0" />
+                                </VBox.margin>
+                            </JFXListView>
+                        </children>
+                        <padding>
+                            <Insets left="5.0" right="5.0" top="5.0" />
+                        </padding>
+                    </VBox>
+                    <VBox alignment="CENTER" layoutX="450.0" layoutY="10.0" prefHeight="567.0" prefWidth="110.0" spacing="5.0">
+                        <children>
+                            <Label text="sidetrack" />
+                            <JFXListView prefHeight="474.0" prefWidth="148.0">
+                                <VBox.margin>
+                                    <Insets bottom="10.0" top="55.0" />
+                                </VBox.margin>
+                            </JFXListView>
+                        </children>
+                        <padding>
+                            <Insets left="5.0" right="5.0" top="5.0" />
+                        </padding>
+                    </VBox>
+                    <VBox alignment="CENTER" layoutX="580.0" layoutY="10.0" prefHeight="567.0" prefWidth="110.0" spacing="5.0">
+                        <children>
+                            <Label text="sidetrack" />
+                            <JFXListView prefHeight="474.0" prefWidth="148.0">
+                                <VBox.margin>
+                                    <Insets bottom="10.0" top="55.0" />
+                                </VBox.margin>
+                            </JFXListView>
+                        </children>
+                        <padding>
+                            <Insets left="5.0" right="5.0" top="5.0" />
+                        </padding>
+                    </VBox>
+                    <VBox alignment="CENTER" layoutX="560.0" layoutY="10.0" prefHeight="567.0" prefWidth="110.0" spacing="5.0">
+                        <children>
+                            <Label text="sidetrack" />
+                            <JFXListView prefHeight="474.0" prefWidth="148.0">
+                                <VBox.margin>
+                                    <Insets bottom="10.0" top="55.0" />
+                                </VBox.margin>
+                            </JFXListView>
+                        </children>
+                        <padding>
+                            <Insets left="5.0" right="5.0" top="5.0" />
+                        </padding>
+                    </VBox>
+                </children>
+            </HBox>
+        </center>
+        <left>
+            <VBox alignment="BOTTOM_LEFT" prefHeight="375.0" prefWidth="150.0" BorderPane.alignment="CENTER">
+                <children>
+                    <Label text="Order1">
+                        <VBox.margin>
+                            <Insets left="20.0" top="5.0" />
+                        </VBox.margin>
+                    </Label>
+                    <JFXListView prefHeight="206.0" prefWidth="130.0">
+                        <VBox.margin>
+                            <Insets bottom="1.0" left="20.0" top="5.0" />
+                        </VBox.margin>
+                    </JFXListView>
+                    <Label layoutX="10.0" layoutY="10.0" text="Order2">
+                        <VBox.margin>
+                            <Insets left="20.0" top="10.0" />
+                        </VBox.margin>
+                    </Label>
+                    <JFXListView layoutX="10.0" layoutY="10.0" prefHeight="206.0" prefWidth="120.0">
+                        <VBox.margin>
+                            <Insets bottom="10.0" left="20.0" top="5.0" />
+                        </VBox.margin>
+                    </JFXListView>
+                </children></VBox>
+        </left>
+        <top>
+            <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                <children>
+                    <VBox alignment="CENTER" prefHeight="100.0" prefWidth="85.0" />
+                    <VBox alignment="CENTER" prefHeight="100.0" prefWidth="77.0">
+                        <children>
+                            <ImageView fitHeight="33.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                                <image>
+                                    <Image url="@../../images/simple_docker_icon.png" />
+                                </image>
+                            </ImageView>
+                        </children>
+                    </VBox>
+                    <VBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="334.0">
+                        <children>
+                            <Label text="Simple Docker – Docking made simple" />
+                        </children>
+                    </VBox>
+                </children>
+            </HBox>
+        </top>
+        <bottom>
+            <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                <children>
+                    <VBox prefHeight="200.0" prefWidth="130.0" />
+                    <VBox alignment="TOP_RIGHT" prefHeight="95.0" prefWidth="255.0">
+                        <children>
+                            <Label text="Fortschritt:">
+                                <VBox.margin>
+                                    <Insets left="5.0" />
+                                </VBox.margin>
+                            </Label>
+                        </children>
+                        <HBox.margin>
+                            <Insets left="30.0" top="5.0" />
+                        </HBox.margin>
+                    </VBox>
+                    <VBox prefHeight="95.0" prefWidth="551.0">
+                        <children>
+                            <JFXProgressBar prefHeight="20.0" prefWidth="541.0" progress="0.0">
+                                <VBox.margin>
+                                    <Insets left="10.0" />
+                                </VBox.margin>
+                            </JFXProgressBar>
+                            <HBox alignment="CENTER_RIGHT" prefHeight="76.0" prefWidth="460.0">
+                                <children>
+                                    <JFXButton alignment="CENTER" mnemonicParsing="false" prefWidth="110.0" text="Zurück" textAlignment="CENTER">
+                                        <HBox.margin>
+                                            <Insets right="5.0" />
+                                        </HBox.margin>
+                                    </JFXButton>
+                                    <JFXButton alignment="CENTER" mnemonicParsing="false" prefWidth="110.0" text="Weiter" textAlignment="CENTER">
+                                        <HBox.margin>
+                                            <Insets right="5.0" />
+                                        </HBox.margin></JFXButton>
+                                    <JFXButton alignment="CENTER" layoutX="441.0" layoutY="35.0" mnemonicParsing="false" prefWidth="110.0" text="Stop" textAlignment="CENTER">
+                                        <HBox.margin>
+                                            <Insets right="5.0" />
+                                        </HBox.margin>
+                                    </JFXButton>
+                                    <JFXButton alignment="CENTER" layoutX="441.0" layoutY="35.0" mnemonicParsing="false" prefWidth="110.0" text="Play" textAlignment="CENTER" />
+                                </children>
+                            </HBox>
+                        </children>
+                        <HBox.margin>
+                            <Insets top="5.0" />
+                        </HBox.margin>
+                    </VBox>
+                </children>
+            </HBox>
+        </bottom>
+    </BorderPane>
+</fx:root>
+
+
