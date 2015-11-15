@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.layout.HBox?>
+<fx:root type="javafx.scene.layout.HBox" xmlns:fx="http://javafx.com/fxml">
+    <HBox spacing="20">
+        <JFXComboBox minHeight="26.0" prefHeight="26.0" minWidth="160.0" prefWidth="160.0" maxWidth="-Infinity" promptText="Produkt wählen..." />
+        <JFXTextField editable="true" maxWidth="75.0" />
+    </HBox>
+</fx:root>
+

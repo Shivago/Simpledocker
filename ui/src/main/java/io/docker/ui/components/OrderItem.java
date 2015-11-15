@@ -1,23 +1,19 @@
 package io.docker.ui.components;
 
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Tab;
+import javafx.scene.layout.HBox;
 
 import java.io.IOException;
 
 /**
- * @author sascha on 14/11/15.
+ * @author sascha on 13/11/15.
  */
-public class DockerTab extends Tab {
+public class OrderItem extends HBox{
 
-    public DockerTab() {
-        super("Docking");
-        init();
-    }
-
-    private void init() {
+    public OrderItem() {
+        super();
         FXMLLoader fxmlLoader = new FXMLLoader(getClass()
-                .getResource("/templates/views/DockerTab.fxml"));
+                .getResource("/templates/components/OrderItem.fxml"));
         fxmlLoader.setController(this);
         fxmlLoader.setRoot(this);
         try {

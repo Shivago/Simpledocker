@@ -1,3 +1,66 @@
+.app-anchor-pane {
+    -fx-background-color: rgb(219,181,81);
+}
+
+.tab-header-background {
+    -fx-background-color: rgb(51,51,51);
+}
+
+.headers-region {
+    -fx-pref-height: 40px;
+}
+
+.tab-pane {
+    -fx-tab-min-height:500px;
+    -fx-tab-min-width: 1080px;
+    -fx-max-width: 1080px;
+    -fx-tab-pref-width: 1080px;
+    -fx-padding: 100px;
+}
+
+.tab-content-area {
+
+}
+
+.tab {
+
+}
+
+.tab:selected {
+
+}
+
+.container-box {
+    -fx-min-width: 1080px;
+    -fx-pref-width: 1080px;
+    -fx-min-height: 875px;
+    -fx-pref-height: 875px;
+    -fx-background-color: rgb(210,221,220);
+}
+
+.product-box {
+    -fx-background-color: rgba(51,51,51,1.0);
+    -fx-min-width: 1080px;
+    -fx-pref-width: 1080px;
+    -fx-max-width: 1080px;
+    -fx-min-height: 200px;
+    -fx-pref-height: 200px;
+    -fx-max-height: 200px;
+}
+
+.button-global {
+    -fx-padding: 0.7em 0.57em;
+    -fx-font-size: 14px;
+    -fx-button-type: RAISED;
+    -fx-background-color: rgb(66,100,86);
+    -fx-color: #FFF !important;
+    -fx-pref-width: 100;
+    -fx-text-fill: WHITE;
+    -fx-border-radius: 0.25;
+    -fx-font-size: 1.2em;
+    -fx-font-weight: 400;
+}
+
 .button-raised {
     -fx-padding: 0.7em 0.57em;
     -fx-font-size: 14px;
