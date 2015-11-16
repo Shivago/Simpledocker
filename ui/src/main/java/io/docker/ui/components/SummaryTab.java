@@ -8,10 +8,10 @@ import java.io.IOException;
 /**
  * Created by johnny on 11/10/15.
  */
-public class SummaryTab  extends Tab {
+public class SummaryTab extends Tab {
 
     public SummaryTab() {
-        super("Zusammenfassung");
+        super("Dockingplan");
         init();
     }
 
