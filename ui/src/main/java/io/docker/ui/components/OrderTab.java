@@ -6,7 +6,7 @@ import javafx.scene.control.Tab;
 import java.io.IOException;
 
 /**
- * Created by johnny on 11/10/15.
+ * @author sascha on 13/11/15.
  */
 public class OrderTab extends Tab {
 
@@ -26,6 +26,4 @@ public class OrderTab extends Tab {
             throw new RuntimeException(exception);
         }
     }
-
-
 }
