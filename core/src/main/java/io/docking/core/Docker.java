@@ -4,18 +4,21 @@ package io.docking.core;
 import io.docking.core.order.Order;
 
 /**
- * 
- * @author sascha
+ *
  *
  */
 public interface Docker {
 
-	/**
-	 *
-	 * @param order
-	 * @param source
-	 * @param destination
+    /**
+     *
+     * @param orderOne
+     * @param orderTwo
+     * @param wagonBatchOne
+     * @param wagonBatchTwo
+     * @return the {@link DockingPlan DockingPlan} to get on each wagon batch
+     *         the matching order
      */
-	void dock(Order order, WagonBatch source, WagonBatch destination);
+	DockingPlan dock(Order orderOne, Order orderTwo, WagonBatch wagonBatchOne,
+              WagonBatch wagonBatchTwo);
 
 }
