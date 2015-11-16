@@ -1,9 +1,8 @@
 package io.docking.core;
 
 /**
- * 
- * @author sascha
- *
+ * A simple Docking step appending the sliced source batch to the destination
+ * batch
  */
 public class Docking {
 

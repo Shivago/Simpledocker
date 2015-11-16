@@ -24,9 +24,9 @@ public class OrderSelectionListController {
 
     @FXML
     public void initialize() {
-        initComboBoxes();
-        initRestButton();
-        initSaveButton();
+        //initComboBoxes();
+        //initRestButton();
+        //initSaveButton();
     }
 
     /**

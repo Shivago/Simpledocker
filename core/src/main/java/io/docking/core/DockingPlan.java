@@ -3,9 +3,7 @@ package io.docking.core;
 import java.util.List;
 
 /**
- * 
- * @author sascha
- *
+ * A collection of {@link Docking} steps
  */
 public class DockingPlan {
 

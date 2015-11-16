@@ -11,7 +11,8 @@ import io.docking.core.order.Order;
 public class SimpleDocker implements Docker {
 
 	@Override
-	public void dock(Order order, WagonBatch source, WagonBatch destination) {
-
+	public DockingPlan dock(Order orderOne, Order orderTwo,
+							WagonBatch wagonBatchOne, WagonBatch wagonBatchTwo) {
+		return null;
 	}
 }
