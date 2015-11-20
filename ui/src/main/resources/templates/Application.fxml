@@ -12,7 +12,8 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.layout.AnchorPane?>
 <AnchorPane styleClass="app-ancor-pane" prefHeight="768" prefWidth="1080" maxHeight="-Infinity" maxWidth="-Infinity">
-    <VBox alignment="CENTER" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.bottomAnchor="0" AnchorPane.topAnchor="0">
+    <VBox maxWidth="-Infinity" minHeight="240" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.bottomAnchor="0" AnchorPane.topAnchor="0">
+    <VBox style="-fx-background-color: rgba(51,51,51,1.0);" alignment="CENTER">
         <HBox styleClass="product-box" alignment="CENTER_LEFT" spacing="20.0">
             <padding>
                 <Insets left="50.0" bottom="50.0" top="125.0"/>
@@ -30,6 +31,8 @@
             </ImageView>
             </HBox>
         </HBox>
+    </VBox>
+    <VBox style="-fx-background-color: rgb(210,221,220);" alignment="CENTER">
         <JFXTabPane maxHeight="1080" maxWidth="1080" minHeight="-Infinity" minWidth="-Infinity" prefHeight="960.0"
                     prefWidth="1080" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8">
             <tabs>
@@ -38,5 +41,6 @@
                 <SummaryTab/>
             </tabs>
         </JFXTabPane>
+    </VBox>
     </VBox>
 </AnchorPane>
