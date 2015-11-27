@@ -8,7 +8,6 @@
         <version>1.0</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-
     <groupId>io.docker</groupId>
     <artifactId>ui</artifactId>
     <version>0.1.0</version>
@@ -18,6 +17,11 @@
             <url>file://${basedir}/my-repo</url>
         </repository>
     </repositories>
+    <properties>
+        <jfoenix-version>1.0</jfoenix-version>
+        <mvvmfx-version>1.4.0</mvvmfx-version>
+        <guice-version>4.0</guice-version>
+    </properties>
     <build>
         <plugins>
             <!-- COMPILE TO JAVA 8 -->
@@ -80,7 +84,22 @@
         <dependency>
             <groupId>jfoenix</groupId>
             <artifactId>core</artifactId>
-            <version>1.0</version>
+            <version>${jfoenix-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>de.saxsys</groupId>
+            <artifactId>mvvmfx</artifactId>
+            <version>${mvvmfx-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.inject</groupId>
+            <artifactId>guice</artifactId>
+            <version>${guice-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>de.saxsys</groupId>
+            <artifactId>mvvmfx-guice</artifactId>
+            <version>${mvvmfx-version}</version>
         </dependency>
     </dependencies>
 </project>
