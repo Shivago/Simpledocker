@@ -7,3 +7,5 @@ cd ..
 # build parent
 mvn install -q -DskipTests=true
 mvn test
+pip install --user codecov
+codecov
