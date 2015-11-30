@@ -25,7 +25,7 @@
                     <testSource>1.8</testSource>
                     <testTarget>1.8</testTarget>
                 </configuration>
-            </plugin
+            </plugin>
         </plugins>
     </build>
     <dependencies>
