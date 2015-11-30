@@ -7,5 +7,3 @@ cd ..
 # build parent
 mvn install -q -DskipTests=true
 mvn test cobertura:cobertura coveralls:report
-pip install --user codecov
-codecov
