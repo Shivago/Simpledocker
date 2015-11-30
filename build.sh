@@ -6,6 +6,6 @@ mvn install -q -DskipTests=true
 cd ..
 # build parent
 mvn install -q -DskipTests=true
-mvn test
+mvn test jacoco:report
 pip install --user codecov
 codecov
