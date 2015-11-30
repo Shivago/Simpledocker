@@ -2,4 +2,4 @@ language: java
 jdk:
   - oraclejdk8
 script:
-  - bash build.sh
+  - sh build.sh
