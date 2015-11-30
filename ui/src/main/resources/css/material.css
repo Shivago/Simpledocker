@@ -3,7 +3,7 @@
 }
 
 .tab-header-background {
-    -fx-background-color: rgb(51,51,51);
+    -fx-background-color: rgb(210,221,220);
 }
 
 .headers-region {
@@ -24,6 +24,10 @@
 
 .tab {
 
+}
+
+.tab-label {
+    -fx-text-fill: rgba(66,100,86,.8);
 }
 
 .tab:selected {

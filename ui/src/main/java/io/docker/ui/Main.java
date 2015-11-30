@@ -1,15 +1,15 @@
 package io.docker.ui;
 
-import javafx.application.Application;
+import de.saxsys.mvvmfx.guice.MvvmfxGuiceApplication;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class Main extends Application {
+public class Main extends MvvmfxGuiceApplication {
 
     @Override
-    public void start(Stage primaryStage) throws Exception {
+    public void startMvvmfx(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("/templates/Application.fxml"));
         Scene mainScene = new Scene(root, 1080, 960);
         primaryStage.setMinHeight(900.0);
@@ -22,8 +22,8 @@ public class Main extends Application {
         primaryStage.show();
     }
 
-
     public static void main(String[] args) {
         launch(args);
     }
+
 }

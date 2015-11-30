@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import com.jfoenix.controls.JFXListView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<fx:root type="javafx.scene.layout.VBox" xmlns:fx="http://javafx.com/fxml">
+    <VBox alignment="CENTER" layoutX="140.0" layoutY="10.0" prefHeight="567.0" prefWidth="110.0"
+          spacing="5.0">
+    <children>
+        <Label alignment="TOP_LEFT" text="sidetrack"/>
+        <JFXListView minHeight="475.0" prefHeight="475.0" prefWidth="148.0">
+            <VBox.margin>
+                <Insets bottom="10.0" top="55.0"/>
+            </VBox.margin>
+        </JFXListView>
+    </children>
+    <padding>
+        <Insets left="5.0" right="5.0" top="5.0"/>
+    </padding>
+    </VBox>
+</fx:root>
