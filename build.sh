@@ -1,4 +1,5 @@
 #!/bin/sh
+# for local building
 # build libs first!
 cd libs
 mvn install -q -DskipTests=true
@@ -6,4 +7,4 @@ mvn install -q -DskipTests=true
 cd ..
 # build parent
 mvn install -q -DskipTests=true
-mvn test cobertura:cobertura coveralls:report
+mvn test
