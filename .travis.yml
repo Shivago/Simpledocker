@@ -1,0 +1,4 @@
+language: java
+script:
+  - chmod +x build.sh
+  - ./build.sh
