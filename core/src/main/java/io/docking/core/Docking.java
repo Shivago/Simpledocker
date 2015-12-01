@@ -1,15 +1,22 @@
 package io.docking.core;
 
 /**
- * A simple Docking step appending the sliced source batch to the destination
- * batch
+ * @author Jean-Philippe Quéméner
+ *
+ * A simple Docking step providing information about one step in the
+ * {@link DockingPlan DockingPlan}
  */
 public class Docking {
 
-	private WagonBatch destinationBatch;
-	private WagonBatch sourceBatch;
-	private int sourceBatchIndex;
+	private final WagonBatch destinationBatch;
+	private final WagonBatch sourceBatch;
+	private final int sourceBatchIndex;
 
+	/**
+     * @param destinationBatch - batch to append the sliced part
+     * @param sourceBatch - batch to slice from
+     * @param sourceBatchIndex - index for the slice
+	 */
 	public Docking(WagonBatch destinationBatch, WagonBatch sourceBatch,
 			int sourceBatchIndex) {
 		this.destinationBatch = destinationBatch;
@@ -21,29 +28,18 @@ public class Docking {
 		return destinationBatch;
 	}
 
-	public void setDestinationBatch(WagonBatch destinationBatch) {
-		this.destinationBatch = destinationBatch;
-	}
-
 	public WagonBatch getSourceBatch() {
 		return sourceBatch;
-	}
-
-	public void setSourceBatch(WagonBatch sourceBatch) {
-		this.sourceBatch = sourceBatch;
 	}
 
 	public int getSourceBatchIndex() {
 		return sourceBatchIndex;
 	}
 
-	public void setSourceBatchIndex(int sourceBatchIndex) {
-		this.sourceBatchIndex = sourceBatchIndex;
-	}
-
 	@Override
 	public String toString() {
-		return "";
+		return "Slice " + sourceBatch + " at index " + sourceBatchIndex +
+			" and append to " + destinationBatch;
 	}
 
 }
