@@ -1,27 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?import com.jfoenix.controls.JFXButton?>
-<?import io.docker.ui.components.OrderSelectionList?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Tab?>
-<?import javafx.scene.layout.*?>
-<fx:root type="javafx.scene.control.Tab" xmlns:fx="http://javafx.com/fxml">
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<Tab text="Summary" fx:id="summaryView" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.40" fx:controller="io.docker.ui.view.summary.SummaryView">
     <VBox styleClass="container-box">
         <VBox alignment="CENTER">
             <HBox alignment="CENTER_LEFT" spacing="50.0" prefHeight="-Infinity" prefWidth="-Infinity">
                 <padding>
                     <Insets left="50.0" top="50.0"/>
                 </padding>
-                <OrderSelectionList/>
-                <OrderSelectionList/>
+                <TextArea minHeight="350" prefWidth="800.0">
+                </TextArea>
             </HBox>
             <HBox alignment="CENTER_LEFT">
                 <padding>
                     <Insets left="50.0" top="50"/>
                 </padding>
-                <JFXButton styleClass="button-global" text="Speichern"/>
+                <JFXButton fx:id="saveButton" onAction="#saveButtonPressed" styleClass="button-global" text="Speichern"/>
             </HBox>
         </VBox>
     </VBox>
-</fx:root>
+</Tab>
 
 

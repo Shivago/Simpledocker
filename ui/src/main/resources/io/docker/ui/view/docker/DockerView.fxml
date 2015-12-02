@@ -3,10 +3,11 @@
 <?import com.jfoenix.controls.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
-<?import io.docker.ui.components.SideTrack?>
-<fx:root type="javafx.scene.control.Tab" xmlns:fx="http://javafx.com/fxml">
+<Tab text="Docking" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.40"
+     fx:controller="io.docker.ui.view.docker.DockerView">
     <VBox styleClass="container-box">
         <VBox alignment="CENTER">
             <HBox prefHeight="100.0" prefWidth="200.0">
@@ -42,7 +43,7 @@
                         <Label text="Batch1"/>
                         <ImageView fitHeight="40.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../../images/1446931446_train.png"/>
+                                <Image url="@/images/1446931446_train.png"/>
                             </image>
                         </ImageView>
                         <JFXListView minHeight="475.0" prefHeight="475.0" prefWidth="148.0">
@@ -64,7 +65,7 @@
                         <Label text="Batch2"/>
                         <ImageView fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../../images/1446931446_train.png"/>
+                                <Image url="@/images/1446931446_train.png"/>
                             </image>
                         </ImageView>
                         <JFXListView minHeight="475.0" prefHeight="475.0" prefWidth="148.0">
@@ -82,11 +83,11 @@
                         <Insets left="5.0" right="5.0" top="5.0"/>
                     </padding>
                 </VBox>
-                <SideTrack/>
-                <SideTrack/>
-                <SideTrack/>
-                <SideTrack/>
-                <SideTrack/>
+                <fx:include fx:id="sideTrackView1" source="../docker/SideTrackView.fxml"/>
+                <fx:include fx:id="sideTrackView2" source="../docker/SideTrackView.fxml"/>
+                <fx:include fx:id="sideTrackView3" source="../docker/SideTrackView.fxml"/>
+                <fx:include fx:id="sideTrackView4" source="../docker/SideTrackView.fxml"/>
+                <fx:include fx:id="sideTrackView5" source="../docker/SideTrackView.fxml"/>
             </HBox>
             <HBox prefHeight="100.0" prefWidth="200.0">
                 <padding>
@@ -115,32 +116,35 @@
                             </JFXProgressBar>
                             <HBox spacing="10.0" alignment="CENTER_RIGHT" prefHeight="76.0" prefWidth="460.0">
                                 <children>
-                                    <JFXButton styleClass="button-global" alignment="CENTER" mnemonicParsing="false"
-                                               prefWidth="100.0"
-                                               text="Zurück" textAlignment="CENTER">
+                                    <JFXButton fx:id="backButton" onAction="#backButtonPressed"
+                                               text="Zurück" styleClass="button-global"
+                                               alignment="CENTER" mnemonicParsing="false"
+                                               prefWidth="100.0" textAlignment="CENTER">
+
                                         <HBox.margin>
                                             <Insets right="5.0"/>
                                         </HBox.margin>
                                     </JFXButton>
-                                    <JFXButton styleClass="button-global" alignment="CENTER" mnemonicParsing="false"
-                                               prefWidth="100.0"
-                                               text="Weiter" textAlignment="CENTER">
+                                    <JFXButton fx:id="nextButton" onAction="#nextButtonPressed"
+                                               text="Weiter" styleClass="button-global"
+                                               alignment="CENTER" mnemonicParsing="false"
+                                               prefWidth="100.0" textAlignment="CENTER">
                                         <HBox.margin>
                                             <Insets right="5.0"/>
                                         </HBox.margin>
                                     </JFXButton>
-                                    <JFXButton styleClass="button-global" alignment="CENTER" layoutX="441.0"
-                                               layoutY="35.0"
-                                               mnemonicParsing="false" prefWidth="100.0" text="Stop"
-                                               textAlignment="CENTER">
+                                    <JFXButton fx:id="stopButton" onAction="#stopButtonPressed"
+                                               text="Stop" styleClass="button-global"
+                                               alignment="CENTER" mnemonicParsing="false"
+                                               prefWidth="100.0" textAlignment="CENTER">
                                         <HBox.margin>
                                             <Insets right="5.0"/>
                                         </HBox.margin>
                                     </JFXButton>
-                                    <JFXButton styleClass="button-global" alignment="CENTER" layoutX="441.0"
-                                               layoutY="35.0"
-                                               mnemonicParsing="false" prefWidth="100.0" text="Play"
-                                               textAlignment="CENTER"/>
+                                    <JFXButton fx:id="playButton" onAction="#playButtonPressed"
+                                               text="Play" styleClass="button-global"
+                                               alignment="CENTER" mnemonicParsing="false"
+                                               prefWidth="100.0" textAlignment="CENTER"/>
                                 </children>
                             </HBox>
                         </children>
@@ -152,4 +156,4 @@
             </HBox>
         </VBox>
     </VBox>
-</fx:root>
+</Tab>
