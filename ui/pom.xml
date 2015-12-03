@@ -21,6 +21,7 @@
         <jfoenix-version>1.0</jfoenix-version>
         <mvvmfx-version>1.4.0</mvvmfx-version>
         <guice-version>4.0</guice-version>
+        <slf4j-version>1.7.13</slf4j-version>
     </properties>
     <build>
         <plugins>
@@ -48,6 +49,7 @@
                             <goal>shade</goal>
                         </goals>
                         <configuration>
+                            <finalName>simpledocker-${project.version}</finalName>
                             <minimizeJar>false</minimizeJar>
                             <createDependencyReducedPom>false</createDependencyReducedPom>
                             <filters>
@@ -104,7 +106,7 @@
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-simple</artifactId>
-            <version>1.7.13</version>
+            <version>${slf4j-version}</version>
         </dependency>
     </dependencies>
 </project>
