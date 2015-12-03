@@ -2,27 +2,26 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Tab?>
-<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
-<fx:root type="javafx.scene.control.Tab" xmlns:fx="http://javafx.com/fxml">
+<Tab text="Order" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.40" fx:controller="io.docker.ui.view.order.OrderView">
     <VBox styleClass="container-box">
         <VBox alignment="CENTER">
             <HBox alignment="CENTER_LEFT" spacing="50.0" prefHeight="-Infinity" prefWidth="-Infinity">
                 <padding>
                     <Insets left="50.0" top="50.0"/>
                 </padding>
-                <TextArea minHeight="350" prefWidth="800.0">
-                </TextArea>
+                <fx:include fx:id="orderSelectionListViewOne" source="../order/OrderSelectionListView.fxml"/>
+                <fx:include fx:id="orderSelectionListViewTwo" source="../order/OrderSelectionListView.fxml"/>
             </HBox>
             <HBox alignment="CENTER_LEFT">
                 <padding>
                     <Insets left="50.0" top="50"/>
                 </padding>
-                <JFXButton styleClass="button-global" text="Speichern"/>
+                <JFXButton fx:id="saveButton" onAction="#saveButtonPressed" styleClass="button-global" text="Speichern"/>
             </HBox>
         </VBox>
     </VBox>
-</fx:root>
+</Tab>
 
 

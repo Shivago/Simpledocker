@@ -3,7 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.VBox?>
-<fx:root type="javafx.scene.layout.VBox" xmlns:fx="http://javafx.com/fxml">
+<VBox xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.40" fx:controller="io.docker.ui.view.docker.SideTrackView">
     <VBox alignment="CENTER" layoutX="140.0" layoutY="10.0" prefHeight="567.0" prefWidth="110.0"
           spacing="5.0">
     <children>
@@ -18,4 +18,4 @@
         <Insets left="5.0" right="5.0" top="5.0"/>
     </padding>
     </VBox>
-</fx:root>
+</VBox>
