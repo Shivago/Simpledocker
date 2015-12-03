@@ -49,7 +49,7 @@
                             <goal>shade</goal>
                         </goals>
                         <configuration>
-                            <finalName>simpledocker-${project.version}</finalName>
+                            <finalName>simpledocker</finalName>
                             <minimizeJar>false</minimizeJar>
                             <createDependencyReducedPom>false</createDependencyReducedPom>
                             <filters>
