@@ -47,9 +47,9 @@
     -fx-min-width: 1080px;
     -fx-pref-width: 1080px;
     -fx-max-width: 1080px;
-    -fx-min-height: 200px;
-    -fx-pref-height: 200px;
-    -fx-max-height: 200px;
+    -fx-min-height: 135px;
+    -fx-pref-height: 135px;
+    -fx-max-height: 135px;
 }
 
 .button-global {
