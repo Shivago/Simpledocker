@@ -1,0 +1,10 @@
+language: java
+jdk:
+  - oraclejdk8
+install:
+  - cd libs
+  - mvn install -q -DskipTests=true
+  - cd .. 
+script:
+  - mvn install -q -DskipTests=true
+  - mvn test cobertura:cobertura coveralls:report
