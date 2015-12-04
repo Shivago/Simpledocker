@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<HBox xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.40" fx:controller="io.docker.ui.view.order.OrderSelectionListView">
+    <VBox prefHeight="570.0" maxWidth="-Infinity" spacing="5.0">
+        <children>
+            <Label text="Order1" />
+            <fx:include fx:id="orderItemViewOne" source="../order/OrderItemView.fxml"/>
+            <fx:include fx:id="orderItemViewTwo" source="../order/OrderItemView.fxml"/>
+            <fx:include fx:id="orderItemViewThree" source="../order/OrderItemView.fxml"/>
+            <fx:include fx:id="orderItemViewFour" source="../order/OrderItemView.fxml"/>
+            <fx:include fx:id="orderItemViewFive" source="../order/OrderItemView.fxml"/>
+        </children>
+    </VBox>
+</HBox>
+

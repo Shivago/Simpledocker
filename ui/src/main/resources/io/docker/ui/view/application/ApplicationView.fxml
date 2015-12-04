@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXTabPane?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<AnchorPane styleClass="app-ancor-pane" prefHeight="768" prefWidth="1080" maxHeight="-Infinity" maxWidth="-Infinity"
+            xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.40"
+            fx:controller="io.docker.ui.view.application.ApplicationView">
+    <VBox maxWidth="-Infinity" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0"
+          AnchorPane.bottomAnchor="0" AnchorPane.topAnchor="0">
+        <VBox style="-fx-background-color: rgba(51,51,51,1.0);" alignment="TOP_CENTER">
+            <HBox styleClass="product-box" alignment="CENTER_LEFT" spacing="20.0">
+                <padding>
+                    <Insets left="50.0" bottom="50.0" top="50.0"/>
+                </padding>
+                <ImageView fitHeight="35.0" preserveRatio="true">
+                    <Image url="@/images/simple_docker_icon.png"/>
+                </ImageView>
+                <Label style="-fx-text-fill: white" text="Simple Docker – Docking made simple"/>
+                <HBox alignment="CENTER_RIGHT">
+                    <padding>
+                        <Insets left="505.0"/>
+                    </padding>
+                    <ImageView>
+                        <Image url="@/images/logo_cargoio_v0.1.png"/>
+                    </ImageView>
+                </HBox>
+            </HBox>
+        </VBox>
+        <VBox style="-fx-background-color: rgb(210,221,220);" alignment="CENTER">
+            <JFXTabPane fx:id="tabPane" maxHeight="1080" maxWidth="1080" minHeight="-Infinity" minWidth="-Infinity" prefHeight="960.0"
+                        prefWidth="1080" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8">
+                <tabs>
+                    <fx:include fx:id="orderView" source="../order/OrderView.fxml"/>
+                    <fx:include fx:id="dockerView" source="../docker/DockerView.fxml"/>
+                    <fx:include fx:id="summaryView" source="../summary/SummaryView.fxml"/>
+                </tabs>
+            </JFXTabPane>
+        </VBox>
+    </VBox>
+</AnchorPane>
