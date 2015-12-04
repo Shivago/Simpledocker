@@ -29,7 +29,7 @@ public class GuiceStarter extends MvvmfxGuiceApplication {
         scene.getStylesheets().add(materialCss);
 
         stage.setScene(scene);
-        stage.setTitle("Simple Docker™ v0.1.0");
+        stage.setTitle("Simple Docker™ v0.2.0");
         stage.getIcons().add(new Image("/images/simple_docker_icon.png"));
         stage.show();
     }
