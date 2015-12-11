@@ -31,10 +31,28 @@ public class OrderView implements FxmlView<OrderViewModel>, Initializable {
     private OrderViewModel viewModel;
 
     @FXML
-    private Parent orderSelectionListViewOne, orderSelectionListViewTwo, orderSelectionListViewThree, orderSelectionListViewFour;
+    private Parent orderSelectionListViewOne;
 
     @FXML
-    private OrderSelectionListView orderSelectionListViewOneController, orderSelectionListViewTwoController, orderSelectionListViewThreeController, orderSelectionListViewFourController;
+    private Parent orderSelectionListViewTwo;
+
+    @FXML
+    private Parent orderSelectionListViewThree;
+
+    @FXML
+    private Parent orderSelectionListViewFour;
+
+    @FXML
+    private OrderSelectionListView orderSelectionListViewOneController;
+
+    @FXML
+    private OrderSelectionListView orderSelectionListViewTwoController;
+
+    @FXML
+    private OrderSelectionListView orderSelectionListViewThreeController;
+
+    @FXML
+    private OrderSelectionListView orderSelectionListViewFourController;
 
     @FXML
     private Button saveButton;
@@ -56,14 +74,13 @@ public class OrderView implements FxmlView<OrderViewModel>, Initializable {
                               orderSelectionListViewThreeController,
                               orderSelectionListViewFourController));
         List<Product> productList;
-        List<ComboBox> comboBoxes;
-
+        List<ComboBox<Product>> comboBoxes;
         for (OrderSelectionListView view : listViews) {
             productList = getProductListFrom(view);
             comboBoxes = view.getAllComboboxes();
             for (ComboBox box : comboBoxes) {
                 for (Product product : productList) {
-                    box.getItems().add(product.toString());
+                    box.getItems().add(product);
                 }
             }
         }
@@ -74,7 +91,7 @@ public class OrderView implements FxmlView<OrderViewModel>, Initializable {
                 Arrays.asList(orderSelectionListViewOneController,
                         orderSelectionListViewTwoController));
         List<Product> productList;
-        List<ComboBox> comboBoxes;
+        List<ComboBox<Product>> comboBoxes;
 
         for (OrderSelectionListView view : listViews) {
             productList = getProductListFrom(view);

@@ -24,7 +24,6 @@ public class OrderSelectionListViewModel implements ViewModel {
                 new Product("PH", "iPhone 6s"),
                 new Product("AW", "Apple Watch")
         ));
-
         return productList;
     }
 }

@@ -3,6 +3,7 @@ package io.docker.ui.view.order;
 import de.saxsys.mvvmfx.FxmlView;
 import de.saxsys.mvvmfx.InjectViewModel;
 import io.docker.ui.viewmodel.order.OrderSelectionListViewModel;
+import io.docking.core.order.Product;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
@@ -25,11 +26,34 @@ public class OrderSelectionListView implements FxmlView<OrderSelectionListViewMo
     private Label selectionListHeading;
 
     @FXML
-    // Injection of the application which is declared in the FXML File
-    private Parent orderItemViewOne, orderItemViewTwo, orderItemViewThree, orderItemViewFour, orderItemViewFive; // Value injected by FXMLLoader
+    private Parent orderItemViewOne;
 
     @FXML
-    private OrderItemView orderItemViewOneController, orderItemViewTwoController, orderItemViewThreeController, orderItemViewFourController, orderItemViewFiveController;
+    private Parent orderItemViewTwo;
+
+    @FXML
+    private Parent orderItemViewThree;
+
+    @FXML
+    private Parent orderItemViewFour;
+
+    @FXML
+    private Parent orderItemViewFive;
+
+    @FXML
+    private OrderItemView orderItemViewOneController;
+
+    @FXML
+    private OrderItemView orderItemViewTwoController;
+
+    @FXML
+    private OrderItemView orderItemViewThreeController;
+
+    @FXML
+    private OrderItemView orderItemViewFourController;
+
+    @FXML
+    private OrderItemView orderItemViewFiveController;
 
     @InjectViewModel
     private OrderSelectionListViewModel viewModel;
@@ -47,8 +71,8 @@ public class OrderSelectionListView implements FxmlView<OrderSelectionListViewMo
         return viewModel;
     }
 
-    public List<ComboBox> getAllComboboxes() {
-        List<ComboBox> comboBoxes = new ArrayList<>(Arrays.asList(
+    public List<ComboBox<Product>> getAllComboboxes() {
+        List<ComboBox<Product>> comboBoxes = new ArrayList<>(Arrays.asList(
                 orderItemViewOneController.getComboBox(),
                 orderItemViewTwoController.getComboBox(),
                 orderItemViewThreeController.getComboBox(),
