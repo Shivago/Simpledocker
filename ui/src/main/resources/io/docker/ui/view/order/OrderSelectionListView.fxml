@@ -5,7 +5,7 @@
 <HBox xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.40" fx:controller="io.docker.ui.view.order.OrderSelectionListView">
     <VBox prefHeight="570.0" maxWidth="-Infinity" spacing="5.0">
         <children>
-            <Label text="Order1" />
+            <Label fx:id="selectionListHeading" styleClass="selection-list-heading" />
             <fx:include fx:id="orderItemViewOne" source="../order/OrderItemView.fxml"/>
             <fx:include fx:id="orderItemViewTwo" source="../order/OrderItemView.fxml"/>
             <fx:include fx:id="orderItemViewThree" source="../order/OrderItemView.fxml"/>
