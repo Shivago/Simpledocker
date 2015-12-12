@@ -52,9 +52,23 @@
     -fx-max-height: 135px;
 }
 
+.root {
+    -fx-font-size: 10pt;
+}
+
+.order-selection-list-heading {
+    -fx-text-fill: rgba(66,100,86,.8);
+    -fx-font-weight: bold;
+    -fx-font-size: 11pt;
+}
+
+.selection-list-heading {
+    -fx-font-weight: bold;
+}
+
 .button-global {
     -fx-padding: 0.7em 0.57em;
-    -fx-font-size: 14px;
+    -fx-font-size: 12pt;
     -fx-button-type: RAISED;
     -fx-background-color: rgb(66,100,86);
     -fx-color: #FFF !important;
