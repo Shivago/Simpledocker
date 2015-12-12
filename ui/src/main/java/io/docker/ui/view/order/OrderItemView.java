@@ -3,6 +3,10 @@ package io.docker.ui.view.order;
 import de.saxsys.mvvmfx.FxmlView;
 import de.saxsys.mvvmfx.InjectViewModel;
 import io.docker.ui.viewmodel.order.OrderItemViewModel;
+import io.docking.core.order.OrderItem;
+import io.docking.core.order.Product;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
@@ -18,29 +22,37 @@ import java.util.ResourceBundle;
 public class OrderItemView implements FxmlView<OrderItemViewModel>, Initializable {
 
     @FXML
-    private ComboBox comboBox;
+    private ComboBox<Product> comboBox;
 
     @FXML
     private TextField textField;
 
     @FXML
-    // Injection of the application which is declared in the FXML File
-    private HBox orderItemView; // Value injected by FXMLLoader
+    private HBox orderItemView;
 
     @InjectViewModel
     private OrderItemViewModel viewModel;
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
+    public OrderItemView(){}
 
+    public OrderItemView(ComboBox<Product> comboBox, TextField textField, OrderItemViewModel viewModel) {
+        this.comboBox = comboBox;
+        this.textField = textField;
+        this.viewModel = viewModel;
     }
 
-    public ComboBox getComboBox() {
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        textField.textProperty().addListener((observable, oldValue, newValue) -> {
+            //todo validate input
+            viewModel.getAmountProperty().setValue(Integer.valueOf(newValue));
+        });
+        comboBox.valueProperty().bindBidirectional(viewModel.getProductProperty());
+    }
+
+    public ComboBox<Product> getComboBox() {
         return comboBox;
     }
 
-    public void setComboBoxDefaultValue(String value) {
-        comboBox.setValue(value);
-    }
 
 }
