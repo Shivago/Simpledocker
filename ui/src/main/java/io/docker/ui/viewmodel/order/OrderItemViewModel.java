@@ -1,6 +1,8 @@
 package io.docker.ui.viewmodel.order;
 
 import de.saxsys.mvvmfx.ViewModel;
+import de.saxsys.mvvmfx.utils.mapping.ModelWrapper;
+import io.docking.core.order.OrderItem;
 import io.docking.core.order.Product;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.Property;
@@ -12,9 +14,11 @@ import javafx.beans.property.SimpleObjectProperty;
  */
 public class OrderItemViewModel implements ViewModel {
 
-    private IntegerProperty amount;
+    private ModelWrapper<OrderItem> wrapper = new ModelWrapper<>();
 
-    private Property<Product> product;
+    private IntegerProperty amount = wrapper.field(OrderItem::getAmount, OrderItem::setAmount, 0);
+
+    private Property<Product> product = wrapper.field(OrderItem::getProduct, OrderItem::setProduct);
 
     public OrderItemViewModel() {
         amount = new SimpleIntegerProperty();

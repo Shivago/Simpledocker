@@ -27,6 +27,9 @@ public class SummaryView implements FxmlView<SummaryViewModel>, Initializable {
     @FXML
     private Button saveButton;
 
+    @FXML
+    private Button printButton;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -36,5 +39,8 @@ public class SummaryView implements FxmlView<SummaryViewModel>, Initializable {
     void saveButtonPressed(final ActionEvent event) {
         System.out.println("summary save button pressed...");
     }
+
+    @FXML
+    void printButtonPressed(final ActionEvent event) { System.out.println("summary print button pressed..."); }
 
 }

@@ -3,6 +3,7 @@ package io.docker.ui.view.order;
 import de.saxsys.mvvmfx.FxmlView;
 import de.saxsys.mvvmfx.InjectViewModel;
 import io.docker.ui.viewmodel.order.OrderViewModel;
+import io.docking.core.order.OrderItem;
 import io.docking.core.order.Product;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -73,14 +74,14 @@ public class OrderView implements FxmlView<OrderViewModel>, Initializable {
                               orderSelectionListViewTwoController,
                               orderSelectionListViewThreeController,
                               orderSelectionListViewFourController));
-        List<Product> productList;
+        List<OrderItem> orderItems;
         List<ComboBox<Product>> comboBoxes;
         for (OrderSelectionListView view : listViews) {
-            productList = getProductListFrom(view);
+            orderItems = getOrderItemsFrom(view);
             comboBoxes = view.getAllComboboxes();
             for (ComboBox box : comboBoxes) {
-                for (Product product : productList) {
-                    box.getItems().add(product);
+                for (OrderItem item : orderItems) {
+                    box.getItems().add(item.getProduct());
                 }
             }
         }
@@ -90,22 +91,20 @@ public class OrderView implements FxmlView<OrderViewModel>, Initializable {
         List<OrderSelectionListView> listViews = new ArrayList<>(
                 Arrays.asList(orderSelectionListViewOneController,
                         orderSelectionListViewTwoController));
-        List<Product> productList;
+        List<OrderItem> orderItems;
         List<ComboBox<Product>> comboBoxes;
 
         for (OrderSelectionListView view : listViews) {
-            productList = getProductListFrom(view);
+            orderItems = getOrderItemsFrom(view);
             comboBoxes = view.getAllComboboxes();
-            for (int i = 0; i < productList.size(); i++) {
-                comboBoxes.get(i).setValue(productList.get(i));
+            for (int i = 0; i < orderItems.size(); i++) {
+                comboBoxes.get(i).setValue(orderItems.get(i).getProduct());
             }
-
         }
-
     }
 
-    private List<Product> getProductListFrom(OrderSelectionListView view) {
-        return view.getViewModel().getProductList();
+    private List<OrderItem> getOrderItemsFrom(OrderSelectionListView view) {
+        return view.getViewModel().getOrderItems();
     }
 
     @FXML
