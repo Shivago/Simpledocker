@@ -1,6 +1,7 @@
 package io.docker.ui.viewmodel.order;
 
 import de.saxsys.mvvmfx.ViewModel;
+import io.docking.core.order.OrderItem;
 import io.docking.core.order.Product;
 
 import java.util.ArrayList;
@@ -12,18 +13,18 @@ import java.util.List;
  */
 public class OrderSelectionListViewModel implements ViewModel {
 
-    private List<Product> productList;
+    private List<OrderItem> orderItems;
 
     public OrderSelectionListViewModel() {}
 
-    public List<Product> getProductList() {
-        productList = new ArrayList<>(Arrays.asList(
-                new Product("MB", "MacBook Pro"),
-                new Product("IM", "iMac"),
-                new Product("IP", "iPad Pro"),
-                new Product("PH", "iPhone 6s"),
-                new Product("AW", "Apple Watch")
+    public List<OrderItem> getOrderItems() {
+        orderItems = new ArrayList<>(Arrays.asList(
+                new OrderItem(new Product("MB", "MacBook Pro"), 0),
+                new OrderItem(new Product("IM", "iMac"), 0),
+                new OrderItem(new Product("IP", "iPad Pro"), 0),
+                new OrderItem(new Product("PH", "iPhone 6s"), 0),
+                new OrderItem(new Product("AW", "Apple Watch"), 0)
         ));
-        return productList;
+        return orderItems;
     }
 }

@@ -2,6 +2,7 @@ package io.docker.ui.view.order;
 
 import de.saxsys.mvvmfx.FxmlView;
 import de.saxsys.mvvmfx.InjectViewModel;
+import io.docker.ui.ServiceController;
 import io.docker.ui.viewmodel.order.OrderItemViewModel;
 import io.docking.core.order.OrderItem;
 import io.docking.core.order.Product;
@@ -12,7 +13,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
+import javafx.scene.text.Text;
 
+import javax.inject.Inject;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -21,11 +24,14 @@ import java.util.ResourceBundle;
  */
 public class OrderItemView implements FxmlView<OrderItemViewModel>, Initializable {
 
+    @Inject
+    private ServiceController serviceController;
+
     @FXML
     private ComboBox<Product> comboBox;
 
     @FXML
-    private TextField textField;
+    public TextField textField;
 
     @FXML
     private HBox orderItemView;
@@ -54,5 +60,6 @@ public class OrderItemView implements FxmlView<OrderItemViewModel>, Initializabl
         return comboBox;
     }
 
+    public TextField getTextField() { return textField; }
 
 }

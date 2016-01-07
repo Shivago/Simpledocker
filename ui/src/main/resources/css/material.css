@@ -62,6 +62,14 @@
     -fx-font-size: 11pt;
 }
 
+.list-cell {
+     -fx-alignment: CENTER_LEFT;
+}
+
+.order-list-one {
+    -fx-alignment: left;
+}
+
 .selection-list-heading {
     -fx-font-weight: bold;
 }
