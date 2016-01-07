@@ -8,7 +8,7 @@
           spacing="5.0">
     <children>
         <Label alignment="TOP_LEFT" text="sidetrack"/>
-        <JFXListView minHeight="475.0" prefHeight="475.0" prefWidth="148.0">
+        <JFXListView minHeight="475.0" prefHeight="475.0" minWidth="140.0" prefWidth="140.0">
             <VBox.margin>
                 <Insets bottom="10.0" top="55.0"/>
             </VBox.margin>

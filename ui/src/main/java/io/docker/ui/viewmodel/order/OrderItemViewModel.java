@@ -40,4 +40,8 @@ public class OrderItemViewModel implements ViewModel {
     public int getAmount() {
         return amount.get();
     }
+
+    public void setAmount(IntegerProperty amount) {
+        this.amount = amount;
+    }
 }
