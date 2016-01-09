@@ -32,7 +32,7 @@ public class OrderItem {
 	}
 	
 	public String toString() {
-		return "OrderItem: " + product.toString() + ", Amount: " + amount + " ";
+		return product.toString() + ", x " + amount + " ";
 	}
 
 }

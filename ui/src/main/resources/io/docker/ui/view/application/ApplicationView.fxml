@@ -6,7 +6,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
-<AnchorPane styleClass="app-ancor-pane" prefHeight="768" prefWidth="1080" maxHeight="-Infinity" maxWidth="-Infinity"
+<AnchorPane fx:id="applicationView" styleClass="app-ancor-pane" prefHeight="768" prefWidth="1080" maxHeight="-Infinity" maxWidth="-Infinity"
             xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.40"
             fx:controller="io.docker.ui.view.application.ApplicationView">
     <VBox maxWidth="-Infinity" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0"
@@ -22,7 +22,7 @@
                 <Label style="-fx-text-fill: white" text="Simple Docker – Docking made simple"/>
                 <HBox alignment="CENTER_RIGHT">
                     <padding>
-                        <Insets left="505.0"/>
+                        <Insets left="495.0"/>
                     </padding>
                     <ImageView>
                         <Image url="@/images/logo_cargoio_v0.1.png"/>
@@ -30,7 +30,7 @@
                 </HBox>
             </HBox>
         </VBox>
-        <VBox style="-fx-background-color: rgb(210,221,220);" alignment="CENTER">
+        <VBox style="-fx-background-color: rgba(79,93,115,0.2);" alignment="CENTER">
             <JFXTabPane fx:id="tabPane" maxHeight="1080" maxWidth="1080" minHeight="-Infinity" minWidth="-Infinity" prefHeight="960.0"
                         prefWidth="1080" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8">
                 <tabs>

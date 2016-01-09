@@ -15,11 +15,12 @@
                 <TextArea minHeight="350" prefWidth="800.0">
                 </TextArea>
             </HBox>
-            <HBox alignment="CENTER_LEFT">
+            <HBox spacing="15" alignment="CENTER_LEFT">
                 <padding>
                     <Insets left="50.0" top="50"/>
                 </padding>
                 <JFXButton fx:id="saveButton" onAction="#saveButtonPressed" styleClass="button-global" text="Speichern"/>
+                <JFXButton fx:id="printButton" onAction="#printButtonPressed" styleClass="button-global" text="Drucken"/>
             </HBox>
         </VBox>
     </VBox>
