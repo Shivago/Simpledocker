@@ -21,7 +21,8 @@
                                 <Insets top="60.0"/>
                             </VBox.margin>
                         </Label>
-                        <ListView fx:id="orderListOne" styleClass="order-list-one" prefHeight="227.5" minWidth="180.0" prefWidth="180.0">
+                        <ListView fx:id="orderListOne" styleClass="order-list-one" prefHeight="227.5" minWidth="180.0"
+                                  prefWidth="180.0">
                             <VBox.margin>
                                 <Insets bottom="1.0" top="5.0"/>
                             </VBox.margin>
@@ -46,7 +47,8 @@
                                 <Image url="@/images/1446931446_train.png"/>
                             </image>
                         </ImageView>
-                        <ListView fx:id="deliveryOne" minHeight="475.0" prefHeight="475.0" minWidth="140.0" prefWidth="140.0">
+                        <ListView fx:id="deliveryOne" minHeight="475.0" prefHeight="475.0" minWidth="140.0"
+                                  prefWidth="140.0">
                             <VBox.margin>
                                 <Insets bottom="10.0" top="10.0"/>
                             </VBox.margin>
@@ -68,7 +70,8 @@
                                 <Image url="@/images/1446931446_train.png"/>
                             </image>
                         </ImageView>
-                        <ListView fx:id="deliveryTwo" minHeight="475.0" prefHeight="475.0" minWidth="140.0" prefWidth="140.0">
+                        <ListView fx:id="deliveryTwo" minHeight="475.0" prefHeight="475.0" minWidth="140.0"
+                                  prefWidth="140.0">
                             <VBox.margin>
                                 <Insets bottom="10.0" top="10.0"/>
                             </VBox.margin>
@@ -89,71 +92,40 @@
                 <!--<fx:include fx:id="sideTrackView4" source="../docker/SideTrackView.fxml"/>-->
                 <!--<fx:include fx:id="sideTrackView5" source="../docker/SideTrackView.fxml"/>-->
             </HBox>
-            <HBox prefHeight="100.0" prefWidth="200.0">
+            <VBox alignment="CENTER_RIGHT">
                 <padding>
-                    <Insets left="50.0"/>
+                    <Insets top="10.0" right="60.0"/>
                 </padding>
-                <children>
-                    <VBox prefHeight="200.0" prefWidth="130.0"/>
-                    <VBox alignment="TOP_RIGHT" prefHeight="95.0" prefWidth="255.0">
-                        <children>
-                            <Label text="Fortschritt:">
-                                <VBox.margin>
-                                    <Insets top="5.0" left="2.5" right="15.0"/>
-                                </VBox.margin>
-                            </Label>
-                        </children>
-                        <HBox.margin>
-                            <Insets left="30.0" top="5.0"/>
-                        </HBox.margin>
-                    </VBox>
-                    <VBox prefHeight="95.0" prefWidth="551.0">
-                        <children>
-                            <JFXProgressBar prefHeight="20.0" prefWidth="541.0" progress="0.0">
-                                <VBox.margin>
-                                    <Insets left="10.0" top="12.0"/>
-                                </VBox.margin>
-                            </JFXProgressBar>
-                            <HBox spacing="10.0" alignment="CENTER_RIGHT" prefHeight="76.0" prefWidth="460.0">
-                                <children>
-                                    <JFXButton fx:id="backButton" onAction="#backButtonPressed"
-                                               text="Zurück" styleClass="button-global"
-                                               alignment="CENTER" mnemonicParsing="false"
-                                               prefWidth="100.0" textAlignment="CENTER">
-
-                                        <HBox.margin>
-                                            <Insets right="5.0"/>
-                                        </HBox.margin>
-                                    </JFXButton>
-                                    <JFXButton fx:id="nextButton" onAction="#nextButtonPressed"
-                                               text="Weiter" styleClass="button-global"
-                                               alignment="CENTER" mnemonicParsing="false"
-                                               prefWidth="100.0" textAlignment="CENTER">
-                                        <HBox.margin>
-                                            <Insets right="5.0"/>
-                                        </HBox.margin>
-                                    </JFXButton>
-                                    <JFXButton fx:id="stopButton" onAction="#stopButtonPressed"
-                                               text="Stop" styleClass="button-global"
-                                               alignment="CENTER" mnemonicParsing="false"
-                                               prefWidth="100.0" textAlignment="CENTER">
-                                        <HBox.margin>
-                                            <Insets right="5.0"/>
-                                        </HBox.margin>
-                                    </JFXButton>
-                                    <JFXButton fx:id="playButton" onAction="#playButtonPressed"
-                                               text="Play" styleClass="button-global"
-                                               alignment="CENTER" mnemonicParsing="false"
-                                               prefWidth="100.0" textAlignment="CENTER"/>
-                                </children>
-                            </HBox>
-                        </children>
-                        <HBox.margin>
-                            <Insets top="5.0"/>
-                        </HBox.margin>
-                    </VBox>
-                </children>
-            </HBox>
+                <HBox spacing="10.0" alignment="CENTER_RIGHT">
+                    <Label text="Fortschritt:" prefWidth="75.0" minWidth="75.0">
+                    </Label>
+                    <JFXProgressBar prefWidth="550.0" progress="0.0">
+                    </JFXProgressBar>
+                    <JFXButton fx:id="stopButton" onAction="#stopButtonPressed"
+                               text="&lt;" styleClass="button-global"
+                               maxWidth="50.0" prefWidth="50.0" prefHeight="20.0" maxHeight="5.0"
+                               textAlignment="CENTER">
+                    </JFXButton>
+                    <JFXButton fx:id="playButton" onAction="#playButtonPressed"
+                               text="&gt;" styleClass="button-global"
+                               maxWidth="50.0" prefWidth="50.0" prefHeight="20.0" maxHeight="5.0"
+                               textAlignment="CENTER">
+                    </JFXButton>
+                </HBox>
+                <HBox spacing="10.0" alignment="CENTER_RIGHT">
+                    <padding>
+                        <Insets top="20.0"/>
+                    </padding>
+                    <JFXButton fx:id="backButton" onAction="#backButtonPressed"
+                               text="Zurück" styleClass="button-global"
+                               prefWidth="100.0" textAlignment="CENTER">
+                    </JFXButton>
+                    <JFXButton fx:id="nextButton" onAction="#nextButtonPressed"
+                               text="Weiter" styleClass="button-global"
+                               prefWidth="100.0" textAlignment="CENTER">
+                    </JFXButton>
+                </HBox>
+            </VBox>
         </VBox>
     </VBox>
 </Tab>

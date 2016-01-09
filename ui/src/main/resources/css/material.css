@@ -1,13 +1,14 @@
 .app-anchor-pane {
-    -fx-background-color: rgb(219,181,81);
+
 }
 
 .tab-header-background {
-    -fx-background-color: rgb(210,221,220);
+    -fx-background-color: rgba(79,93,115,0.0);
 }
 
 .headers-region {
     -fx-pref-height: 40px;
+    -fx-effect: null;
 }
 
 .tab-pane {
@@ -16,6 +17,7 @@
     -fx-max-width: 1080px;
     -fx-tab-pref-width: 1080px;
     -fx-padding: 100px;
+    -fx-effect: null;
 }
 
 .tab-content-area {
@@ -27,7 +29,7 @@
 }
 
 .tab-label {
-    -fx-text-fill: rgba(66,100,86,.8);
+    -fx-text-fill: rgba(79,93,115,1.0);
 }
 
 .tab:selected {
@@ -39,7 +41,7 @@
     -fx-pref-width: 1080px;
     -fx-min-height: 875px;
     -fx-pref-height: 875px;
-    -fx-background-color: rgb(210,221,220);
+    -fx-background-color: rgba(79,93,115,0.0);
 }
 
 .product-box {
@@ -57,7 +59,7 @@
 }
 
 .order-selection-list-heading {
-    -fx-text-fill: rgba(66,100,86,.8);
+    -fx-text-fill: rgba(79,93,115,1.0);
     -fx-font-weight: bold;
     -fx-font-size: 11pt;
 }
@@ -78,9 +80,8 @@
     -fx-padding: 0.7em 0.57em;
     -fx-font-size: 12pt;
     -fx-button-type: RAISED;
-    -fx-background-color: rgb(66,100,86);
+    -fx-background-color: rgba(79,93,115,1.0);
     -fx-color: #FFF !important;
-    -fx-pref-width: 100;
     -fx-text-fill: WHITE;
     -fx-border-radius: 0.25;
     -fx-font-size: 1.2em;
