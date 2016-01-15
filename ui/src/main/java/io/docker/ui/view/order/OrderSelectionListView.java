@@ -3,23 +3,17 @@ package io.docker.ui.view.order;
 import de.saxsys.mvvmfx.FxmlView;
 import de.saxsys.mvvmfx.InjectViewModel;
 import io.docker.ui.ServiceController;
-import io.docker.ui.viewmodel.order.OrderSelectionListViewModel;
 import io.docking.core.order.OrderItem;
-import io.docking.core.order.Product;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
-import javafx.scene.layout.HBox;
 
-import javax.inject.Inject;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
+import javax.inject.Inject;
 
 /**
  * @author sascha on 02/12/15.
@@ -67,42 +61,30 @@ public class OrderSelectionListView implements FxmlView<OrderSelectionListViewMo
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        orderItemViewOneController.selectIndex(0);
+        orderItemViewTwoController.selectIndex(1);
+        orderItemViewThreeController.selectIndex(2);
+        orderItemViewFourController.selectIndex(3);
+        orderItemViewFiveController.selectIndex(4);
+        viewModel.orderItem1Property().bindBidirectional(orderItemViewOneController.getViewModel().getOrderItemProperty());
+        viewModel.orderItem2Property().bindBidirectional(orderItemViewTwoController.getViewModel().getOrderItemProperty());
+        viewModel.orderItem3Property().bindBidirectional(orderItemViewThreeController.getViewModel().getOrderItemProperty());
+        viewModel.orderItem4Property().bindBidirectional(orderItemViewFourController.getViewModel().getOrderItemProperty());
+        viewModel.orderItem5Property().bindBidirectional(orderItemViewFiveController.getViewModel().getOrderItemProperty());
     }
 
     public void setSelectionListHeading(String text) {
         selectionListHeading.setText(text);
     }
 
-    public OrderSelectionListViewModel getViewModel() {
-        return viewModel;
-    }
-
-    public List<ComboBox<Product>> getAllComboboxes() {
-        List<ComboBox<Product>> comboBoxes = new ArrayList<>(Arrays.asList(
-                orderItemViewOneController.getComboBox(),
-                orderItemViewTwoController.getComboBox(),
-                orderItemViewThreeController.getComboBox(),
-                orderItemViewFourController.getComboBox(),
-                orderItemViewFiveController.getComboBox()
-        ));
-        return comboBoxes;
-    }
-
     public List<OrderItem> getOrderItems() {
-        List<OrderItem> items = new ArrayList<>(Arrays.asList(
-                new OrderItem(orderItemViewOneController.getComboBox().getValue(),
-                        Integer.valueOf(orderItemViewOneController.getTextField().getText())),
-                new OrderItem(orderItemViewTwoController.getComboBox().getValue(),
-                        Integer.valueOf(orderItemViewTwoController.getTextField().getText())),
-                new OrderItem(orderItemViewThreeController.getComboBox().getValue(),
-                        Integer.valueOf(orderItemViewThreeController.getTextField().getText())),
-                new OrderItem(orderItemViewFourController.getComboBox().getValue(),
-                        Integer.valueOf(orderItemViewFourController.getTextField().getText())),
-                new OrderItem(orderItemViewFiveController.getComboBox().getValue(),
-                        Integer.valueOf(orderItemViewFiveController.getTextField().getText()))
-        ));
-
-        return items;
+        return Arrays.asList(
+            viewModel.orderItem1Property().getValue(),
+            viewModel.orderItem2Property().getValue(),
+            viewModel.orderItem3Property().getValue(),
+            viewModel.orderItem4Property().getValue(),
+            viewModel.orderItem5Property().getValue()
+        );
     }
+
 }

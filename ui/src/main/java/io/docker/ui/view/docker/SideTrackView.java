@@ -2,7 +2,6 @@ package io.docker.ui.view.docker;
 
 import de.saxsys.mvvmfx.FxmlView;
 import de.saxsys.mvvmfx.InjectViewModel;
-import io.docker.ui.viewmodel.docker.SideTrackViewModel;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.VBox;

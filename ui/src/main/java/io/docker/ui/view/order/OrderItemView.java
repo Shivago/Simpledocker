@@ -2,22 +2,20 @@ package io.docker.ui.view.order;
 
 import de.saxsys.mvvmfx.FxmlView;
 import de.saxsys.mvvmfx.InjectViewModel;
+import de.saxsys.mvvmfx.utils.notifications.NotificationCenter;
 import io.docker.ui.ServiceController;
-import io.docker.ui.viewmodel.order.OrderItemViewModel;
+import io.docker.ui.services.ProductService;
 import io.docking.core.order.OrderItem;
 import io.docking.core.order.Product;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
-import javafx.scene.text.Text;
 
-import javax.inject.Inject;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javax.inject.Inject;
 
 /**
  * @author sascha on 02/12/15.
@@ -27,11 +25,17 @@ public class OrderItemView implements FxmlView<OrderItemViewModel>, Initializabl
     @Inject
     private ServiceController serviceController;
 
+    @Inject
+    private ProductService productService;
+
+    @Inject
+    private NotificationCenter notificationCenter;
+
     @FXML
     private ComboBox<Product> comboBox;
 
     @FXML
-    public TextField textField;
+    private TextField textField;
 
     @FXML
     private HBox orderItemView;
@@ -41,7 +45,8 @@ public class OrderItemView implements FxmlView<OrderItemViewModel>, Initializabl
 
     public OrderItemView(){}
 
-    public OrderItemView(ComboBox<Product> comboBox, TextField textField, OrderItemViewModel viewModel) {
+    public OrderItemView(ComboBox<Product> comboBox, TextField textField,
+                         OrderItemViewModel viewModel) {
         this.comboBox = comboBox;
         this.textField = textField;
         this.viewModel = viewModel;
@@ -50,16 +55,29 @@ public class OrderItemView implements FxmlView<OrderItemViewModel>, Initializabl
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         textField.textProperty().addListener((observable, oldValue, newValue) -> {
-            //todo validate input
+            //todo validate number input
             viewModel.getAmountProperty().setValue(Integer.valueOf(newValue));
+            notificationCenter.publish("datachanged");
+            generateOrderItem();
+        });
+        comboBox.valueProperty().addListener(observable -> {
+            notificationCenter.publish("datachanged");
+            generateOrderItem();
         });
         comboBox.valueProperty().bindBidirectional(viewModel.getProductProperty());
+        comboBox.setItems(productService.getProductsAsOrderItemObservableList());
+        generateOrderItem();
     }
 
-    public ComboBox<Product> getComboBox() {
-        return comboBox;
+    public void selectIndex(int defaultIndex) {
+        comboBox.getSelectionModel().select(defaultIndex);
     }
 
-    public TextField getTextField() { return textField; }
+    private void generateOrderItem() {
+        viewModel.getOrderItemProperty().setValue(new OrderItem(viewModel.getProduct(), viewModel.getAmount()));
+    }
 
+    public OrderItemViewModel getViewModel() {
+        return viewModel;
+    }
 }

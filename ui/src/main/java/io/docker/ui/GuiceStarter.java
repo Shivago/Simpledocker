@@ -4,7 +4,7 @@ import de.saxsys.mvvmfx.FluentViewLoader;
 import de.saxsys.mvvmfx.ViewTuple;
 import de.saxsys.mvvmfx.guice.MvvmfxGuiceApplication;
 import io.docker.ui.view.application.ApplicationView;
-import io.docker.ui.viewmodel.application.ApplicationViewModel;
+import io.docker.ui.view.application.ApplicationViewModel;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;

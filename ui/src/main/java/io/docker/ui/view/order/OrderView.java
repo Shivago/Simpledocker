@@ -2,26 +2,19 @@ package io.docker.ui.view.order;
 
 import de.saxsys.mvvmfx.FxmlView;
 import de.saxsys.mvvmfx.InjectViewModel;
-import io.docker.ui.ServiceController;
-import io.docker.ui.viewmodel.order.OrderItemViewModel;
-import io.docker.ui.viewmodel.order.OrderViewModel;
-import io.docking.core.order.OrderItem;
-import io.docking.core.order.Product;
-import javafx.beans.property.SimpleIntegerProperty;
+import de.saxsys.mvvmfx.utils.notifications.NotificationCenter;
+import io.docker.ui.services.OrderDeliveryDataService;
+import io.docker.ui.services.TabService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.Tab;
 
-import javax.inject.Inject;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ResourceBundle;
+import javax.inject.Inject;
 
 /**
  * @author sascha on 02/12/15.
@@ -29,7 +22,10 @@ import java.util.ResourceBundle;
 public class OrderView implements FxmlView<OrderViewModel>, Initializable {
 
     @Inject
-    private ServiceController serviceController;
+    private TabService tabService;
+
+    @Inject
+    private OrderDeliveryDataService dataService;
 
     @FXML
     // Injection of the application which is declared in the FXML File
@@ -40,6 +36,9 @@ public class OrderView implements FxmlView<OrderViewModel>, Initializable {
 
     @Inject
     private OrderItemViewModel itemViewModel;
+
+    @Inject
+    private NotificationCenter notificationCenter;
 
     @FXML
     private Parent orderSelectionListViewOne;
@@ -76,63 +75,25 @@ public class OrderView implements FxmlView<OrderViewModel>, Initializable {
         // Deliveries
         orderSelectionListViewThreeController.setSelectionListHeading("Liége");
         orderSelectionListViewFourController.setSelectionListHeading("Maastricht");
-
-        initOrderSelectionLists();
-        setOrderListDefaultValues();
-    }
-
-    private void initOrderSelectionLists() {
-        List<OrderSelectionListView> listViews = new ArrayList<>(
-                Arrays.asList(orderSelectionListViewOneController,
-                              orderSelectionListViewTwoController,
-                              orderSelectionListViewThreeController,
-                              orderSelectionListViewFourController));
-        List<OrderItem> orderItems;
-        List<ComboBox<Product>> comboBoxes;
-        for (OrderSelectionListView view : listViews) {
-            orderItems = getOrderItemsFrom(view);
-            comboBoxes = view.getAllComboboxes();
-            for (ComboBox box : comboBoxes) {
-                for (OrderItem item : orderItems) {
-                    box.getItems().add(item.getProduct());
-                }
-            }
-        }
-    }
-
-    public void setOrderListDefaultValues() {
-        List<OrderSelectionListView> listViews = new ArrayList<>(
-                Arrays.asList(orderSelectionListViewOneController,
-                              orderSelectionListViewTwoController));
-        List<OrderItem> orderItems;
-        List<ComboBox<Product>> comboBoxes;
-
-        for (OrderSelectionListView view : listViews) {
-            orderItems = getOrderItemsFrom(view);
-            comboBoxes = view.getAllComboboxes();
-            for (int i = 0; i < orderItems.size(); i++) {
-                comboBoxes.get(i).setValue(orderItems.get(i).getProduct());
-            }
-        }
-    }
-
-    private List<OrderItem> getOrderItemsFrom(OrderSelectionListView view) {
-        return view.getViewModel().getOrderItems();
     }
 
     @FXML
     void saveButtonPressed(final ActionEvent event) {
-        serviceController.setFirstOrder(orderSelectionListViewOneController.getOrderItems());
-        serviceController.setSecondOrder(orderSelectionListViewTwoController.getOrderItems());
-        serviceController.firstOrderToDockerView(serviceController.getFirstOrder());
-        serviceController.secondOrderToDockerView(serviceController.getSecondOrder());
+        if (valid()) {
+            dataService.setOrder1(orderSelectionListViewOneController.getOrderItems());
+            dataService.setOrder2(orderSelectionListViewTwoController.getOrderItems());
+            dataService.setDelivery1(orderSelectionListViewThreeController.getOrderItems());
+            dataService.setDelivery2(orderSelectionListViewFourController.getOrderItems());
+            notificationCenter.publish("saved");
+            tabService.changeToTab(1);
+        } else {
+            //todo show modal dialog with error message
+        }
 
-        serviceController.setFirstDelivery(orderSelectionListViewThreeController.getOrderItems());
-        serviceController.setSecondDelivery(orderSelectionListViewFourController.getOrderItems());
-        serviceController.firstDeliveryToDockerView(serviceController.getFirstDelivery());
-        serviceController.secondDeliveryToDockerView(serviceController.getSecondDelivery());
+    }
 
-        serviceController.changeToTab(1);
+    private boolean valid() {
+        return true;
     }
 
 }

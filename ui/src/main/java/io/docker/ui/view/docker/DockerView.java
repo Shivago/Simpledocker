@@ -2,8 +2,9 @@ package io.docker.ui.view.docker;
 
 import de.saxsys.mvvmfx.FxmlView;
 import de.saxsys.mvvmfx.InjectViewModel;
-import io.docker.ui.ServiceController;
-import io.docker.ui.viewmodel.docker.DockerViewModel;
+import de.saxsys.mvvmfx.utils.notifications.NotificationCenter;
+import io.docker.ui.services.OrderDeliveryDataService;
+import io.docker.ui.services.TabService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -12,9 +13,9 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.Tab;
 import javafx.scene.layout.VBox;
 
-import javax.inject.Inject;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javax.inject.Inject;
 
 /**
  * @author sascha on 02/12/15.
@@ -22,7 +23,13 @@ import java.util.ResourceBundle;
 public class DockerView implements FxmlView<DockerViewModel>, Initializable {
 
     @Inject
-    private ServiceController serviceController;
+    private NotificationCenter notificationCenter;
+
+    @Inject
+    private TabService tabService;
+
+    @Inject
+    private OrderDeliveryDataService orderDeliveryDataService;
 
     @FXML
     // Injection of the application which is declared in the FXML File
@@ -45,14 +52,10 @@ public class DockerView implements FxmlView<DockerViewModel>, Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        sendListViewsTo(serviceController);
-    }
-
-    public void sendListViewsTo(ServiceController serviceController) {
-        serviceController.setFirstOrderListView(orderListOne);
-        serviceController.setSecondOrderListView(orderListTwo);
-        serviceController.setFirstDeliveryListView(deliveryOne);
-        serviceController.setSecondDeliveryListView(deliveryTwo);
+        notificationCenter.subscribe("saved", (s, objects) -> {
+            System.out.println("New data boiii!");
+            OrderDeliveryDataService.OrderDeliveryData data = orderDeliveryDataService.getData();
+        });
     }
 
     public ListView getOrderListOne() {
@@ -65,11 +68,12 @@ public class DockerView implements FxmlView<DockerViewModel>, Initializable {
 
     @FXML
     void backButtonPressed(final ActionEvent event) {
+        tabService.changeToTab(0);
     }
 
     @FXML
     void nextButtonPressed(final ActionEvent event) {
-        serviceController.changeToTab(2);
+        tabService.changeToTab(2);
     }
 
     @FXML

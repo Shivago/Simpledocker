@@ -2,7 +2,6 @@ package io.docker.ui.view.summary;
 
 import de.saxsys.mvvmfx.FxmlView;
 import de.saxsys.mvvmfx.InjectViewModel;
-import io.docker.ui.viewmodel.summary.SummaryViewModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;

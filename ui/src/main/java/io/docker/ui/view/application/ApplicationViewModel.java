@@ -1,4 +1,4 @@
-package io.docker.ui.viewmodel.application;
+package io.docker.ui.view.application;
 
 import de.saxsys.mvvmfx.ViewModel;
 

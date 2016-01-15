@@ -1,4 +1,4 @@
-package io.docker.ui.viewmodel.order;
+package io.docker.ui.view.order;
 
 import de.saxsys.mvvmfx.ViewModel;
 import de.saxsys.mvvmfx.utils.mapping.ModelWrapper;
@@ -20,9 +20,12 @@ public class OrderItemViewModel implements ViewModel {
 
     private Property<Product> product = wrapper.field(OrderItem::getProduct, OrderItem::setProduct);
 
+    private Property<OrderItem> orderItem;
+
     public OrderItemViewModel() {
         amount = new SimpleIntegerProperty();
         product = new SimpleObjectProperty<>();
+        orderItem = new SimpleObjectProperty<>();
     }
 
     public IntegerProperty getAmountProperty() {
@@ -44,4 +47,18 @@ public class OrderItemViewModel implements ViewModel {
     public void setAmount(IntegerProperty amount) {
         this.amount = amount;
     }
+
+    public Property<OrderItem> getOrderItemProperty() {
+        return orderItem;
+    }
+
+    public OrderItem getOrderItem() {
+        return orderItem.getValue();
+    }
+
+    public void setOrderItem(OrderItem orderItem) {
+        this.orderItem.setValue(orderItem);
+    }
+
+
 }
