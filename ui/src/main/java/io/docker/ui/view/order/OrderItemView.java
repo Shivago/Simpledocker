@@ -3,7 +3,6 @@ package io.docker.ui.view.order;
 import de.saxsys.mvvmfx.FxmlView;
 import de.saxsys.mvvmfx.InjectViewModel;
 import de.saxsys.mvvmfx.utils.notifications.NotificationCenter;
-import io.docker.ui.ServiceController;
 import io.docker.ui.services.ProductService;
 import io.docking.core.order.OrderItem;
 import io.docking.core.order.Product;
@@ -22,14 +21,9 @@ import javax.inject.Inject;
  */
 public class OrderItemView implements FxmlView<OrderItemViewModel>, Initializable {
 
-    @Inject
-    private ServiceController serviceController;
+    private final ProductService productService;
 
-    @Inject
-    private ProductService productService;
-
-    @Inject
-    private NotificationCenter notificationCenter;
+    private final NotificationCenter notificationCenter;
 
     @FXML
     private ComboBox<Product> comboBox;
@@ -43,13 +37,11 @@ public class OrderItemView implements FxmlView<OrderItemViewModel>, Initializabl
     @InjectViewModel
     private OrderItemViewModel viewModel;
 
-    public OrderItemView(){}
-
-    public OrderItemView(ComboBox<Product> comboBox, TextField textField,
-                         OrderItemViewModel viewModel) {
-        this.comboBox = comboBox;
-        this.textField = textField;
-        this.viewModel = viewModel;
+    @Inject
+    public OrderItemView(ProductService productService,
+                         NotificationCenter notificationCenter) {
+        this.productService = productService;
+        this.notificationCenter = notificationCenter;
     }
 
     @Override

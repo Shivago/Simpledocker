@@ -13,7 +13,6 @@ import javax.inject.Inject;
  */
 public class OrderViewModel implements ViewModel {
 
-    @Inject
     private NotificationCenter notificationCenter;
 
     public List<OrderItem> order1 = FXCollections.observableArrayList();
@@ -21,7 +20,10 @@ public class OrderViewModel implements ViewModel {
     public List<OrderItem> delivery1 = FXCollections.observableArrayList();
     public List<OrderItem> delivery2 = FXCollections.observableArrayList();
 
-    public OrderViewModel() {}
+    @Inject
+    public OrderViewModel(NotificationCenter notificationCenter) {
+        this.notificationCenter = notificationCenter;
+    }
 
     public List<OrderItem> getOrder1() {
         return order1;

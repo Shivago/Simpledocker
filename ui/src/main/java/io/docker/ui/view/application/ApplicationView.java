@@ -21,8 +21,7 @@ import javax.inject.Inject;
 public class ApplicationView implements FxmlView<ApplicationViewModel>,
                                         Initializable {
 
-    @Inject
-    private TabService tabService;
+    private final TabService tabService;
 
     @FXML
     // Injection of the application which is declared in the FXML File
@@ -48,6 +47,11 @@ public class ApplicationView implements FxmlView<ApplicationViewModel>,
     // Inject the Code behind instance of the summaryView by using the
     // nameconvention ...Controller
     private SummaryView summaryViewController;
+
+    @Inject
+    public ApplicationView(TabService tabService) {
+        this.tabService = tabService;
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

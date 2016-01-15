@@ -2,7 +2,6 @@ package io.docker.ui.view.order;
 
 import de.saxsys.mvvmfx.FxmlView;
 import de.saxsys.mvvmfx.InjectViewModel;
-import io.docker.ui.ServiceController;
 import io.docking.core.order.OrderItem;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -13,15 +12,11 @@ import java.net.URL;
 import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
-import javax.inject.Inject;
 
 /**
  * @author sascha on 02/12/15.
  */
 public class OrderSelectionListView implements FxmlView<OrderSelectionListViewModel>, Initializable {
-
-    @Inject
-    private ServiceController serviceController;
 
     @FXML
     private Label selectionListHeading;

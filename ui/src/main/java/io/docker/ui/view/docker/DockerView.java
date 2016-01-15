@@ -22,14 +22,11 @@ import javax.inject.Inject;
  */
 public class DockerView implements FxmlView<DockerViewModel>, Initializable {
 
-    @Inject
-    private NotificationCenter notificationCenter;
+    private final NotificationCenter notificationCenter;
 
-    @Inject
-    private TabService tabService;
+    private final TabService tabService;
 
-    @Inject
-    private OrderDeliveryDataService orderDeliveryDataService;
+    private final OrderDeliveryDataService orderDeliveryDataService;
 
     @FXML
     // Injection of the application which is declared in the FXML File
@@ -49,6 +46,15 @@ public class DockerView implements FxmlView<DockerViewModel>, Initializable {
 
     @FXML
     private VBox sideTrackView1, sideTrackView2, sideTrackView3, sideTrackView4, sideTrackView5;
+
+    @Inject
+    public DockerView(NotificationCenter notificationCenter,
+                      TabService tabService,
+                      OrderDeliveryDataService orderDeliveryDataService) {
+        this.notificationCenter = notificationCenter;
+        this.tabService = tabService;
+        this.orderDeliveryDataService = orderDeliveryDataService;
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

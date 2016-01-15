@@ -21,15 +21,9 @@ import javax.inject.Inject;
  */
 public class OrderView implements FxmlView<OrderViewModel>, Initializable {
 
-    @Inject
-    private TabService tabService;
+    private final TabService tabService;
 
-    @Inject
-    private OrderDeliveryDataService dataService;
-
-    @FXML
-    // Injection of the application which is declared in the FXML File
-    private Tab orderView; // Value injected by FXMLLoader
+    private final OrderDeliveryDataService dataService;
 
     @InjectViewModel
     private OrderViewModel viewModel;
@@ -65,7 +59,17 @@ public class OrderView implements FxmlView<OrderViewModel>, Initializable {
     private OrderSelectionListView orderSelectionListViewFourController;
 
     @FXML
+    // Injection of the application which is declared in the FXML File
+    private Tab orderView; // Value injected by FXMLLoader
+
+    @FXML
     private Button saveButton;
+
+    @Inject
+    public OrderView(TabService tabService, OrderDeliveryDataService dataService) {
+        this.tabService = tabService;
+        this.dataService = dataService;
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
