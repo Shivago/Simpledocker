@@ -1,5 +1,6 @@
 package io.docker.ui;
 
+import com.google.inject.Module;
 import de.saxsys.mvvmfx.FluentViewLoader;
 import de.saxsys.mvvmfx.ViewTuple;
 import de.saxsys.mvvmfx.guice.MvvmfxGuiceApplication;
@@ -10,13 +11,16 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
+import java.util.List;
+
 /**
  * @author sascha on 02/12/15.
  */
-public class GuiceStarter extends MvvmfxGuiceApplication {
+public class Application extends MvvmfxGuiceApplication {
 
     @Override
     public void startMvvmfx(final Stage stage) throws Exception {
+
         ViewTuple<ApplicationView, ApplicationViewModel> tuple =
                 FluentViewLoader.fxmlView(ApplicationView.class).load();
 
@@ -32,6 +36,11 @@ public class GuiceStarter extends MvvmfxGuiceApplication {
         stage.setTitle("Simple Docker™ v0.2.0");
         stage.getIcons().add(new Image("/images/simple_docker_icon.png"));
         stage.show();
+    }
+
+    @Override
+    public void initGuiceModules(List<Module> modules) throws Exception {
+        modules.add(new GuiceModule());
     }
 
     public static void main(final String[] args) {

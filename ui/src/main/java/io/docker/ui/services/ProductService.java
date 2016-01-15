@@ -6,12 +6,10 @@ import javafx.collections.ObservableList;
 
 import java.util.Arrays;
 import java.util.List;
-import javax.inject.Singleton;
 
 /**
  * Created by johnny on 1/9/16.
  */
-@Singleton
 public class ProductService {
 
     public List<Product> getProducts() {

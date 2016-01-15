@@ -4,12 +4,10 @@ import io.docking.core.order.OrderItem;
 
 import java.util.ArrayList;
 import java.util.List;
-import javax.inject.Singleton;
 
 /**
  * Created by johnny on 1/9/16.
  */
-@Singleton
 public class OrderDeliveryDataService {
 
     public static class OrderDeliveryData {

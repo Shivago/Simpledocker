@@ -2,12 +2,9 @@ package io.docker.ui.services;
 
 import javafx.scene.control.TabPane;
 
-import javax.inject.Singleton;
-
 /**
  * Service to change to tabs of the application
  */
-@Singleton
 public class TabService {
 
     private TabPane tabPane;
