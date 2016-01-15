@@ -19,7 +19,7 @@ public class WagonBatch {
 		this.wagons = wagons;
 	}
 
-	private WagonBatch() {}
+	public WagonBatch() {}
 
 	public int getAmountOfProduct(Product product) {
 		return (int) wagons.stream()
