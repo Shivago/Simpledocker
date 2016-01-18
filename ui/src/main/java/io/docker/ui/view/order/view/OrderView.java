@@ -1,23 +1,28 @@
-package io.docker.ui.view.order;
+package io.docker.ui.view.order.view;
 
+import com.jfoenix.controls.JFXButton;
 import de.saxsys.mvvmfx.FxmlView;
 import de.saxsys.mvvmfx.InjectViewModel;
 import de.saxsys.mvvmfx.utils.notifications.NotificationCenter;
 import io.docker.ui.services.OrderDeliveryDataService;
 import io.docker.ui.services.TabService;
+import io.docker.ui.view.order.viewmodel.OrderViewModel;
+import io.docking.core.order.OrderItem;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Tab;
+import javafx.scene.control.TextField;
 
+import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javax.inject.Inject;
 
 /**
- * @author sascha on 02/12/15.
+ * @author Sascha Ormanns on 02/12/15.
  */
 public class OrderView implements FxmlView<OrderViewModel>, Initializable {
 
@@ -27,9 +32,6 @@ public class OrderView implements FxmlView<OrderViewModel>, Initializable {
 
     @InjectViewModel
     private OrderViewModel viewModel;
-
-    @Inject
-    private OrderItemViewModel itemViewModel;
 
     @Inject
     private NotificationCenter notificationCenter;
@@ -63,6 +65,12 @@ public class OrderView implements FxmlView<OrderViewModel>, Initializable {
     private Tab orderView; // Value injected by FXMLLoader
 
     @FXML
+    private JFXButton openOrderFile, openDeliveryFile;
+
+    @FXML
+    private TextField orderFileTextField, deliveryFileTextField;
+
+    @FXML
     private Button saveButton;
 
     @Inject
@@ -79,6 +87,7 @@ public class OrderView implements FxmlView<OrderViewModel>, Initializable {
         // Deliveries
         orderSelectionListViewThreeController.setSelectionListHeading("Liége");
         orderSelectionListViewFourController.setSelectionListHeading("Maastricht");
+
     }
 
     @FXML
@@ -91,13 +100,51 @@ public class OrderView implements FxmlView<OrderViewModel>, Initializable {
             notificationCenter.publish("saved");
             tabService.changeToTab(1);
         } else {
-            //todo show modal dialog with error message
+            // todo show dialog with error message
+            System.out.println("The entered data isn't valid. Check it out.");
         }
 
     }
 
+    @FXML
+    void orderFileButtonPressed(final ActionEvent event) {
+        File file = viewModel.openFileDialog(event);
+        setText(file, orderFileTextField);
+    }
+
+    @FXML
+    void deliveryFileButtonPressed(final ActionEvent event) {
+        File file = viewModel.openFileDialog(event);
+        setText(file, deliveryFileTextField);
+    }
+
+    private void setText(File file, TextField field) {
+        if (file != null) {
+            field.setText(file.getName());
+        } else {
+            field.setText("Datei n/a");
+        }
+    }
+
     private boolean valid() {
-        return true;
+        // todo check orders against deliveries
+        int maxAmount = 20;
+
+        if (sumAmount(orderSelectionListViewOneController) <= maxAmount
+                && sumAmount(orderSelectionListViewOneController) <= maxAmount
+                && sumAmount(orderSelectionListViewOneController) <= maxAmount
+                && sumAmount(orderSelectionListViewOneController) <= maxAmount) {
+            return true;
+        }
+        return false;
+    }
+
+    public int sumAmount(OrderSelectionListView selectionListView) {
+        int sum = 0;
+        for (OrderItem item : selectionListView.getOrderItems()) {
+            sum += item.getAmount();
+        }
+        return sum;
     }
 
 }

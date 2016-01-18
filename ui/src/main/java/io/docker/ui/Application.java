@@ -14,7 +14,7 @@ import javafx.stage.Stage;
 import java.util.List;
 
 /**
- * @author sascha on 02/12/15.
+ * @author Sascha Ormanns on 02/12/15.
  */
 public class Application extends MvvmfxGuiceApplication {
 

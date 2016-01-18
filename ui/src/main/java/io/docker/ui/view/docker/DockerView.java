@@ -5,6 +5,7 @@ import de.saxsys.mvvmfx.InjectViewModel;
 import de.saxsys.mvvmfx.utils.notifications.NotificationCenter;
 import io.docker.ui.services.OrderDeliveryDataService;
 import io.docker.ui.services.TabService;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -18,7 +19,7 @@ import java.util.ResourceBundle;
 import javax.inject.Inject;
 
 /**
- * @author sascha on 02/12/15.
+ * @author Sascha Ormanns on 02/12/15.
  */
 public class DockerView implements FxmlView<DockerViewModel>, Initializable {
 
@@ -60,6 +61,8 @@ public class DockerView implements FxmlView<DockerViewModel>, Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         notificationCenter.subscribe("saved", (s, objects) -> {
             System.out.println("New data boiii!");
+            initOrderLists();
+            viewModel.initDeliveries(deliveryOne, deliveryTwo);
             OrderDeliveryDataService.OrderDeliveryData data = orderDeliveryDataService.getData();
         });
     }
@@ -70,6 +73,11 @@ public class DockerView implements FxmlView<DockerViewModel>, Initializable {
 
     public ListView getOrderListTwo() {
         return orderListTwo;
+    }
+
+    public void initOrderLists() {
+        orderListOne.setItems(FXCollections.observableList(orderDeliveryDataService.getData().getOrder1()));
+        orderListTwo.setItems(FXCollections.observableList(orderDeliveryDataService.getData().getOrder2()));
     }
 
     @FXML
@@ -84,7 +92,7 @@ public class DockerView implements FxmlView<DockerViewModel>, Initializable {
 
     @FXML
     void stopButtonPressed(final ActionEvent event) {
-        System.out.println("stop button pressed...");
+        System.out.println(orderDeliveryDataService.getData().getOrder1());
     }
 
     @FXML

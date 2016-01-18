@@ -115,3 +115,14 @@
     -fx-pref-width: 200;
     -fx-text-fill: WHITE;
 }
+
+.file-button {
+    -fx-font-size: 12pt;
+    -fx-button-type: RAISED;
+    -fx-background-color: rgba(79,93,115,1.0);
+    -fx-color: #FFF !important;
+    -fx-text-fill: WHITE;
+    -fx-border-radius: 0.25;
+    -fx-font-size: 1.2em;
+    -fx-font-weight: 400;
+}

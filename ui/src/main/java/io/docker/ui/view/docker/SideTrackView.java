@@ -10,7 +10,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 /**
- * @author sascha on 02/12/15.
+ * @author Sascha Ormanns on 02/12/15.
  */
 public class SideTrackView implements FxmlView<SideTrackViewModel>, Initializable {
 

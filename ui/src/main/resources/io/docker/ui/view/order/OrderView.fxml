@@ -7,8 +7,9 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
+<?import com.jfoenix.controls.JFXTextField?>
 <Tab text="Order &amp; Delivery" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.40"
-     fx:controller="io.docker.ui.view.order.OrderView">
+     fx:controller="io.docker.ui.view.order.view.OrderView">
     <VBox styleClass="container-box">
         <VBox alignment="CENTER">
             <HBox alignment="CENTER_LEFT" spacing="20.0">
@@ -28,6 +29,10 @@
                 </padding>
                 <fx:include fx:id="orderSelectionListViewOne" source="../order/OrderSelectionListView.fxml"/>
                 <fx:include fx:id="orderSelectionListViewTwo" source="../order/OrderSelectionListView.fxml"/>
+                <VBox alignment="TOP_RIGHT" spacing="10.0">
+                    <JFXTextField fx:id="orderFileTextField" />
+                    <JFXButton fx:id="openOrderFile" onAction="#orderFileButtonPressed" text="+ File" styleClass="file-button" />
+                </VBox>
             </HBox>
             <HBox alignment="CENTER_LEFT" spacing="20.0">
                 <padding>
@@ -46,6 +51,10 @@
                 </padding>
                 <fx:include fx:id="orderSelectionListViewThree" source="../order/OrderSelectionListView.fxml"/>
                 <fx:include fx:id="orderSelectionListViewFour" source="../order/OrderSelectionListView.fxml"/>
+                <VBox alignment="TOP_RIGHT" spacing="10.0">
+                    <JFXTextField fx:id="deliveryFileTextField" />
+                    <JFXButton fx:id="openDeliveryFile" onAction="#deliveryFileButtonPressed" text="+ File" styleClass="file-button" />
+                </VBox>
             </HBox>
             <HBox alignment="CENTER_LEFT">
                 <padding>

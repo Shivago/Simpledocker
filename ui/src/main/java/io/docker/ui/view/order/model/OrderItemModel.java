@@ -1,29 +1,30 @@
-package io.docker.ui.view.order;
+package io.docker.ui.view.order.model;
 
-import de.saxsys.mvvmfx.ViewModel;
-import de.saxsys.mvvmfx.utils.mapping.ModelWrapper;
+import io.docker.ui.services.ProductService;
 import io.docking.core.order.OrderItem;
 import io.docking.core.order.Product;
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.Property;
-import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.property.*;
+
+import javax.inject.Inject;
 
 /**
- * @author sascha on 02/12/15.
+ * Created by Sascha Ormanns on 17.01.16.
  */
-public class OrderItemViewModel implements ViewModel {
+public class OrderItemModel {
 
-    private ModelWrapper<OrderItem> wrapper = new ModelWrapper<>();
+    private final ProductService productService;
 
-    private IntegerProperty amount = wrapper.field(OrderItem::getAmount, OrderItem::setAmount, 0);
+    private IntegerProperty amount;
 
-    private Property<Product> product = wrapper.field(OrderItem::getProduct, OrderItem::setProduct);
+    private Property<Product> product;
 
     private Property<OrderItem> orderItem;
 
-    public OrderItemViewModel() {
-        amount = new SimpleIntegerProperty();
+
+    @Inject
+    public OrderItemModel(ProductService productService) {
+        this.productService = productService;
+        amount = new SimpleIntegerProperty(4);
         product = new SimpleObjectProperty<>();
         orderItem = new SimpleObjectProperty<>();
     }
@@ -38,6 +39,10 @@ public class OrderItemViewModel implements ViewModel {
 
     public Product getProduct() {
         return product.getValue();
+    }
+
+    public void setProduct(Property<Product> product) {
+        this.product = product;
     }
 
     public int getAmount() {
@@ -59,6 +64,5 @@ public class OrderItemViewModel implements ViewModel {
     public void setOrderItem(OrderItem orderItem) {
         this.orderItem.setValue(orderItem);
     }
-
 
 }

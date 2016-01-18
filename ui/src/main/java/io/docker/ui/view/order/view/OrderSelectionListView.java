@@ -1,7 +1,8 @@
-package io.docker.ui.view.order;
+package io.docker.ui.view.order.view;
 
 import de.saxsys.mvvmfx.FxmlView;
 import de.saxsys.mvvmfx.InjectViewModel;
+import io.docker.ui.view.order.viewmodel.OrderSelectionListViewModel;
 import io.docking.core.order.OrderItem;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -14,7 +15,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 /**
- * @author sascha on 02/12/15.
+ * @author Sascha Ormanns on 02/12/15.
  */
 public class OrderSelectionListView implements FxmlView<OrderSelectionListViewModel>, Initializable {
 
@@ -61,11 +62,12 @@ public class OrderSelectionListView implements FxmlView<OrderSelectionListViewMo
         orderItemViewThreeController.selectIndex(2);
         orderItemViewFourController.selectIndex(3);
         orderItemViewFiveController.selectIndex(4);
-        viewModel.orderItem1Property().bindBidirectional(orderItemViewOneController.getViewModel().getOrderItemProperty());
-        viewModel.orderItem2Property().bindBidirectional(orderItemViewTwoController.getViewModel().getOrderItemProperty());
-        viewModel.orderItem3Property().bindBidirectional(orderItemViewThreeController.getViewModel().getOrderItemProperty());
-        viewModel.orderItem4Property().bindBidirectional(orderItemViewFourController.getViewModel().getOrderItemProperty());
-        viewModel.orderItem5Property().bindBidirectional(orderItemViewFiveController.getViewModel().getOrderItemProperty());
+
+        viewModel.orderItem1Property().bind(orderItemViewOneController.getViewModel().getOrderItemProperty());
+        viewModel.orderItem2Property().bind(orderItemViewTwoController.getViewModel().getOrderItemProperty());
+        viewModel.orderItem3Property().bind(orderItemViewThreeController.getViewModel().getOrderItemProperty());
+        viewModel.orderItem4Property().bind(orderItemViewFourController.getViewModel().getOrderItemProperty());
+        viewModel.orderItem5Property().bind(orderItemViewFiveController.getViewModel().getOrderItemProperty());
     }
 
     public void setSelectionListHeading(String text) {
@@ -82,4 +84,7 @@ public class OrderSelectionListView implements FxmlView<OrderSelectionListViewMo
         );
     }
 
+    public OrderSelectionListViewModel getViewModel() {
+        return viewModel;
+    }
 }

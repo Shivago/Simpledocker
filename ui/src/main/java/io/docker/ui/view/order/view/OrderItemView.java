@@ -1,9 +1,10 @@
-package io.docker.ui.view.order;
+package io.docker.ui.view.order.view;
 
 import de.saxsys.mvvmfx.FxmlView;
 import de.saxsys.mvvmfx.InjectViewModel;
 import de.saxsys.mvvmfx.utils.notifications.NotificationCenter;
 import io.docker.ui.services.ProductService;
+import io.docker.ui.view.order.viewmodel.OrderItemViewModel;
 import io.docking.core.order.OrderItem;
 import io.docking.core.order.Product;
 import javafx.fxml.FXML;
@@ -17,7 +18,7 @@ import java.util.ResourceBundle;
 import javax.inject.Inject;
 
 /**
- * @author sascha on 02/12/15.
+ * @author Sascha Ormanns on 02/12/15.
  */
 public class OrderItemView implements FxmlView<OrderItemViewModel>, Initializable {
 
@@ -47,21 +48,43 @@ public class OrderItemView implements FxmlView<OrderItemViewModel>, Initializabl
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         textField.textProperty().addListener((observable, oldValue, newValue) -> {
-            //todo validate number input
-            viewModel.getAmountProperty().setValue(Integer.valueOf(newValue));
-            notificationCenter.publish("datachanged");
-            generateOrderItem();
+            if (!isNumeric(newValue)) { newValue = ""; }
+            textField.textProperty().unbind();
+            textField.textProperty().set(newValue);
+            if (newValue != "") {
+                viewModel.getAmountProperty().set(Integer.valueOf(textField.textProperty().get()));
+                notificationCenter.publish("datachanged");
+                generateOrderItem();
+            }
         });
         comboBox.valueProperty().addListener(observable -> {
             notificationCenter.publish("datachanged");
+            comboBox.valueProperty().unbind();
+            viewModel.getProductProperty().setValue(comboBox.valueProperty().get());
             generateOrderItem();
         });
-        comboBox.valueProperty().bindBidirectional(viewModel.getProductProperty());
+        notificationCenter.publish("datachanged");
+        textField.textProperty().bind(viewModel.getAmountProperty().asString());
+        comboBox.valueProperty().bind(viewModel.getProductProperty());
         comboBox.setItems(productService.getProductsAsOrderItemObservableList());
         generateOrderItem();
     }
 
+    public boolean isNumeric(String str) {
+        try {
+            Integer.valueOf(str);
+        } catch (NumberFormatException nfe) {
+            return false;
+        }
+        return true;
+    }
+
     public void selectIndex(int defaultIndex) {
+        comboBox.getSelectionModel().select(defaultIndex);
+        viewModel.getProductProperty().setValue(comboBox.getValue());
+    }
+
+    public void setProduct(int defaultIndex) {
         comboBox.getSelectionModel().select(defaultIndex);
     }
 
