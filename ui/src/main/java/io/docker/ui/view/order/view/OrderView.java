@@ -8,6 +8,7 @@ import io.docker.ui.services.OrderDeliveryDataService;
 import io.docker.ui.services.TabService;
 import io.docker.ui.view.order.viewmodel.OrderViewModel;
 import io.docking.core.order.OrderItem;
+import io.docking.core.order.Product;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -18,16 +19,18 @@ import javafx.scene.control.TextField;
 
 import java.io.File;
 import java.net.URL;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.ResourceBundle;
 import javax.inject.Inject;
 
 /**
  * @author Sascha Ormanns on 02/12/15.
- *
- * Controller class for the file OrderView.fxml,
- * which represents the graphical user interface
- * By convention the ...Controller is omitted
- *
+ *         <p>
+ *         Controller class for the file OrderView.fxml,
+ *         which represents the graphical user interface
+ *         By convention the ...Controller is omitted
  */
 public class OrderView implements FxmlView<OrderViewModel>, Initializable {
 
@@ -135,22 +138,53 @@ public class OrderView implements FxmlView<OrderViewModel>, Initializable {
     private boolean valid() {
         // todo check orders against deliveries
         int maxAmount = 20;
+        Map<Product, Integer> orderAmounts = createProductToAmountMap(orderSelectionListViewOneController.getOrderItems(),
+                orderSelectionListViewTwoController.getOrderItems());
+        Map<Product, Integer> deliveryAmounts = createProductToAmountMap(orderSelectionListViewThreeController.getOrderItems(),
+                orderSelectionListViewFourController.getOrderItems());
 
-        if (sumAmount(orderSelectionListViewOneController) <= maxAmount
-                && sumAmount(orderSelectionListViewOneController) <= maxAmount
-                && sumAmount(orderSelectionListViewOneController) <= maxAmount
-                && sumAmount(orderSelectionListViewOneController) <= maxAmount) {
+        if (sumAmount(orderSelectionListViewOneController.getOrderItems()) <= maxAmount
+                && sumAmount(orderSelectionListViewTwoController.getOrderItems()) <= maxAmount
+                && sumAmount(orderSelectionListViewThreeController.getOrderItems()) <= maxAmount
+                && sumAmount(orderSelectionListViewFourController.getOrderItems()) <= maxAmount
+                && orderAmountEqualsDeliveryAmount(orderAmounts, deliveryAmounts)) {
             return true;
         }
         return false;
     }
 
-    public int sumAmount(OrderSelectionListView selectionListView) {
+    public Map<Product, Integer> createProductToAmountMap(List<OrderItem> orderItemListOne, List<OrderItem> orderItemListTwo) {
+        Map<Product, Integer> orderMap = new HashMap<>();
+        int counter = 0;
+
+        for (int i = 0; i < orderItemListOne.size() && orderItemListOne.size() == orderItemListTwo.size(); i++) {
+            counter += orderItemListOne.get(i).getAmount();
+            orderMap.put(orderItemListOne.get(i).getProduct(), counter);
+            counter += orderItemListTwo.get(i).getAmount();
+            orderMap.put(orderItemListTwo.get(i).getProduct(), counter);
+            counter = 0;
+        }
+        return orderMap;
+    }
+
+    public int sumAmount(List<OrderItem> orderItemList) {
         int sum = 0;
-        for (OrderItem item : selectionListView.getOrderItems()) {
+        for (OrderItem item : orderItemList) {
             sum += item.getAmount();
         }
         return sum;
+    }
+
+    public boolean orderAmountEqualsDeliveryAmount(Map<Product, Integer> orderAmounts, Map<Product, Integer> deliveryAmounts) {
+        for (Map.Entry<Product, Integer> entry : orderAmounts.entrySet()) {
+            Product key = entry.getKey();
+            Integer amount1 = entry.getValue();
+            Integer amount2 = deliveryAmounts.get(key);
+            if (amount1 != amount2) {
+                return false;
+            }
+        }
+        return true;
     }
 
 }
