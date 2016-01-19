@@ -16,6 +16,11 @@ import java.util.ResourceBundle;
 
 /**
  * @author Sascha Ormanns on 02/12/15.
+ *
+ * Controller class for the file OrderSelectionListView.fxml,
+ * which represents the graphical user interface
+ * By convention the ...Controller is omitted
+ *
  */
 public class OrderSelectionListView implements FxmlView<OrderSelectionListViewModel>, Initializable {
 
@@ -38,6 +43,8 @@ public class OrderSelectionListView implements FxmlView<OrderSelectionListViewMo
     private Parent orderItemViewFive;
 
     @FXML
+    // Inject the Code behind instance of the orderView by using the
+    // name convention ...Controller
     private OrderItemView orderItemViewOneController;
 
     @FXML

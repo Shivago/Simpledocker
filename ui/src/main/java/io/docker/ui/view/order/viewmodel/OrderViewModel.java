@@ -17,14 +17,14 @@ import javax.inject.Inject;
  */
 public class OrderViewModel implements ViewModel {
 
+    private OrderModel orderModel;
+
     private NotificationCenter notificationCenter;
 
     private SimpleListProperty<OrderItem> order1 = new SimpleListProperty<>();
     private SimpleListProperty<OrderItem> order2 = new SimpleListProperty<>();
     private SimpleListProperty<OrderItem> delivery1 = new SimpleListProperty<>();
     private SimpleListProperty<OrderItem> delivery2 = new SimpleListProperty<>();
-
-    private OrderModel orderModel;
 
     @Inject
     public OrderViewModel(NotificationCenter notificationCenter, OrderModel orderModel) {

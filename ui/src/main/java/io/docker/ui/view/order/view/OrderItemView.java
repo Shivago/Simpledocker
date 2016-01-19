@@ -19,6 +19,11 @@ import javax.inject.Inject;
 
 /**
  * @author Sascha Ormanns on 02/12/15.
+ *
+ * Controller class for the file OrderItemView.fxml,
+ * which represents the graphical user interface
+ * By convention the ...Controller is omitted
+ *
  */
 public class OrderItemView implements FxmlView<OrderItemViewModel>, Initializable {
 
@@ -48,7 +53,7 @@ public class OrderItemView implements FxmlView<OrderItemViewModel>, Initializabl
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         textField.textProperty().addListener((observable, oldValue, newValue) -> {
-            if (!isNumeric(newValue)) { newValue = ""; }
+            if (!isInteger(newValue)) { newValue = ""; }
             textField.textProperty().unbind();
             textField.textProperty().set(newValue);
             if (newValue != "") {
@@ -70,7 +75,7 @@ public class OrderItemView implements FxmlView<OrderItemViewModel>, Initializabl
         generateOrderItem();
     }
 
-    public boolean isNumeric(String str) {
+    public boolean isInteger(String str) {
         try {
             Integer.valueOf(str);
         } catch (NumberFormatException nfe) {

@@ -20,7 +20,6 @@ public class OrderItemModel {
 
     private Property<OrderItem> orderItem;
 
-
     @Inject
     public OrderItemModel(ProductService productService) {
         this.productService = productService;

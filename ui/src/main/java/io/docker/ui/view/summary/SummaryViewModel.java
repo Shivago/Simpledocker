@@ -1,16 +1,9 @@
 package io.docker.ui.view.summary;
 
-import com.sun.javafx.geom.BaseBounds;
-import com.sun.javafx.geom.transform.BaseTransform;
-import com.sun.javafx.jmx.MXNodeAlgorithm;
-import com.sun.javafx.jmx.MXNodeAlgorithmContext;
-import com.sun.javafx.sg.prism.NGNode;
 import de.saxsys.mvvmfx.ViewModel;
 import io.docking.core.Docking;
 import io.docking.core.DockingPlan;
 import javafx.event.ActionEvent;
-import javafx.print.PrinterJob;
-import javafx.scene.Node;
 import javafx.scene.control.TextArea;
 
 import java.util.List;

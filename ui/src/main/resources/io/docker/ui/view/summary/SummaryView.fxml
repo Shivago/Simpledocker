@@ -6,28 +6,36 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.control.Label?>
-<Tab text="Summary" fx:id="summaryView" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.40" fx:controller="io.docker.ui.view.summary.SummaryView">
+<?import javafx.scene.control.ScrollPane?>
+<Tab text="Summary" fx:id="summaryView" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.40"
+     fx:controller="io.docker.ui.view.summary.SummaryView">
     <VBox styleClass="container-box">
-        <VBox alignment="CENTER_LEFT">
+        <ScrollPane minHeight="625.0" fitToWidth="true" fitToHeight="false">
+            <content>
+                <VBox alignment="CENTER_LEFT">
+                    <padding>
+                        <Insets left="50.0" top="50.0"/>
+                    </padding>
+                    <Label text="Übersicht über die durchzuführenden Koppelvorgänge:"></Label>
+                    <HBox alignment="CENTER_LEFT" spacing="50.0" prefHeight="-Infinity" prefWidth="-Infinity">
+                        <padding>
+                            <Insets top="20.0"/>
+                        </padding>
+                        <TextArea fx:id="summary" text="default text"
+                                  editable="false" minHeight="450"
+                                  prefWidth="800.0">
+                        </TextArea>
+                    </HBox>
+                </VBox>
+            </content>
+        </ScrollPane>
+        <HBox spacing="15" alignment="CENTER_LEFT">
             <padding>
-                <Insets left="50.0" top="50.0"/>
+                <Insets left="50.0" top="10.0"/>
             </padding>
-            <Label text="Übersicht über die durchzuführenden Koppelvorgänge:"></Label>
-            <HBox alignment="CENTER_LEFT" spacing="50.0" prefHeight="-Infinity" prefWidth="-Infinity">
-                <padding>
-                    <Insets top="20.0"/>
-                </padding>
-                <TextArea fx:id="summary" text="default text" editable="false" minHeight="350" prefWidth="800.0">
-                </TextArea>
-            </HBox>
-            <HBox spacing="15" alignment="CENTER_LEFT">
-                <padding>
-                    <Insets top="50"/>
-                </padding>
-                <JFXButton fx:id="saveButton" onAction="#saveButtonPressed" styleClass="button-global" text="Speichern"/>
-                <JFXButton fx:id="printButton" onAction="#printButtonPressed" styleClass="button-global" text="Drucken"/>
-            </HBox>
-        </VBox>
+            <JFXButton fx:id="saveButton" onAction="#saveButtonPressed" styleClass="button-global" text="Speichern"/>
+            <JFXButton fx:id="printButton" onAction="#printButtonPressed" styleClass="button-global" text="Drucken"/>
+        </HBox>
     </VBox>
 </Tab>
 

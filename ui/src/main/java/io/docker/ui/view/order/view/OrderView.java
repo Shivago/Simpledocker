@@ -23,6 +23,11 @@ import javax.inject.Inject;
 
 /**
  * @author Sascha Ormanns on 02/12/15.
+ *
+ * Controller class for the file OrderView.fxml,
+ * which represents the graphical user interface
+ * By convention the ...Controller is omitted
+ *
  */
 public class OrderView implements FxmlView<OrderViewModel>, Initializable {
 
@@ -49,6 +54,8 @@ public class OrderView implements FxmlView<OrderViewModel>, Initializable {
     private Parent orderSelectionListViewFour;
 
     @FXML
+    // Inject the Code behind instance of the orderView by using the
+    // name convention ...Controller
     private OrderSelectionListView orderSelectionListViewOneController;
 
     @FXML
@@ -87,7 +94,6 @@ public class OrderView implements FxmlView<OrderViewModel>, Initializable {
         // Deliveries
         orderSelectionListViewThreeController.setSelectionListHeading("Liége");
         orderSelectionListViewFourController.setSelectionListHeading("Maastricht");
-
     }
 
     @FXML

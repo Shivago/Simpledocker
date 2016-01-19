@@ -39,6 +39,7 @@
                     <fx:include fx:id="summaryView" source="../summary/SummaryView.fxml"/>
                 </tabs>
             </JFXTabPane>
+
         </VBox>
     </VBox>
 </AnchorPane>

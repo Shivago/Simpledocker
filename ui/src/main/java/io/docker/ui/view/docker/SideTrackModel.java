@@ -1,25 +1,29 @@
 package io.docker.ui.view.docker;
 
-import de.saxsys.mvvmfx.ViewModel;
 import io.docking.core.order.Product;
 import javafx.beans.property.SimpleListProperty;
 import javafx.collections.ObservableList;
 
-import javax.inject.Inject;
-
 /**
- * @author Sascha Ormanns on 02/12/15.
+ * Created by Sascha Ormanns on 19.01.16.
  */
-public class SideTrackViewModel implements ViewModel {
+public class SideTrackModel {
 
-    private SimpleListProperty<Product> sideTrackPropertyList = new SimpleListProperty<>();
+    private SimpleListProperty<Product> sideTrackPropertyList;
 
-    private SideTrackModel sideTrackModel;
+    public SideTrackModel() {
+        sideTrackPropertyList = new SimpleListProperty<>();
+    }
 
-    @Inject
-    public SideTrackViewModel(SideTrackModel sideTrackModel) {
-        this.sideTrackModel = sideTrackModel;
-        sideTrackPropertyList.bindBidirectional(sideTrackModel.sideTrackPropertyListProperty());
+    public boolean appendOrderItemToSideTrack(Product product) {
+        return sideTrackPropertyList.add(product);
+    }
+
+    public boolean removeOrderItemFromSideTrack(Product product) {
+        if (sideTrackPropertyList.contains(product)) {
+            return sideTrackPropertyList.remove(product);
+        }
+        return false;
     }
 
     public ObservableList<Product> getSideTrackPropertyList() {

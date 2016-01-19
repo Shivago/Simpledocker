@@ -18,6 +18,11 @@ import java.util.ResourceBundle;
 
 /**
  * @author Sascha Ormanns on 02/12/15.
+ *
+ * Controller class for the file OrderItemView.fxml,
+ * which represents the graphical user interface
+ * By convention the ...Controller is omitted
+ *
  */
 public class SummaryView implements FxmlView<SummaryViewModel>, Initializable {
 

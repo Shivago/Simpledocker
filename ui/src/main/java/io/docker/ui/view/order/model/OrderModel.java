@@ -2,10 +2,8 @@ package io.docker.ui.view.order.model;
 
 import io.docking.core.order.OrderItem;
 import javafx.beans.property.SimpleListProperty;
-import javafx.collections.FXCollections;
 
 import javax.inject.Inject;
-import java.util.List;
 
 /**
  * Created by Sascha Ormanns on 17.01.16.

@@ -7,8 +7,6 @@ import javafx.beans.property.SimpleListProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.ObservableList;
 
-import javax.inject.Inject;
-
 /**
  * Created by Sascha Ormanns on 17.01.16.
  */
