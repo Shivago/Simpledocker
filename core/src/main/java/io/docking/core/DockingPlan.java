@@ -3,6 +3,8 @@ package io.docking.core;
 import java.util.List;
 
 /**
+ * @author Jean-Philippe Quéméner
+ *
  * A collection of {@link Docking} steps
  */
 public class DockingPlan {
