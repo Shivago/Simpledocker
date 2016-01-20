@@ -1,16 +1,18 @@
-package io.docker.ui.view.order.model;
+package io.docker.ui.view.order;
 
+import de.saxsys.mvvmfx.ViewModel;
 import io.docking.core.order.OrderItem;
-import io.docking.core.order.Product;
 import javafx.beans.property.Property;
 import javafx.beans.property.SimpleListProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.ObservableList;
 
+import javax.inject.Inject;
+
 /**
- * Created by Sascha Ormanns on 17.01.16.
+ * @author Sascha Ormanns on 02/12/15.
  */
-public class OrderSelectionListModel {
+public class OrderSelectionListViewModel implements ViewModel {
 
     private Property<OrderItem> orderItem1 = new SimpleObjectProperty<>();
     private Property<OrderItem> orderItem2 = new SimpleObjectProperty<>();
@@ -20,13 +22,16 @@ public class OrderSelectionListModel {
 
     private SimpleListProperty<Property<OrderItem>> orderItemPropertyList = new SimpleListProperty<>();
 
-    public OrderSelectionListModel() {
-        orderItem1.setValue(new OrderItem(new Product("MB", "MacBook Pro"), 0));
-        orderItem2.setValue(new OrderItem(new Product("IM", "iMac"), 0));
-        orderItem3.setValue(new OrderItem(new Product("IP", "iPad Pro"), 0));
-        orderItem4.setValue(new OrderItem(new Product("PH", "iPhone 6s"), 0));
-        orderItem5.setValue(new OrderItem(new Product("AW", "Apple Watch"), 0));
+    private OrderSelectionListModel orderSelectionListModel;
 
+    @Inject
+    public OrderSelectionListViewModel(OrderSelectionListModel orderSelectionListModel) {
+        this.orderSelectionListModel = orderSelectionListModel;
+        orderItem1.bindBidirectional(orderSelectionListModel.orderItem1Property());
+        orderItem2.bindBidirectional(orderSelectionListModel.orderItem2Property());
+        orderItem3.bindBidirectional(orderSelectionListModel.orderItem3Property());
+        orderItem4.bindBidirectional(orderSelectionListModel.orderItem4Property());
+        orderItem5.bindBidirectional(orderSelectionListModel.orderItem5Property());
     }
 
     public Property<OrderItem> orderItem1Property() {

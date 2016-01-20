@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.control.ScrollPane?>
 <Tab text="Order &amp; Delivery" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.40"
-     fx:controller="io.docker.ui.view.order.view.OrderView">
+     fx:controller="io.docker.ui.view.order.OrderView">
     <VBox styleClass="container-box">
         <ScrollPane minHeight="625.0" fitToWidth="true" fitToHeight="false">
             <content>

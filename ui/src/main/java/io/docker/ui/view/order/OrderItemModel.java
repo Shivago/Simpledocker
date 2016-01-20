@@ -1,4 +1,4 @@
-package io.docker.ui.view.order.model;
+package io.docker.ui.view.order;
 
 import io.docker.ui.services.ProductService;
 import io.docking.core.order.OrderItem;

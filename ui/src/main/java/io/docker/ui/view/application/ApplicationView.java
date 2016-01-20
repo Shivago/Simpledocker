@@ -5,7 +5,7 @@ import de.saxsys.mvvmfx.FxmlView;
 import de.saxsys.mvvmfx.InjectViewModel;
 import io.docker.ui.services.TabService;
 import io.docker.ui.view.docker.DockerView;
-import io.docker.ui.view.order.view.OrderView;
+import io.docker.ui.view.order.OrderView;
 import io.docker.ui.view.summary.SummaryView;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
