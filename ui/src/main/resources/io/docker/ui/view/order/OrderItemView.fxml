@@ -2,10 +2,10 @@
 <?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.layout.HBox?>
-<HBox xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.40" fx:controller="io.docker.ui.view.order.OrderItemView">
+<HBox xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.40" fx:controller="io.docker.ui.view.order.view.OrderItemView">
     <HBox spacing="20">
         <JFXComboBox fx:id="comboBox" minHeight="26.0" prefHeight="26.0" minWidth="160.0" prefWidth="160.0" maxWidth="-Infinity" promptText="Produkt wählen..." />
-        <JFXTextField fx:id="textField" text="4" editable="true" maxWidth="75.0" />
+        <JFXTextField fx:id="textField" text="" editable="true" maxWidth="75.0" />
     </HBox>
 </HBox>
 
