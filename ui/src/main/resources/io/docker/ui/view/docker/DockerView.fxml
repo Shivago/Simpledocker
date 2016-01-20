@@ -10,122 +10,125 @@
      fx:controller="io.docker.ui.view.docker.DockerView">
     <VBox styleClass="container-box">
         <VBox alignment="CENTER">
-            <HBox prefHeight="100.0" prefWidth="200.0">
-                <padding>
-                    <Insets left="50.0" top="50.0"/>
-                </padding>
-                <VBox prefHeight="375.0" prefWidth="150.0">
-                    <children>
-                        <Label text="Koblenz">
-                            <VBox.margin>
-                                <Insets top="60.0"/>
-                            </VBox.margin>
-                        </Label>
-                        <ListView fx:id="orderListOne" styleClass="order-list-one" prefHeight="227.5" minWidth="180.0"
-                                  prefWidth="180.0">
-                            <VBox.margin>
-                                <Insets bottom="1.0" top="5.0"/>
-                            </VBox.margin>
-                        </ListView>
-                        <Label text="Neuss">
-                            <VBox.margin>
-                                <Insets top="10.0"/>
-                            </VBox.margin>
-                        </Label>
-                        <ListView fx:id="orderListTwo" prefHeight="227.5" minWidth="180.0" prefWidth="180.0">
-                            <VBox.margin>
-                                <Insets bottom="10.0" top="5.0"/>
-                            </VBox.margin>
-                        </ListView>
-                    </children>
-                </VBox>
-                <VBox alignment="CENTER" prefHeight="467.0" prefWidth="110.0" spacing="5.0">
-                    <children>
-                        <Label text="Liége"/>
-                        <ImageView fitHeight="40.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@/images/1446931446_train.png"/>
-                            </image>
-                        </ImageView>
-                        <ListView fx:id="deliveryOne" minHeight="475.0" prefHeight="475.0" minWidth="140.0"
-                                  prefWidth="140.0">
-                            <VBox.margin>
-                                <Insets bottom="10.0" top="10.0"/>
-                            </VBox.margin>
-                        </ListView>
-                    </children>
-                    <padding>
-                        <Insets left="5.0" right="5.0" top="5.0"/>
-                    </padding>
-                    <HBox.margin>
-                        <Insets left="30.0"/>
-                    </HBox.margin>
-                </VBox>
-                <VBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="567.0" prefWidth="110.0"
-                      spacing="5.0">
-                    <children>
-                        <Label text="Maastricht"/>
-                        <ImageView fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@/images/1446931446_train.png"/>
-                            </image>
-                        </ImageView>
-                        <ListView fx:id="deliveryTwo" minHeight="475.0" prefHeight="475.0" minWidth="140.0"
-                                  prefWidth="140.0">
-                            <VBox.margin>
-                                <Insets bottom="10.0" top="10.0"/>
-                            </VBox.margin>
-                        </ListView>
-                    </children>
-                    <padding>
-                        <Insets left="5.0" right="5.0" top="5.0"/>
-                    </padding>
-                </VBox>
-                <VBox layoutX="285.0" layoutY="10.0" prefHeight="567.0" prefWidth="20.0" spacing="5.0">
-                    <padding>
-                        <Insets left="5.0" right="5.0" top="5.0"/>
-                    </padding>
-                </VBox>
-                <fx:include fx:id="sideTrackView1" source="../docker/SideTrackView.fxml"/>
-                <fx:include fx:id="sideTrackView2" source="../docker/SideTrackView.fxml"/>
-                <fx:include fx:id="sideTrackView3" source="../docker/SideTrackView.fxml"/>
-                <!--<fx:include fx:id="sideTrackView4" source="../docker/SideTrackView.fxml"/>-->
-                <!--<fx:include fx:id="sideTrackView5" source="../docker/SideTrackView.fxml"/>-->
+            <ScrollPane minHeight="625.0" fitToWidth="true" fitToHeight="false">
+                <content>
+                    <HBox prefHeight="100.0" prefWidth="200.0">
+                        <padding>
+                            <Insets left="50.0" top="50.0"/>
+                        </padding>
+                        <VBox prefHeight="375.0" prefWidth="150.0">
+                            <children>
+                                <Label text="Koblenz">
+                                    <VBox.margin>
+                                        <Insets top="60.0"/>
+                                    </VBox.margin>
+                                </Label>
+                                <ListView fx:id="orderListOne" styleClass="order-list-one" prefHeight="227.5"
+                                          minWidth="180.0"
+                                          prefWidth="180.0">
+                                    <VBox.margin>
+                                        <Insets bottom="1.0" top="5.0"/>
+                                    </VBox.margin>
+                                </ListView>
+                                <Label text="Neuss">
+                                    <VBox.margin>
+                                        <Insets top="10.0"/>
+                                    </VBox.margin>
+                                </Label>
+                                <ListView fx:id="orderListTwo" prefHeight="227.5" minWidth="180.0" prefWidth="180.0">
+                                    <VBox.margin>
+                                        <Insets bottom="10.0" top="5.0"/>
+                                    </VBox.margin>
+                                </ListView>
+                            </children>
+                        </VBox>
+                        <VBox alignment="CENTER" prefHeight="467.0" prefWidth="110.0" spacing="5.0">
+                            <children>
+                                <Label text="Liége"/>
+                                <ImageView fitHeight="40.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@/images/1446931446_train.png"/>
+                                    </image>
+                                </ImageView>
+                                <ListView fx:id="deliveryOne" minHeight="475.0" prefHeight="475.0" minWidth="140.0"
+                                          prefWidth="140.0">
+                                    <VBox.margin>
+                                        <Insets bottom="10.0" top="10.0"/>
+                                    </VBox.margin>
+                                </ListView>
+                            </children>
+                            <padding>
+                                <Insets left="5.0" right="5.0" top="5.0"/>
+                            </padding>
+                            <HBox.margin>
+                                <Insets left="30.0"/>
+                            </HBox.margin>
+                        </VBox>
+                        <VBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="567.0" prefWidth="110.0"
+                              spacing="5.0">
+                            <children>
+                                <Label text="Maastricht"/>
+                                <ImageView fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@/images/1446931446_train.png"/>
+                                    </image>
+                                </ImageView>
+                                <ListView fx:id="deliveryTwo" minHeight="475.0" prefHeight="475.0" minWidth="140.0"
+                                          prefWidth="140.0">
+                                    <VBox.margin>
+                                        <Insets bottom="10.0" top="10.0"/>
+                                    </VBox.margin>
+                                </ListView>
+                            </children>
+                            <padding>
+                                <Insets left="5.0" right="5.0" top="5.0"/>
+                            </padding>
+                        </VBox>
+                        <VBox layoutX="285.0" layoutY="10.0" prefHeight="567.0" prefWidth="20.0" spacing="5.0">
+                            <padding>
+                                <Insets left="5.0" right="5.0" top="5.0"/>
+                            </padding>
+                        </VBox>
+                        <fx:include fx:id="sideTrackView1" source="../docker/SideTrackView.fxml"/>
+                        <fx:include fx:id="sideTrackView2" source="../docker/SideTrackView.fxml"/>
+                        <fx:include fx:id="sideTrackView3" source="../docker/SideTrackView.fxml"/>
+                    </HBox>
+                </content>
+            </ScrollPane>
+        </VBox>
+        <VBox alignment="CENTER_RIGHT">
+            <padding>
+                <Insets top="10.0" right="60.0"/>
+            </padding>
+            <HBox spacing="10.0" alignment="CENTER_RIGHT">
+                <Label text="Fortschritt:" prefWidth="75.0" minWidth="75.0">
+                </Label>
+                <JFXProgressBar prefWidth="550.0" progress="0.0">
+                </JFXProgressBar>
+                <JFXButton fx:id="stopButton" onAction="#stepBackButtonPressed"
+                           text="&lt;" styleClass="button-global"
+                           maxWidth="50.0" prefWidth="50.0" prefHeight="20.0" maxHeight="5.0"
+                           textAlignment="CENTER">
+                </JFXButton>
+                <JFXButton fx:id="playButton" onAction="#stepForwardButtonPressed"
+                           text="&gt;" styleClass="button-global"
+                           maxWidth="50.0" prefWidth="50.0" prefHeight="20.0" maxHeight="5.0"
+                           textAlignment="CENTER">
+                </JFXButton>
             </HBox>
-            <VBox alignment="CENTER_RIGHT">
+            <HBox spacing="10.0" alignment="CENTER_RIGHT">
                 <padding>
-                    <Insets top="10.0" right="60.0"/>
+                    <Insets top="20.0"/>
                 </padding>
-                <HBox spacing="10.0" alignment="CENTER_RIGHT">
-                    <Label text="Fortschritt:" prefWidth="75.0" minWidth="75.0">
-                    </Label>
-                    <JFXProgressBar prefWidth="550.0" progress="0.0">
-                    </JFXProgressBar>
-                    <JFXButton fx:id="stopButton" onAction="#stopButtonPressed"
-                               text="&lt;" styleClass="button-global"
-                               maxWidth="50.0" prefWidth="50.0" prefHeight="20.0" maxHeight="5.0"
-                               textAlignment="CENTER">
-                    </JFXButton>
-                    <JFXButton fx:id="playButton" onAction="#playButtonPressed"
-                               text="&gt;" styleClass="button-global"
-                               maxWidth="50.0" prefWidth="50.0" prefHeight="20.0" maxHeight="5.0"
-                               textAlignment="CENTER">
-                    </JFXButton>
-                </HBox>
-                <HBox spacing="10.0" alignment="CENTER_RIGHT">
-                    <padding>
-                        <Insets top="20.0"/>
-                    </padding>
-                    <JFXButton fx:id="backButton" onAction="#backButtonPressed"
-                               text="Zurück" styleClass="button-global"
-                               prefWidth="100.0" textAlignment="CENTER">
-                    </JFXButton>
-                    <JFXButton fx:id="nextButton" onAction="#nextButtonPressed"
-                               text="Weiter" styleClass="button-global"
-                               prefWidth="100.0" textAlignment="CENTER">
-                    </JFXButton>
-                </HBox>
-            </VBox>
+                <JFXButton fx:id="backButton" onAction="#backButtonPressed"
+                           text="Zurück" styleClass="button-global"
+                           prefWidth="100.0" textAlignment="CENTER">
+                </JFXButton>
+                <JFXButton fx:id="nextButton" onAction="#nextButtonPressed"
+                           text="Weiter" styleClass="button-global"
+                           prefWidth="100.0" textAlignment="CENTER">
+                </JFXButton>
+            </HBox>
         </VBox>
     </VBox>
 </Tab>

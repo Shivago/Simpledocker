@@ -5,20 +5,29 @@ import de.saxsys.mvvmfx.InjectViewModel;
 import de.saxsys.mvvmfx.utils.notifications.NotificationCenter;
 import io.docker.ui.services.OrderDeliveryDataService;
 import io.docker.ui.services.TabService;
+import io.docking.core.order.Product;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.Tab;
-import javafx.scene.layout.VBox;
 
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.ResourceBundle;
 import javax.inject.Inject;
 
 /**
- * @author sascha on 02/12/15.
+ * @author Sascha Ormanns on 02/12/15.
+ *
+ * Controller class for the file DockerView.fxml,
+ * which represents the graphical user interface
+ * By convention the ...Controller is omitted
+ *
  */
 public class DockerView implements FxmlView<DockerViewModel>, Initializable {
 
@@ -45,7 +54,12 @@ public class DockerView implements FxmlView<DockerViewModel>, Initializable {
     private Button backButton, nextButton, stopButton, playButton;
 
     @FXML
-    private VBox sideTrackView1, sideTrackView2, sideTrackView3, sideTrackView4, sideTrackView5;
+    private Parent sideTrackView1, sideTrackView2, sideTrackView3;
+
+    @FXML
+    // Inject the Code behind instance of the orderView by using the
+    // name convention ...Controller
+    private SideTrackView sideTrackView1Controller, sideTrackView2Controller, sideTrackView3Controller;
 
     @Inject
     public DockerView(NotificationCenter notificationCenter,
@@ -58,9 +72,14 @@ public class DockerView implements FxmlView<DockerViewModel>, Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        OrderDeliveryDataService.OrderDeliveryData data = orderDeliveryDataService.getData();
         notificationCenter.subscribe("saved", (s, objects) -> {
-            System.out.println("New data boiii!");
-            OrderDeliveryDataService.OrderDeliveryData data = orderDeliveryDataService.getData();
+            viewModel.initOrderLists(orderListOne, orderListTwo);
+            viewModel.initDeliveries(deliveryOne, deliveryTwo);
+            viewModel.order1propertyListProperty().bindBidirectional(orderListOne.itemsProperty());
+            viewModel.order2propertyListProperty().bindBidirectional(orderListOne.itemsProperty());
+            viewModel.delivery1propertyListProperty().bindBidirectional(deliveryOne.itemsProperty());
+            viewModel.delivery2propertyListProperty().bindBidirectional(deliveryTwo.itemsProperty());
         });
     }
 
@@ -83,13 +102,24 @@ public class DockerView implements FxmlView<DockerViewModel>, Initializable {
     }
 
     @FXML
-    void stopButtonPressed(final ActionEvent event) {
-        System.out.println("stop button pressed...");
+    void stepBackButtonPressed(final ActionEvent event) {
+
     }
 
     @FXML
-    void playButtonPressed(final ActionEvent event) {
-        System.out.println("play button pressed...");
+    void stepForwardButtonPressed(final ActionEvent event) {
+        // todo implement the algorithm steps correctly
+        Product exampleProduct = new Product("MB", "MacBook Pro");
+        List<Product> tempList = new ArrayList<>();
+
+        for (Product p : viewModel.delivery1propertyListProperty()) {
+            if (exampleProduct.equals(p)) {
+                System.out.println(p);
+                sideTrackView1Controller.addProductToSideTrack(p);
+                tempList.add(p);
+            }
+        }
+        viewModel.delivery1propertyListProperty().removeAll(tempList);
     }
 
 }

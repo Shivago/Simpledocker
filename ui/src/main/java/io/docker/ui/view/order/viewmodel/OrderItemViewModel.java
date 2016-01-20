@@ -1,31 +1,41 @@
-package io.docker.ui.view.order;
+package io.docker.ui.view.order.viewmodel;
 
 import de.saxsys.mvvmfx.ViewModel;
-import de.saxsys.mvvmfx.utils.mapping.ModelWrapper;
+import io.docker.ui.services.ProductService;
+import io.docker.ui.view.order.model.OrderItemModel;
 import io.docking.core.order.OrderItem;
 import io.docking.core.order.Product;
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.Property;
-import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.property.*;
+
+import javax.inject.Inject;
 
 /**
  * @author sascha on 02/12/15.
  */
 public class OrderItemViewModel implements ViewModel {
 
-    private ModelWrapper<OrderItem> wrapper = new ModelWrapper<>();
+    private final ProductService productService;
 
-    private IntegerProperty amount = wrapper.field(OrderItem::getAmount, OrderItem::setAmount, 0);
+    private IntegerProperty amount;
 
-    private Property<Product> product = wrapper.field(OrderItem::getProduct, OrderItem::setProduct);
+    private Property<Product> product;
 
     private Property<OrderItem> orderItem;
 
-    public OrderItemViewModel() {
+    private OrderItemModel orderItemModel;
+
+    @Inject
+    public OrderItemViewModel(OrderItemModel orderItemModel, ProductService productService) {
+        this.productService = productService;
+        this.orderItemModel = orderItemModel;
         amount = new SimpleIntegerProperty();
         product = new SimpleObjectProperty<>();
         orderItem = new SimpleObjectProperty<>();
+
+        amount.bindBidirectional(orderItemModel.getAmountProperty());
+        product.bindBidirectional(orderItemModel.getProductProperty());
+        orderItem.bindBidirectional(orderItemModel.getOrderItemProperty());
+
     }
 
     public IntegerProperty getAmountProperty() {
@@ -38,6 +48,10 @@ public class OrderItemViewModel implements ViewModel {
 
     public Product getProduct() {
         return product.getValue();
+    }
+
+    public void setProduct(Property<Product> product) {
+        this.product = product;
     }
 
     public int getAmount() {
@@ -59,6 +73,5 @@ public class OrderItemViewModel implements ViewModel {
     public void setOrderItem(OrderItem orderItem) {
         this.orderItem.setValue(orderItem);
     }
-
 
 }
