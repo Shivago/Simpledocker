@@ -1,5 +1,8 @@
 package io.docker.ui.view.order.view;
 
+import static org.junit.Assert.assertEquals;
+
+import io.docker.ui.view.order.OrderView;
 import io.docking.core.order.OrderItem;
 import io.docking.core.order.Product;
 import org.junit.Before;
@@ -9,8 +12,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import static org.junit.Assert.*;
 
 /**
  * Created by Sascha Ormanns on 19.01.16.
