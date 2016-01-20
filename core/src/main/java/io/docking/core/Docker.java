@@ -3,6 +3,8 @@ package io.docking.core;
 
 import io.docking.core.order.Order;
 
+import java.util.List;
+
 /**
  * @author Jean-Philippe Quéméner
  *
@@ -14,17 +16,14 @@ public interface Docker {
 
 
    /**
-	*
-	* @param orderOne - order from the first destination
-	* @param orderTwo - order from the second destination
-	* @param wagonBatchOne - delivery from the first location
-	* @param wagonBatchTwo - delivery from the second location
+
+	* @param orders - all orders that need to be fulfilled
+	* @param trains - the trains that need to be rearranged
 	*
 	* @return the {@link DockingPlan DockingPlan} to get on each wagonbatch
 	*         the matching order
 	*/
 
-	DockingPlan dock(Order orderOne, Order orderTwo, WagonBatch wagonBatchOne,
-	      WagonBatch wagonBatchTwo);
+	DockingPlan dock(List<Order> orders, List<WagonBatch> trains);
 
 }
