@@ -7,6 +7,7 @@ import io.docker.ui.services.TabService;
 import io.docker.ui.view.docker.DockerView;
 import io.docker.ui.view.order.OrderView;
 import io.docker.ui.view.summary.SummaryView;
+import javafx.event.EventType;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Menu;
@@ -66,23 +67,26 @@ public class ApplicationView implements FxmlView<ApplicationViewModel>, Initiali
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         tabService.setTabPane(tabPane);
-        buildMenu();
+        applicationMenubar.getMenus().addAll(buildFileMenu(),
+                buildConfigMenu());
     }
 
-    private void buildMenu() {
+    private Menu buildConfigMenu() {
+        final Menu configMenu = new Menu("Eigenschaften");
+        final MenuItem configLoadItem = new MenuItem("Produktdatenbank laden..");
+        configMenu.getItems().addAll(configLoadItem);
+        return configMenu;
+    }
+
+    private Menu buildFileMenu() {
         final Menu fileMenu = new Menu("Vorgang");
         final MenuItem loadItem = new MenuItem("laden..");
         final MenuItem saveItem = new MenuItem("speichern/exportieren..");
         final SeparatorMenuItem seperator = new SeparatorMenuItem();
         final MenuItem exitItem = new MenuItem("Programm verlassen");
+        exitItem.addEventHandler(EventType.ROOT, e -> System.exit(0));
         fileMenu.getItems().addAll(loadItem, saveItem, seperator, exitItem);
-        applicationMenubar.getMenus().add(fileMenu);
-
-        final Menu configMenu = new Menu("Eigenschaften");
-        final MenuItem configLoadItem = new MenuItem("Produktdatenbank laden..");
-        configMenu.getItems().addAll(configLoadItem);
-        applicationMenubar.getMenus().addAll(configMenu);
-
+        return fileMenu;
     }
 
     public void openConfiguration() {
