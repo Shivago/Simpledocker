@@ -1,5 +1,6 @@
 package io.docking.core.order;
 
+import java.util.HashMap;
 import java.util.UUID;
 
 /**
@@ -11,6 +12,8 @@ public class Product {
 
 	private final String id;
 	private final String name;
+
+	static private final HashMap<String, Product> cache = new HashMap<>();
 
 	public Product(String id, String name) {
 		this.id = id;
@@ -28,7 +31,8 @@ public class Product {
 	@Override
 	public boolean equals(Object product) {
 		if (product instanceof Product) {
-			if (name == ((Product) product).getName()) {
+			Product inputCasted = (Product) product;
+			if (name.equals(inputCasted.name) && id.equals(inputCasted.id)) {
 				return true;
 			}
 		}
@@ -45,7 +49,10 @@ public class Product {
 		return getId() + ", " + getName();
 	}
 
-	public static Product get(char c) {
-		return new Product(UUID.randomUUID().toString(), String.valueOf(c));
+	public static Product get(String name) {
+		if (!cache.containsKey(name)) {
+			cache.put(name, new Product(UUID.randomUUID().toString(), name));
+		}
+		return cache.get(name);
 	}
 }

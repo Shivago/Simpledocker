@@ -1,15 +1,20 @@
 package io.docking.core.order;
 
 /**
- * 
- * @author sascha
+ *
+ * @author Jean-Philippe Quéméner
  *
  */
 public class OrderItem {
 
-	private Product product;
-	private int amount;
+	private final Product product;
+	private final int amount;
 
+	/**
+	 *
+	 * @param product
+	 * @param amount
+     */
 	public OrderItem(Product product, int amount) {
 		this.product = product;
 		this.amount = amount;
@@ -19,16 +24,8 @@ public class OrderItem {
 		return product;
 	}
 
-	public void setProduct(Product product) {
-		this.product = product;
-	}
-
 	public int getAmount() {
 		return amount;
-	}
-
-	public void setAmount(int amount) {
-		this.amount = amount;
 	}
 	
 	public String toString() {
