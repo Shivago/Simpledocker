@@ -1,44 +1,48 @@
 package io.docking.core.order;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * 
- * @author sascha
+ * @author Jean-Philippe Quéméner
  *
  */
 public class Order {
 
-	private List<OrderItem> items;
-	private Destination destination;
+	/**
+	 * Immutable list of {@link OrderItem}
+	 */
+	private final List<OrderItem> items;
 
-	public Order(List<OrderItem> items, Destination destination) {
-		this.items = items;
-		this.destination = destination;
+    /**
+     *
+     * @param items
+     */
+	public Order(final List<OrderItem> items) {
+		this.items = Collections.unmodifiableList(items);
 	}
 
+    /**
+     *
+     * @return immutable list of {@link OrderItem orderitems}
+     */
 	public List<OrderItem> getItems() {
-		return items;
+		return new ArrayList<>(items);
 	}
 
-	public void setItems(List<OrderItem> items) {
-		this.items = items;
-	}
-
-	public Destination getDestination() {
-		return destination;
-	}
-
-	public void setDestination(Destination destination) {
-		this.destination = destination;
-	}
-	
 	@Override
 	public String toString() {
 		StringBuilder stringBuilder = new StringBuilder();
-		for (OrderItem i : items) {
-			stringBuilder.append(i);
-		}
-		return stringBuilder.toString();
+		items.forEach(item -> stringBuilder.append(",").append(item));
+		return stringBuilder.toString().substring(1);
+	}
+
+	public List<Product> getProducts() {
+		return items.stream()
+					.map(item -> item.getProduct())
+					.collect(Collectors.toList());
 	}
 }

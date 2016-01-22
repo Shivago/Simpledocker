@@ -3,8 +3,8 @@ package io.docking.core;
 /**
  * @author Jean-Philippe Quéméner
  *
- * A simple Docking step providing information about one step in the
- * {@link DockingPlan DockingPlan}
+ * A simple Docking step providing informations. If destinationBatch or
+ * sourceBatch null it means the source or destination is the bufferrail.
  */
 public class Docking {
 

@@ -1,9 +1,12 @@
 package io.docking.core;
 
+import io.docking.core.order.Order;
 import io.docking.core.order.Product;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
 import java.util.stream.IntStream;
 
 /**
@@ -13,46 +16,31 @@ import java.util.stream.IntStream;
  */
 public class WagonBatch {
 
+	private String id = UUID.randomUUID().toString();
+
 	private List<Wagon> wagons;
+
+	private Order order;
 
 	public WagonBatch(List<Wagon> wagons) {
 		this.wagons = wagons;
 	}
 
-	private WagonBatch() {
-
-	}
+	public WagonBatch() {
+        this.wagons = new ArrayList<>();
+    }
 
 	public int getAmountOfProduct(Product product) {
-		int counter = 0;
-		Product prodToCompare = null;
-		for (Wagon w : wagons) {
-			prodToCompare = w.getProduct();
-			if (prodToCompare.equals(product)) {
-				counter ++;
-			}
-		}
-//		wagons.stream()
-//				.filter(wagon -> wagon.getProduct().equals(product))
-//				.count();
-		return counter;
+		return (int) wagons.stream()
+							.filter(wagon -> wagon.getProduct().equals(product))
+							.count();
 	}
 
 	public int getIndexOfProduct(Product product) {
-		int idx = 0;
-		Product prodToCompare = null;
-		for (int i = 0; i < getSize(); i++) {
-			prodToCompare = wagons.get(i).getProduct();
-			if (prodToCompare.equals(product)) {
-				idx = i;
-				break;
-			}
-		}
-//		IntStream.range(0, wagons.size())
-//				.filter(index -> wagons.get(index).getProduct().equals(product))
-//				.findFirst()
-//				.getAsInt();
-		return idx;
+		return IntStream.range(0, wagons.size())
+				.filter(index -> wagons.get(index).getProduct().equals(product))
+				.findFirst()
+				.getAsInt();
 	}
 
 	public int getSize() {
@@ -60,35 +48,29 @@ public class WagonBatch {
 	}
 
 	public List<Wagon> getWagons() {
-		return wagons;
+		return new ArrayList<>(wagons);
 	}
 
 	public void setWagons(List<Wagon> wagons) {
 		this.wagons = new ArrayList<>(wagons);
 	}
 
-	/**
-	 * Static constructor that enables us to take the plain
-	 * String given by the project specs and parse it to a WagonBatch
-	 * as we want to handle it oo-style.
-	 * @param wagonBatchString i.e "ABBBCCCDD"
-	 * @return
-     */
-	public static WagonBatch parse(final String wagonBatchString) throws IllegalArgumentException {
-		if (wagonBatchString == null) {
-			throw new IllegalArgumentException("wagonBatch should not be null");
-		} else if (wagonBatchString.isEmpty()) {
-			throw new IllegalArgumentException("wagonBatch should not be empty");
-		}
-		WagonBatch wagonBatch = new WagonBatch();
-		List<Wagon> wagons = new ArrayList<>(wagonBatchString.length());
-        IntStream.range(0, wagonBatchString.length()).forEach(index -> {
-            Product product = Product.get(wagonBatchString.charAt(index));
-            Wagon wagon = new Wagon(product);
-            wagons.add(index, wagon);
-        });
-        wagonBatch.setWagons(wagons);
-		return wagonBatch;
+
+	public Optional<Order> getOrder() {
+		return Optional.ofNullable(order);
+	}
+
+	public void setOrder(Order order) {
+		this.order = order;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public WagonBatch appendWagon(Wagon wagon) {
+		wagons.add(wagon);
+		return this;
 	}
 
 	@Override
@@ -98,4 +80,44 @@ public class WagonBatch {
 		return stringBuilder.toString();
 	}
 
+	public Optional<Product> firstElement() {
+        Wagon wagon = wagons.get(0);
+        if (wagon != null) {
+            return Optional.of(wagon.getProduct());
+        }
+		return Optional.empty();
+	}
+
+	public WagonBatch appendWagons(List<Wagon> wagons) {
+		this.wagons.addAll(wagons);
+		return this;
+	}
+
+	public void clearWagons() {
+		wagons.clear();
+	}
+
+	public boolean needsProduct(Product product) {
+		if (order == null) {
+			throw new IllegalStateException("This method can only be called" +
+					" when the WagonBatch already got an order assigned.");
+		}
+		// todo implement!
+		return true;
+	}
+
+
+    /**
+     *
+     * @param index start index in the list
+     */
+    public List<Wagon> removeStartingByIndex(int index) {
+        List<Wagon> resultList = new ArrayList<>();
+        if (!wagons.isEmpty()) {
+            for (int i = index; i <= wagons.size(); i++) {
+                resultList.add(wagons.remove(index));
+            }
+        }
+        return resultList;
+    }
 }
