@@ -19,6 +19,7 @@
     </repositories>
     <properties>
         <core-version>0.2.0</core-version>
+        <poi-version>3.13</poi-version>
         <jfoenix-version>1.0</jfoenix-version>
         <mvvmfx-version>1.4.0</mvvmfx-version>
         <guice-version>4.0</guice-version>
@@ -88,6 +89,11 @@
             <groupId>jfoenix</groupId>
             <artifactId>core</artifactId>
             <version>${jfoenix-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>${poi-version}</version>
         </dependency>
         <dependency>
             <groupId>de.saxsys</groupId>
