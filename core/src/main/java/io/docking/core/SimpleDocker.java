@@ -75,7 +75,7 @@ public class SimpleDocker implements Docker {
             }
         }
         if (!bufferWagons.isEmpty()) {
-            throw  new IllegalArgumentException("You have more products " +
+            throw  new IllegalStateException("You have more products " +
                     "than ordered!");
         }
         return dockingPlan;
