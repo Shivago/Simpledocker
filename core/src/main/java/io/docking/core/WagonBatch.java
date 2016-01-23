@@ -10,7 +10,9 @@ import java.util.UUID;
 import java.util.stream.IntStream;
 
 /**
- * 
+ *
+ * A sorted collection of {@link Product} representing a Rail/Train
+ *
  * @author Jean-Philippe Quéméner
  *
  */
