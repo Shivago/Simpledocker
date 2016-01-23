@@ -9,17 +9,17 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * Created by johnny on 1/21/16.
+ *
+ * @author Jean-Philippe Quéméner
  */
-public class SimpleDockerTest extends DockerTestsuite {
+public class SimpleDockerTest {
 
     @Test
-    @Override
     public void shouldFulfillEveryOrder() {
-        WagonBatch trainOne = getTrainOne();
-        WagonBatch trainTwo = getTrainTwo();
-        Order orderOne = getOrderOne();
-        Order orderTwo = getOrderTwo();
+        WagonBatch trainOne = DockerTestHelper.getTrainOne();
+        WagonBatch trainTwo = DockerTestHelper.getTrainTwo();
+        Order orderOne = DockerTestHelper.getOrderOne();
+        Order orderTwo = DockerTestHelper.getOrderTwo();
         List<WagonBatch> trains = Arrays.asList(trainOne, trainTwo);
         List<Order> orders = Arrays.asList(orderOne, orderTwo);
         new SimpleDocker().dock(orders, trains);
@@ -29,10 +29,10 @@ public class SimpleDockerTest extends DockerTestsuite {
 
     @Test
     public void shouldHaveLowRuntime() {
-        WagonBatch trainOne = getTrainOne();
-        WagonBatch trainTwo = getTrainTwo();
-        Order orderOne = getOrderOne();
-        Order orderTwo = getOrderTwo();
+        WagonBatch trainOne = DockerTestHelper.getTrainOne();
+        WagonBatch trainTwo = DockerTestHelper.getTrainTwo();
+        Order orderOne = DockerTestHelper.getOrderOne();
+        Order orderTwo = DockerTestHelper.getOrderTwo();
         List<WagonBatch> trains = Arrays.asList(trainOne, trainTwo);
         List<Order> orders = Arrays.asList(orderOne, orderTwo);
         List<Docking> dockingPlan = new SimpleDocker().dock(orders, trains);

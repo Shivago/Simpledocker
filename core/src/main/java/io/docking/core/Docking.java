@@ -1,10 +1,12 @@
 package io.docking.core;
 
 /**
- * @author Jean-Philippe Quéméner
  *
  * A simple Docking step providing informations. If destinationBatch or
  * sourceBatch null it means the source or destination is the bufferrail.
+ *
+ * @author Jean-Philippe Quéméner
+ *
  */
 public class Docking {
 
