@@ -6,11 +6,13 @@ import io.docking.core.order.Order;
 import java.util.List;
 
 /**
- * @author Jean-Philippe Quéméner
  *
  * Simple interface that provide a {@link List} for the
  * given {@link io.docking.core.order.Order orders} and
  * {@link WagonBatch wagonbatches}.
+ *
+ * @author Jean-Philippe Quéméner
+ *
  */
 public interface Docker {
 

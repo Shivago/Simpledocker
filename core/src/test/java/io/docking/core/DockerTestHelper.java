@@ -9,38 +9,38 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * Created by johnny on 1/21/16.
+ *
+ *
+ * @author Jean-Philippe Quéméner
  */
-public abstract class DockerTestsuite {
-
-    abstract public void shouldFulfillEveryOrder();
+public abstract class DockerTestHelper {
 
 
-    protected WagonBatch getTrainOne() {
+    public static WagonBatch getTrainOne() {
         return new WagonBatch(new ArrayList<>(Arrays.asList(
-                       new Wagon(Product.get("ipad")),
-                       new Wagon(Product.get("ipad")),
-                       new Wagon(Product.get("macbook"))
+                       Product.get("ipad"),
+                       Product.get("ipad"),
+                       Product.get("macbook")
         )));
 
     }
 
-    protected WagonBatch getTrainTwo() {
+    public static WagonBatch getTrainTwo() {
         return new WagonBatch(new ArrayList<>(Arrays.asList(
-                new Wagon(Product.get("macbook")),
-                new Wagon(Product.get("macbook")),
-                new Wagon(Product.get("ipad")),
-                new Wagon(Product.get("ipad"))
+                Product.get("macbook"),
+                Product.get("macbook"),
+                Product.get("ipad"),
+                Product.get("ipad")
         )));
     }
 
-    protected Order getOrderOne() {
+    public static Order getOrderOne() {
         return new Order(Arrays.asList(
                 new OrderItem(Product.get("ipad"), 4)
         ));
     }
 
-    protected Order getOrderTwo() {
+    public static Order getOrderTwo() {
         return new Order(Arrays.asList(
                 new OrderItem(Product.get("macbook"), 3)
         ));
@@ -51,15 +51,15 @@ public abstract class DockerTestsuite {
      * @param rearrangedTrains
      * @return
      */
-    protected boolean validateArrangement(List<WagonBatch> rearrangedTrains) {
+    public static  boolean validateArrangement(List<WagonBatch> rearrangedTrains) {
         return rearrangedTrains.stream()
                 .filter(wagonBatch -> {
                     Order order = wagonBatch.getOrder().get();
-                    List<Wagon> wagons = wagonBatch.getWagons();
+                    List<Product> wagons = wagonBatch.getWagons();
                     for (OrderItem orderItem : order.getItems()) {
                         int count = 0;
-                        for (Wagon wagon : wagons) {
-                            if (wagon.getProduct().equals(orderItem.getProduct())) {
+                        for (Product product : wagons) {
+                            if (product.equals(orderItem.getProduct())) {
                                 count++;
                             }
                         }

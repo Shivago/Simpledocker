@@ -11,48 +11,59 @@ import java.util.stream.IntStream;
 
 /**
  * 
- * @author sascha
+ * @author Jean-Philippe Quéméner
  *
  */
 public class WagonBatch {
 
-	private String id = UUID.randomUUID().toString();
+	private final String id;
 
-	private List<Wagon> wagons;
+	private List<Product> products;
 
 	private Order order;
 
-	public WagonBatch(List<Wagon> wagons) {
-		this.wagons = wagons;
+	public WagonBatch(String id, List<Product> products) {
+		this.products = products;
+		this.id = id;
+	}
+
+	public WagonBatch(List<Product> products) {
+		this.products = products;
+		this.id = UUID.randomUUID().toString();
+	}
+
+	public WagonBatch(String id) {
+		this.id = id;
 	}
 
 	public WagonBatch() {
-        this.wagons = new ArrayList<>();
+        this.products = new ArrayList<>();
+		this.id = UUID.randomUUID().toString();
     }
 
-	public int getAmountOfProduct(Product product) {
-		return (int) wagons.stream()
-							.filter(wagon -> wagon.getProduct().equals(product))
+	public int getAmountOfProduct(final Product inputProduct) {
+		return (int) products.stream()
+							.filter(product -> product.equals(inputProduct))
 							.count();
 	}
 
-	public int getIndexOfProduct(Product product) {
-		return IntStream.range(0, wagons.size())
-				.filter(index -> wagons.get(index).getProduct().equals(product))
+	public int getIndexOfProduct(final Product product) {
+		return IntStream.range(0, products.size())
+				.filter(index -> products.get(index).equals(product))
 				.findFirst()
 				.getAsInt();
 	}
 
 	public int getSize() {
-		return wagons.size();
+		return products.size();
 	}
 
-	public List<Wagon> getWagons() {
-		return new ArrayList<>(wagons);
+	public List<Product> getWagons() {
+		return new ArrayList<>(products);
 	}
 
-	public void setWagons(List<Wagon> wagons) {
-		this.wagons = new ArrayList<>(wagons);
+	public void setWagons(List<Product> products) {
+		this.products = new ArrayList<>(products);
 	}
 
 
@@ -60,7 +71,7 @@ public class WagonBatch {
 		return Optional.ofNullable(order);
 	}
 
-	public void setOrder(Order order) {
+	public void setOrder(final Order order) {
 		this.order = order;
 	}
 
@@ -68,33 +79,29 @@ public class WagonBatch {
 		return id;
 	}
 
-	public WagonBatch appendWagon(Wagon wagon) {
-		wagons.add(wagon);
+	public WagonBatch appendWagon(final Product product) {
+		products.add(product);
 		return this;
 	}
 
 	@Override
 	public String toString() {
 		StringBuilder stringBuilder = new StringBuilder();
-		wagons.forEach(stringBuilder::append);
+		products.forEach(stringBuilder::append);
 		return stringBuilder.toString();
 	}
 
 	public Optional<Product> firstElement() {
-        Wagon wagon = wagons.get(0);
-        if (wagon != null) {
-            return Optional.of(wagon.getProduct());
-        }
-		return Optional.empty();
+		return Optional.ofNullable(products.get(0));
 	}
 
-	public WagonBatch appendWagons(List<Wagon> wagons) {
-		this.wagons.addAll(wagons);
+	public WagonBatch appendWagons(List<Product> products) {
+		this.products.addAll(products);
 		return this;
 	}
 
-	public void clearWagons() {
-		wagons.clear();
+	public void clearProducts() {
+		products.clear();
 	}
 
 	public boolean needsProduct(Product product) {
@@ -111,11 +118,11 @@ public class WagonBatch {
      *
      * @param index start index in the list
      */
-    public List<Wagon> removeStartingByIndex(int index) {
-        List<Wagon> resultList = new ArrayList<>();
-        if (!wagons.isEmpty()) {
-            for (int i = index; i <= wagons.size(); i++) {
-                resultList.add(wagons.remove(index));
+    public List<Product> removeStartingByIndex(final int index) {
+        List<Product> resultList = new ArrayList<>();
+        if (!products.isEmpty()) {
+            for (int i = index; i <= products.size(); i++) {
+                resultList.add(products.remove(index));
             }
         }
         return resultList;

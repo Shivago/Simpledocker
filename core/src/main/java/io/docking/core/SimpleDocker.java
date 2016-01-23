@@ -12,10 +12,10 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 /**
- * 
- * @author Jean-Philippe Quéméner
  *
  * Simple implementation of the {@link Docker} interface
+ *
+ * @author Jean-Philippe Quéméner
  *
  */
 public class SimpleDocker implements Docker {
@@ -51,22 +51,22 @@ public class SimpleDocker implements Docker {
         }).collect(Collectors.toList());
         // remove all prodcuts and add to buffer rail, add first remaining order
         remainingTrains.forEach(wagonBatch -> {
-            List<Wagon> wagons = wagonBatch.getWagons();
+            List<Product> wagons = wagonBatch.getWagons();
             bufferRail.appendWagons(wagons);
-            wagonBatch.clearWagons();
+            wagonBatch.clearProducts();
             // set first remaining order
             wagonBatch.setOrder(orders.remove(0));
             dockingPlan.add(new Docking(null, wagonBatch, 0));
         });
         // at this stage every train got an order and has only products it will need to fullfill the order
         // very simple task now, we just iterate over the buffer rail and dispatch it to one of our trains
-        List<Wagon> bufferWagons = bufferRail.getWagons();
-        for (ListIterator<Wagon> iterator = bufferWagons.listIterator(bufferWagons.size());
+        List<Product> bufferWagons = bufferRail.getWagons();
+        for (ListIterator<Product> iterator = bufferWagons.listIterator(bufferWagons.size());
              iterator.hasPrevious();) {
-            Wagon wagon = iterator.previous();
+            Product product = iterator.previous();
             for (WagonBatch wagonBatch : wagonBatches) {
-                if (wagonBatch.needsProduct(wagon.getProduct())) {
-                    wagonBatch.appendWagon(wagon);
+                if (wagonBatch.needsProduct(product)) {
+                    wagonBatch.appendWagon(product);
                     dockingPlan.add(new Docking(wagonBatch, null,
                             iterator.previousIndex() + 1));
                     iterator.remove();

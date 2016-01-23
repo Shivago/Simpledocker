@@ -5,7 +5,7 @@ import java.util.UUID;
 
 /**
  * 
- * @author sascha
+ * @author Jean-Philippe Quéméner
  *
  */
 public class Product {
