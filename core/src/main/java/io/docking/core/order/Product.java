@@ -1,27 +1,31 @@
 package io.docking.core.order;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.HashMap;
-import java.util.UUID;
 
 /**
- * 
+ *
+ * Represents a product used in the algorithm. Use static constructor
+ * {@link Product#get(String)} to initialize.
+ *
  * @author Jean-Philippe Quéméner
  *
  */
 public class Product {
 
-	private final String id;
+    /**
+     * Name of the Product
+     */
 	private final String name;
 
-	static private final HashMap<String, Product> cache = new HashMap<>();
+    /**
+     * Static cache for Product instances
+     */
+    static private final HashMap<String, Product> cache = new HashMap<>();
 
-	public Product(String id, String name) {
-		this.id = id;
+	public Product(@NotNull String name) {
 		this.name = name;
-	}
-
-	public String getId() {
-		return id;
 	}
 
 	public String getName() {
@@ -32,7 +36,7 @@ public class Product {
 	public boolean equals(Object product) {
 		if (product instanceof Product) {
 			Product inputCasted = (Product) product;
-			if (name.equals(inputCasted.name) && id.equals(inputCasted.id)) {
+			if (name.equals(inputCasted.name)) {
 				return true;
 			}
 		}
@@ -41,17 +45,26 @@ public class Product {
 
 	@Override
 	public int hashCode() {
-		return id.hashCode() + name.hashCode();
+		return name.hashCode();
 	}
 
 	@Override
 	public String toString() {
-		return getId() + ", " + getName();
+		return "Product=" + getName();
 	}
 
+	/**
+	 *
+	 * Checks the cache if already an instance of the product exists. If not a
+	 * new one will be created, added to the cache and returned. If product
+	 * already exists the cached instance will be returned.
+	 *
+	 * @param name
+	 * @return product corresponding to the given name
+     */
 	public static Product get(String name) {
 		if (!cache.containsKey(name)) {
-			cache.put(name, new Product(UUID.randomUUID().toString(), name));
+			cache.put(name, new Product(name));
 		}
 		return cache.get(name);
 	}
